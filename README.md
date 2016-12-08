@@ -45,7 +45,6 @@
 |---|---|
 | [GET /orders](docs/order/index.md) | Список заказов магазина |
 | [GET /orders/{orderKey}](docs/order/show.md) | Получение информации о заказе |
-| [POST /orders/{orderId}/divide](docs/order/divide.md) | Разделить заказ |
 | [PATCH /orders/{orderId}](docs/order/update.md) | Изменить заказ |
 | [DELETE /orders/{orderId}/entries/{entryId}](docs/order/entries/delete.md) | Удалить позицию из заказа |
 | [PATCH /orders/{orderId}/entries/{entryId}](docs/order/entries/update.md) | Изменить позицию в заказе |
