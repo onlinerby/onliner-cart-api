@@ -202,6 +202,7 @@ Accept: application/json; charset=utf-8
                         }
                     },
                     "quantity": 2,
+                    "original_quantity": 2,
                     "is_credit": false,
                     "is_cashless": true,
                     "warranty": 12,
