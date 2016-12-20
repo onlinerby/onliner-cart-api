@@ -1,6 +1,11 @@
 
 # CHANGELOG
 
+## 27.12.2016
+
+* Удален метод для удаления позиций из заказа (DELETE /orders/{orderId}/entries/{entryId})
+* Удален метод для изменения позиций в заказе (PATCH /orders/{orderId}/entries/{entryId})
+
 ## 12.12.2016
 
 * Запрещено превышать изначально указанное клиентом количество позиций в заказе (метод PATCH /orders/{orderId}/entries/{entryId})
