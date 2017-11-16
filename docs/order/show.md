@@ -114,6 +114,7 @@ Accept: application/json; charset=utf-8
     "positions": [
         {
             "entry_id": 1,
+            "article": "NC900",
             "price": {
                 "amount": 17400000
             },
@@ -235,6 +236,7 @@ Accept: application/json; charset=utf-8
 |Параметр|Тип|Описание|
 |---|---|---|
 |entry_id|integer|Идентификатор позиции в заказе|
+|article|string or null|Артикул товара|
 |quantity|integer|Количество товаров, заказанных в рамках данной позиции|
 |original_quantity|integer|Количество товаров в рамках данной позиции, которое запросил покупатель при оформлении заказа|
 |price.amount|integer| __(deprecated)__ Цена в белорусских рублях (BYR) |

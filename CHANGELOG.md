@@ -1,6 +1,10 @@
 
 # CHANGELOG
 
+## 20.11.2017
+
+* Добавлен артикул товара в описание позиции (GET /orders, GET /orders/{orderKey})
+
 ## 27.12.2016
 
 * Удален метод для удаления позиций из заказа (DELETE /orders/{orderId}/entries/{entryId})
