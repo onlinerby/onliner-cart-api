@@ -184,6 +184,7 @@ Accept: application/json; charset=utf-8
             "positions": [
                 {
                     "entry_id": 1,
+                    "article": "NC900",
                     "price": {
                         "amount": 17400000
                     },
