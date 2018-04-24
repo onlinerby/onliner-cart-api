@@ -46,5 +46,6 @@
 | [GET /orders](docs/order/index.md) | Список заказов магазина |
 | [GET /orders/{orderKey}](docs/order/show.md) | Получение информации о заказе |
 | [PATCH /orders/{orderId}](docs/order/update.md) | Изменить заказ |
+| [GET /resources/shop-cancel-reasons](docs/resources/shop_cancel_reasons.md) | Cписок доступных причин для отмены заказа магазином |
 
 ## В случае возникновения проблем либо технических вопросов по работе с API, создавайте Issue в данном репозитории.

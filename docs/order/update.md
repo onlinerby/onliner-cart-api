@@ -16,6 +16,9 @@
 |Параметр|Тип|Описание|
 |---|---|---|
 |status|string|Статус заказа|
+|reason|object|Причина изменения статуса|
+|reason.id|integer|ID причины изменения статуса. Обязательное при отмене заказа магазином|
+|reason.comment|string|Описание причины. Опциональное|
 
 ### Пример запроса
 
@@ -28,6 +31,24 @@ Content-Type: application/json; charset=utf-8
 ```json
 {
     "status": "confirmed"
+}
+```
+
+### Пример отмены заказа магазином
+
+```http
+PATCH /orders/qz2wa
+Authorization: bearer <token>
+Accept: application/json; charset=utf-8
+Content-Type: application/json; charset=utf-8
+```
+```json
+{
+    "status": "shop_canceled",
+    "reason": {
+        "id": 1,
+        "comment": "товара нет в наличии"
+    }
 }
 ```
 
@@ -108,3 +129,5 @@ Content-Type: application/json; charset=utf-8
 |Параметр|Ошибки|
 |---|---|
 |status|Укажите статус<br/>Значение поля должно быть строкой<br/>Недопустимый статус заказа<br/>Недопустимый переход статусов|
+|reason.id|Значение поля должно быть целым числом<br>Укажите причину<br>Некорректная причина|
+|reason.comment|Значение поля должно быть строкой<br>Максимум 255 символов|

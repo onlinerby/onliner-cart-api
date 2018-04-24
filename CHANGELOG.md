@@ -1,6 +1,10 @@
 
 # CHANGELOG
 
+## 24.04.2018
+
+* При отмене заказа необходимо указывать причину отмены (PATCH /orders/{orderId}, GET /resources/shop-cancel-reasons)
+
 ## 23.11.2017
 
 * Добавлен артикул товара в описание позиции (GET /orders, GET /orders/{orderKey})
