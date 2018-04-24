@@ -1,7 +1,7 @@
 
 # CHANGELOG
 
-## 28.03.2018
+## 24.04.2018
 
 * При отмене заказа необходимо указывать причину отмены (PATCH /orders/{orderId}, GET /resources/shop-cancel-reasons)
 
