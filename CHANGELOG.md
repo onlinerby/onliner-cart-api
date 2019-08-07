@@ -1,6 +1,18 @@
 
 # CHANGELOG
 
+## 28.06.2019
+
+* Убрана поддержка валюты BYR:
+  * Убрано поле `total_cost` из блока с информацией о заказе
+  * Убрано поле `order_cost.converted.BYR` из блока с информацией о заказе
+  * Убрано поле `price.amount` из блока с информацией о ценовой позиции (каждый объект в массиве positions)
+  * Убрано поле `position_price.converted.BYR` из блока с информацией о ценовой позиции (каждый объект в массиве positions)
+  * Убрано поле `delivery.town.price` из блока с информацией о ценовой позиции (каждый объект в массиве positions)
+  * Убрано поле `delivery.town.delivery_price.converted.BYR` из блока с информацией о ценовой позиции (каждый объект в массиве positions)
+  * Убрано поле `delivery.country.price` из блока с информацией о ценовой позиции (каждый объект в массиве positions)
+  * Убрано поле `delivery.country.delivery_price.converted.BYR` из блока с информацией о ценовой позиции (каждый объект в массиве positions)
+
 ## 24.04.2018
 
 * При отмене заказа необходимо указывать причину отмены (PATCH /orders/{orderId}, GET /resources/shop-cancel-reasons)

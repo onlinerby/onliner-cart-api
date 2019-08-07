@@ -40,7 +40,6 @@ Accept: application/json; charset=utf-8
     "status": "new",
     "positions_count": 1,
     "total_quantity": 2,
-    "total_cost": 200000,
     "order_cost": {
         "amount": "20.00",
         "currency": "BYN",
@@ -48,10 +47,6 @@ Accept: application/json; charset=utf-8
             "BYN": {
                 "amount": "20.00",
                 "currency": "BYN"
-            },
-            "BYR": {
-                "amount": "200000",
-                "currency": "BYR"
             }
         }
     },
@@ -83,7 +78,6 @@ Accept: application/json; charset=utf-8
     "updated_at": "2015-10-14T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
     "status": "new",
-    "total_cost": 200000,
     "order_cost": {
         "amount": "20.00",
         "currency": "BYN",
@@ -91,10 +85,6 @@ Accept: application/json; charset=utf-8
             "BYN": {
                 "amount": "20.00",
                 "currency": "BYN"
-            },
-            "BYR": {
-                "amount": "200000",
-                "currency": "BYR"
             }
         }
     },
@@ -115,17 +105,10 @@ Accept: application/json; charset=utf-8
         {
             "entry_id": 1,
             "article": "NC900",
-            "price": {
-                "amount": 17400000
-            },
             "position_price": {
-                "amount": "17400000",
-                "currency": "BYR",
+                "amount": "1740.00",
+                "currency": "BYN",
                 "converted": {
-                    "BYR": {
-                        "amount": "17400000",
-                        "currency": "BYR"
-                    },
                     "BYN": {
                         "amount": "1740.00",
                         "currency": "BYN"
@@ -143,15 +126,10 @@ Accept: application/json; charset=utf-8
             "service_centers": "ООО Сервисный центр",
             "delivery": {
                 "town": {
-                    "price": 0,
                     "delivery_price": {
-                        "amount": "0",
-                        "currency": "BYR",
+                        "amount": "0.00",
+                        "currency": "BYN",
                         "converted": {
-                            "BYR": {
-                                "amount": "0",
-                                "currency": "BYR"
-                            },
                             "BYN": {
                                 "amount": "0.00",
                                 "currency": "BYN"
@@ -161,15 +139,10 @@ Accept: application/json; charset=utf-8
                     "time": 1
                 },
                 "country": {
-                    "price": 50000,
                     "delivery_price": {
-                        "amount": "50000",
-                        "currency": "BYR",
+                        "amount": "5.00",
+                        "currency": "BYN",
                         "converted": {
-                            "BYR": {
-                                "amount": "50000",
-                                "currency": "BYR"
-                            },
                             "BYN": {
                                 "amount": "5.00",
                                 "currency": "BYN"
@@ -239,10 +212,9 @@ Accept: application/json; charset=utf-8
 |article|string or null|Артикул товара|
 |quantity|integer|Количество товаров, заказанных в рамках данной позиции|
 |original_quantity|integer|Количество товаров в рамках данной позиции, которое запросил покупатель при оформлении заказа|
-|price.amount|integer| __(deprecated)__ Цена в белорусских рублях (BYR) |
 |position_price.amount|string|Цена в основной валюте|
 |position_price.currency|string|Основная валюта цены _(по умолчанию BYN)_|
-|position_price.converted|object| __(deprecated)__ Массив цен во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступны валюты BYN и BYR|
+|position_price.converted|object| __(deprecated)__ Массив цен во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступна только BYN|
 |is_credit|boolean|Флаг доступности покупки в кредит (1 - можно, 0 - нет)|
 |is_cashless|boolean|Флаг предложения для юридических лиц (1 - для юридических, 0 - для физических)|
 |warranty|integer|Срок гарантии на товар (в месяцах)|
@@ -250,17 +222,15 @@ Accept: application/json; charset=utf-8
 |producer|string|Сведения о производителе товара|
 |importer|string|Сведения об импортере товара на территорию РБ|
 |service_centers|string|Сведения о сервисном центре|
-|delivery.town.price|integer| __(deprecated)__ Стоимость доставки в пределах г. Минска в бел. руб. (BYR) (если не указано - бесплатно)|
 |delivery.town.delivery_price|object|Стоимость доставки в пределах г. Минска (если null - бесплатно)|
 |delivery.town.delivery_price.amount|string|Стоимость доставки в пределах г. Минска в основной валюте|
 |delivery.town.delivery_price.currency|string|Основная валюта стоимости доставки в пределах г. Минска|
-|delivery.town.delivery_price.converted|object| __(deprecated)__ Массив цен доставки в пределах г. Минска во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступны валюты BYN и BYR|
+|delivery.town.delivery_price.converted|object| __(deprecated)__ Массив цен доставки в пределах г. Минска во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступна только BYN|
 |delivery.town.time|integer|Срок доставки в пределах г. Минска (в днях) (если не указано - доставка не осуществляется)|
-|delivery.country.price|integer| __(deprecated)__ Стоимость доставки в пределах РБ в бел. руб. (BYR) (если не указано - бесплатно)|
 |delivery.country.delivery_price|object|Стоимость доставки в пределах РБ (если null - бесплатно)|
 |delivery.country.delivery_price.amount|string|Стоимость доставки в пределах РБ в основной валюте|
 |delivery.country.delivery_price.currency|string|Основная валюта стоимости доставки в пределах РБ|
-|delivery.country.delivery_price.converted|object| __(deprecated)__ Массив цен доставки в пределах РБ во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступны валюты BYN и BYR|
+|delivery.country.delivery_price.converted|object| __(deprecated)__ Массив цен доставки в пределах РБ во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступна только BYN|
 |delivery.country.time|integer|Срок доставки в пределах РБ (в днях) (если не указано - доставка не осуществляется)|
 
 #### Описание блока с информацией о товаре (объект product в теле объекта position) 

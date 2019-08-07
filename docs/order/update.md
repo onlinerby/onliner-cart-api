@@ -73,7 +73,6 @@ Content-Type: application/json; charset=utf-8
     "status": "confirmed",
     "positions_count": 2,
     "total_quantity": 3,
-    "total_cost": 200000,
     "order_cost": {
         "amount": "20.00",
         "currency": "BYN",
@@ -81,10 +80,6 @@ Content-Type: application/json; charset=utf-8
             "BYN": {
                 "amount": "20.00",
                 "currency": "BYN"
-            },
-            "BYR": {
-                "amount": "200000",
-                "currency": "BYR"
             }
         }
     },

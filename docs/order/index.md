@@ -3,7 +3,7 @@
 ### GET /orders
 
 Информация о позициях фиксируется в заказе в момент оформления заказа и остается неизменной на протяжении всего жизненного цикла заказа.
-Блоки данных `converted` с информацией о ценах в BYN и BYR используются до 31.12.2016 (в течение переходного периода на время деноминации) и могут быть удалены без предупреждения.
+Блоки данных `converted` с информацией о ценах использовались в течение переходного периода на время деноминации и могут быть удалены без предупреждения.
 
 ### Параметры запроса
 
@@ -42,7 +42,6 @@ Accept: application/json; charset=utf-8
             "process_deadline": "2015-10-04T10:20:00+03:00",
             "process_time_left": 60,
             "positions_count": 0,
-            "total_cost": 0,
             "order_cost": {
                 "amount": "0",
                 "currency": "BYN",
@@ -50,10 +49,6 @@ Accept: application/json; charset=utf-8
                     "BYN": {
                         "amount": "0.00",
                         "currency": "BYN"
-                    },
-                    "BYR": {
-                        "amount": "0",
-                        "currency": "BYR"
                     }
                 }
             },
@@ -70,7 +65,6 @@ Accept: application/json; charset=utf-8
             "process_time_left": 60,
             "positions_count": 2,
             "total_quantity": 2,
-            "total_cost": 300000,
             "order_cost": {
                 "amount": "30.00",
                 "currency": "BYN",
@@ -78,10 +72,6 @@ Accept: application/json; charset=utf-8
                     "BYN": {
                         "amount": "30.00",
                         "currency": "BYN"
-                    },
-                    "BYR": {
-                        "amount": "300000",
-                        "currency": "BYR"
                     }
                 }
             },
@@ -97,7 +87,6 @@ Accept: application/json; charset=utf-8
             "process_time_left": 60,
             "positions_count": 1,
             "total_quantity": 1,
-            "total_cost": 100000,
             "order_cost": {
                 "amount": "10.00",
                 "currency": "BYN",
@@ -105,10 +94,6 @@ Accept: application/json; charset=utf-8
                     "BYN": {
                         "amount": "10.00",
                         "currency": "BYN"
-                    },
-                    "BYR": {
-                        "amount": "100000",
-                        "currency": "BYR"
                     }
                 }
             },
@@ -155,7 +140,6 @@ Accept: application/json; charset=utf-8
             "status": "new",
             "positions_count": 1,
             "total_quantity": 3,
-            "total_cost": 200000,
             "order_cost": {
                 "amount": "20.00",
                 "currency": "BYN",
@@ -163,10 +147,6 @@ Accept: application/json; charset=utf-8
                     "BYN": {
                         "amount": "20.00",
                         "currency": "BYN"
-                    },
-                    "BYR": {
-                        "amount": "200000",
-                        "currency": "BYR"
                     }
                 }
             },
@@ -185,17 +165,10 @@ Accept: application/json; charset=utf-8
                 {
                     "entry_id": 1,
                     "article": "NC900",
-                    "price": {
-                        "amount": 17400000
-                    },
                     "position_price": {
-                        "amount": "17400000",
-                        "currency": "BYR",
+                        "amount": "1740.00",
+                        "currency": "BYN",
                         "converted": {
-                            "BYR": {
-                                "amount": "17400000",
-                                "currency": "BYR"
-                            },
                             "BYN": {
                                 "amount": "1740.00",
                                 "currency": "BYN"
@@ -213,15 +186,10 @@ Accept: application/json; charset=utf-8
                     "service_centers": "ООО Сервисный центр",
                     "delivery": {
                         "town": {
-                            "price": 0,
                             "delivery_price": {
-                                "amount": "0",
-                                "currency": "BYR",
+                                "amount": "0.00",
+                                "currency": "BYN",
                                 "converted": {
-                                    "BYR": {
-                                        "amount": "0",
-                                        "currency": "BYR"
-                                    },
                                     "BYN": {
                                         "amount": "0.00",
                                         "currency": "BYN"
@@ -231,15 +199,10 @@ Accept: application/json; charset=utf-8
                             "time": 1
                         },
                         "country": {
-                            "price": 50000,
                             "delivery_price": {
-                                "amount": "50000",
-                                "currency": "BYR",
+                                "amount": "5.00",
+                                "currency": "BYN",
                                 "converted": {
-                                    "BYR": {
-                                        "amount": "50000",
-                                        "currency": "BYR"
-                                    },
                                     "BYN": {
                                         "amount": "5.00",
                                         "currency": "BYN"
@@ -288,8 +251,7 @@ Accept: application/json; charset=utf-8
 |process_time_left|integer|Сколько секунд осталось до окончания обработки заказа или 0, если время обработки истекло|
 |positions_count|integer|Количество позиций в заказе|
 |total_quantity|integer|Общее количество товаров в заказе|
-|total_cost|integer|Общая стоимость заказа|
-|order_cost|object|Общая стоимость заказа с конвертацией в BYR и BYN|
+|order_cost|object|Общая стоимость заказа|
 |comment|string|Общий комментарий пользователя к данному заказу|
 |product_names|array|Имена товаров в заказе|
 |positions.entry_id|integer|ID позиции в заказе|
