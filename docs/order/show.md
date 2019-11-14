@@ -26,17 +26,40 @@ Accept: application/json; charset=utf-8
     "key": "qz2wa",
     "user_id": 1,
     "contact": {
-        "name": "Тестовый пользователь",
+        "name": "Пользователь Тестовый",
+        "first_name": "Пользователь",
+        "last_name": "Тестовый",        
         "email": "test@onliner.by",
         "phone": "+375291234567"
     },
     "delivery": {
         "city": "Минск",
-        "address": "пр-т Дзержинского, 5"
+        "address": "пр-т Дзержинского, 55 д., 1a к., 607 кв., 2 под., 16 эт.",
+        "address_fields": {
+            "street": "пр-т Дзержинского",
+            "building": "55",
+            "apartment": "607",
+            "block": "1a",
+            "entrance": "2",
+            "floor": "16",
+            "comment": "Рабочий адрес"
+        },
+        "type": "courier_delivery",
+        "price": {
+            "amount": "3.00", 
+            "currency": "BYN"
+        },
+        "days": 3,
+        "comment": "Курьер прибудет с 17:00 - 21:00",
+        "is_fake": false
+    },
+    "payment": {
+        "type": "cash"
     },
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-14T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
+    "is_new_flow": true,
     "status": "new",
     "positions_count": 1,
     "total_quantity": 2,
@@ -66,17 +89,40 @@ Accept: application/json; charset=utf-8
     "key": "qz2wa",
     "user_id": 1,
     "contact": {
-        "name": "Тестовый пользователь",
+        "name": "Пользователь Тестовый",
+        "first_name": "Пользователь",
+        "last_name": "Тестовый",
         "email": "test@onliner.by",
         "phone": "+375291234567"
     },
     "delivery": {
         "city": "Минск",
-        "address": "пр-т Дзержинского, 5"
+        "address": "пр-т Дзержинского, 55 д., 1a к., 607 кв., 2 под., 16 эт.",
+        "address_fields": {
+            "street": "пр-т Дзержинского",
+            "building": "55",
+            "apartment": "607",
+            "block": "1a",
+            "entrance": "2",
+            "floor": "16",
+            "comment": "Рабочий адрес"
+        },
+        "type": "courier_delivery",
+        "price": {
+            "amount": "3.00", 
+            "currency": "BYN"
+        },
+        "days": 3,
+        "comment": "Курьер прибудет с 17:00 - 21:00",
+        "is_fake": false
+    },
+    "payment": {
+        "type": "cash"
     },
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-14T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
+    "is_new_flow": true,
     "status": "new",
     "order_cost": {
         "amount": "20.00",
@@ -197,11 +243,31 @@ Accept: application/json; charset=utf-8
 |process_deadline|datetime|Время, до которого магазин должен обработать заказ|
 |process_time_left|integer|Сколько секунд осталось до окончания обработки заказа или 0, если время обработки истекло|
 |shop_id|integer|ID магазина|
-|contact.name|string|Имя пользователя (Недоступно, если заказ находится в статусах, отличных от "Подтвержден" или "Доставлен")|
-|contact.email|string|Контакный e-mail пользователя (Недоступно, если заказ находится в статусах, отличных от "Подтвержден" или "Доставлен")|
-|contact.phone|string|Контактный телефон пользователя (Недоступно, если заказ находится в статусах, отличных от "Подтвержден" или "Доставлен")|
+|contact.name|string|__(deprecated)__ Имя пользователя (Недоступно, если заказ находится в некоторых статусах)|
+|contact.first_name|string|Имя покупателя|
+|contact.last_name|string|Фамилия пользователя|
+|contact.email|string|Контакный e-mail пользователя (Недоступно, если заказ находится в некоторых статусах)|
+|contact.phone|string|Контактный телефон пользователя (Недоступно, если заказ находится в некоторых статусах)|
 |delivery.city|string|Город доставки|
-|delivery.address|string|Адрес доставки (Недоступно, если заказ находится в статусах, отличных от "Подтвержден" или "Доставлен")|
+|delivery.address|string|Полный адрес доставки (Недоступно, если заказ находится в некоторых статусах)|
+|delivery.address_fields|object|Детализированная информация об адресе доставке (Недоступно, если заказ находится в некоторых статусах)|
+|delivery.address_fields.street|string|Название улицы|
+|delivery.address_fields.building|string or null|Номер дома|
+|delivery.address_fields.apartment|string or null|Номер квартиры|
+|delivery.address_fields.block|string or null|Номер корпуса| 
+|delivery.address_fields.entrance|string or null|Номер подъезда|
+|delivery.address_fields.floor|string or null|Номер этажа| 
+|delivery.address_fields.comment|string or null|Комментарий к адресу|
+|delivery.type|string or null|Тип доставки (в данный момент только курьерская `courier_delivery`)|
+|delivery.price|object or null|Стоимость доставки|
+|delivery.price.amount|string|Сумма стоимости доставки|
+|delivery.price.currency|string|Валюта стоимости доставки _(только BYN)_|
+|delivery.days|int or null|Срок доставки (количество дней)|
+|delivery.comment|string or null|Комментарий от магазина к доставке|
+|delivery.is_fake|boolean|Признак ложной доставки, `true`, если пользователь после доставки пожаловался, что доставка не была осуществлена|
+|is_new_flow|boolean|Признак нового заказа (заказ по старому сценарию - false, заказ по новому сценарию - true)|
+|payment|object or null|Блок с информацией о способе оплаты и ее статусе|
+|payment.type|string|Способ оплаты, выбранный пользователем|
 |comment|string|Общий комментарий к данному заказу|
 
 #### Описание блока с информацией о ценовой позиции (каждый объект в массиве positions)
@@ -222,16 +288,16 @@ Accept: application/json; charset=utf-8
 |producer|string|Сведения о производителе товара|
 |importer|string|Сведения об импортере товара на территорию РБ|
 |service_centers|string|Сведения о сервисном центре|
-|delivery.town.delivery_price|object|Стоимость доставки в пределах г. Минска (если null - бесплатно)|
-|delivery.town.delivery_price.amount|string|Стоимость доставки в пределах г. Минска в основной валюте|
-|delivery.town.delivery_price.currency|string|Основная валюта стоимости доставки в пределах г. Минска|
+|delivery.town.delivery_price|object|__(deprecated)__ Стоимость доставки в пределах г. Минска (если null - бесплатно)|
+|delivery.town.delivery_price.amount|string|__(deprecated)__ Стоимость доставки в пределах г. Минска в основной валюте|
+|delivery.town.delivery_price.currency|string|__(deprecated)__ Основная валюта стоимости доставки в пределах г. Минска|
 |delivery.town.delivery_price.converted|object| __(deprecated)__ Массив цен доставки в пределах г. Минска во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступна только BYN|
-|delivery.town.time|integer|Срок доставки в пределах г. Минска (в днях) (если не указано - доставка не осуществляется)|
-|delivery.country.delivery_price|object|Стоимость доставки в пределах РБ (если null - бесплатно)|
-|delivery.country.delivery_price.amount|string|Стоимость доставки в пределах РБ в основной валюте|
-|delivery.country.delivery_price.currency|string|Основная валюта стоимости доставки в пределах РБ|
+|delivery.town.time|integer|__(deprecated)__ Срок доставки в пределах г. Минска (в днях) (если не указано - доставка не осуществляется)|
+|delivery.country.delivery_price|object|__(deprecated)__ Стоимость доставки в пределах РБ (если null - бесплатно)|
+|delivery.country.delivery_price.amount|string|__(deprecated)__ Стоимость доставки в пределах РБ в основной валюте|
+|delivery.country.delivery_price.currency|string|__(deprecated)__ Основная валюта стоимости доставки в пределах РБ|
 |delivery.country.delivery_price.converted|object| __(deprecated)__ Массив цен доставки в пределах РБ во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступна только BYN|
-|delivery.country.time|integer|Срок доставки в пределах РБ (в днях) (если не указано - доставка не осуществляется)|
+|delivery.country.time|integer|__(deprecated)__ Срок доставки в пределах РБ (в днях) (если не указано - доставка не осуществляется)|
 
 #### Описание блока с информацией о товаре (объект product в теле объекта position) 
 
