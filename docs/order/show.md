@@ -268,6 +268,7 @@ Accept: application/json; charset=utf-8
 |is_new_flow|boolean|Признак нового заказа (заказ по старому сценарию - false, заказ по новому сценарию - true)|
 |payment|object or null|Блок с информацией о способе оплаты и ее статусе|
 |payment.type|string|Способ оплаты, выбранный пользователем|
+|payment.status|string|Статус онлайн-оплаты|
 |comment|string|Общий комментарий к данному заказу|
 
 #### Описание блока с информацией о ценовой позиции (каждый объект в массиве positions)

@@ -153,7 +153,8 @@ Accept: application/json; charset=utf-8
                 "is_fake": false
             },
             "payment": {
-                "type": "cash"
+                "type": "online",
+                "status": "authorized"
             },
             "created_at": "2015-10-14T17:20:28+03:00",
             "updated_at": "2015-10-14T17:20:28+03:00",
