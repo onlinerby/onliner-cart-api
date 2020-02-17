@@ -140,6 +140,7 @@
 | [GET /orders/{orderKey}](docs/order/show.md) | Получение информации о заказе |
 | [PATCH /orders/{orderKey}](docs/order/update.md) | Изменить заказ |
 | [POST /orders/{orderKey}/change-payment-type](docs/order/change-payment-type.md) | Изменить способ оплаты заказа |
+| [POST /orders/{orderKey}/shop-comments](docs/order/internal_comments/create.md) | Добавить к заказу внутренний комментарий магазина |
 | [GET /resources/shop-cancel-reasons](docs/resources/shop_cancel_reasons.md) | Cписок доступных причин для отмены заказа магазином |
 
 ## В случае возникновения проблем либо технических вопросов по работе с API, создавайте Issue в данном репозитории.
