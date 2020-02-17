@@ -40,15 +40,9 @@ HTTP/2 403 Forbidden
 ```
 ```json
 {
-    "message": "Invalid credentials"
+    "message": "Access denied"
 }
 ```
-
-### Возможные ошибки: 
-
-|Ошибки|
-|---|
-|Access denied<br>Invalid credentials|
 
 ### Ответ при невалидном запросе
 
