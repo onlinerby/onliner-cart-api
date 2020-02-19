@@ -27,7 +27,7 @@ Content-Type: application/json; charset=utf-8
 ```json
 {
     "id": 1,
-    "user_id": 1,
+    "user_login": "Kate",
     "comment": "Текст комментария",
     "created_at": "2020-01-01 00:00:00"
 }
@@ -43,6 +43,12 @@ HTTP/2 403 Forbidden
     "message": "Access denied"
 }
 ```
+
+### Возможные ошибки:
+
+|Ошибки|
+|---|
+|Access denied<br>Invalid credentials|
 
 ### Ответ при невалидном запросе
 
