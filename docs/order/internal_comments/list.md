@@ -21,13 +21,13 @@ Content-Type: application/json; charset=utf-8
     "internal_comments" : [
         {
             "id": 1,
-            "user_id": 1,
+            "user_login": "User1",
             "comment": "Текст комментария",
             "created_at": "2020-01-01 00:00:00"
         },
         {
             "id": 2,
-            "user_id": 2,
+            "user_login": "User2",
             "comment": "Текст комментария 2",
             "created_at": "2020-01-02 00:00:00"
         }
@@ -41,7 +41,7 @@ Content-Type: application/json; charset=utf-8
 |---|---|---|
 |internal_comments|array|список комментариев для магазина|
 |internal_comments.*.id|int|id комментария|
-|internal_comments.*.user_id|int|id пользователя, автора комментария|
+|internal_comments.*.user_login|string|Логин пользователя, автора комментария|
 |internal_comments.*.comment|string|текст комментария для магазина|
 |internal_comments.*.created_at|string|дата и время создания комментария|
 
