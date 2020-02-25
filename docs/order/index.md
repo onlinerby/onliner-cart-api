@@ -53,6 +53,7 @@ Accept: application/json; charset=utf-8
                 }
             },
             "total_quantity": 0,
+            "shop_comments_count": 0,
             "comment": "",
             "product_names": []
         },
@@ -65,6 +66,7 @@ Accept: application/json; charset=utf-8
             "process_time_left": 60,
             "positions_count": 2,
             "total_quantity": 2,
+            "shop_comments_count": 0,
             "order_cost": {
                 "amount": "30.00",
                 "currency": "BYN",
@@ -87,6 +89,7 @@ Accept: application/json; charset=utf-8
             "process_time_left": 60,
             "positions_count": 1,
             "total_quantity": 1,
+            "shop_comments_count": 0,
             "order_cost": {
                 "amount": "10.00",
                 "currency": "BYN",
@@ -164,6 +167,7 @@ Accept: application/json; charset=utf-8
             "status": "new",
             "positions_count": 1,
             "total_quantity": 3,
+            "shop_comments_count": 0,
             "order_cost": {
                 "amount": "20.00",
                 "currency": "BYN",
@@ -275,6 +279,7 @@ Accept: application/json; charset=utf-8
 |process_time_left|integer|Сколько секунд осталось до окончания обработки заказа или 0, если время обработки истекло|
 |positions_count|integer|Количество позиций в заказе|
 |total_quantity|integer|Общее количество товаров в заказе|
+|shop_comments_count|integer|Количество внутренних комментариев магазина к заказу|
 |order_cost|object|Общая стоимость заказа|
 |comment|string|Общий комментарий пользователя к данному заказу|
 |product_names|array|Имена товаров в заказе|

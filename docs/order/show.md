@@ -63,6 +63,7 @@ Accept: application/json; charset=utf-8
     "status": "new",
     "positions_count": 1,
     "total_quantity": 2,
+    "shop_comments_count": 0,
     "order_cost": {
         "amount": "20.00",
         "currency": "BYN",
@@ -136,6 +137,7 @@ Accept: application/json; charset=utf-8
     },
     "positions_count": 1,
     "total_quantity": 2,
+    "shop_comments_count": 0,
     "comment": "Доставка с 9 до 18",
     "shop": {
         "id": 668,
@@ -266,6 +268,7 @@ Accept: application/json; charset=utf-8
 |delivery.comment|string or null|Комментарий от магазина к доставке|
 |delivery.is_fake|boolean|Признак ложной доставки, `true`, если пользователь после доставки пожаловался, что доставка не была осуществлена|
 |is_new_flow|boolean|Признак нового заказа (заказ по старому сценарию - false, заказ по новому сценарию - true)|
+|shop_comments_count|integer|Количество внутренних комментариев магазина к заказу|
 |payment|object or null|Блок с информацией о способе оплаты и ее статусе|
 |payment.type|string|Способ оплаты, выбранный пользователем|
 |payment.status|string|Статус онлайн-оплаты|

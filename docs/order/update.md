@@ -147,6 +147,7 @@ Content-Type: application/json; charset=utf-8
     "status": "confirmed",
     "positions_count": 2,
     "total_quantity": 3,
+    "shop_comments_count": 0,
     "order_cost": {
         "amount": "20.00",
         "currency": "BYN",
