@@ -43,7 +43,7 @@
 
 ```http
 PATCH /orders/qz2wa
-Authorization: bearer <token>
+Authorization: Bearer <token>
 Accept: application/json; charset=utf-8
 Content-Type: application/json; charset=utf-8
 ```
@@ -57,7 +57,7 @@ Content-Type: application/json; charset=utf-8
 
 ```http
 PATCH /orders/qz2wa
-Authorization: bearer <token>
+Authorization: Bearer <token>
 Accept: application/json; charset=utf-8
 Content-Type: application/json; charset=utf-8
 ```
@@ -75,7 +75,7 @@ Content-Type: application/json; charset=utf-8
 
 ```http
 PATCH /orders/qz2wa
-Authorization: bearer <token>
+Authorization: Bearer <token>
 Accept: application/json; charset=utf-8
 Content-Type: application/json; charset=utf-8
 ```
@@ -92,7 +92,7 @@ Content-Type: application/json; charset=utf-8
 
 ```http
 PATCH /orders/qz2wa
-Authorization: bearer <token>
+Authorization: Bearer <token>
 Accept: application/json; charset=utf-8
 Content-Type: application/json; charset=utf-8
 ```
