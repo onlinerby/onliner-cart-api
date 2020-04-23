@@ -18,7 +18,7 @@
 
 ```http
 GET /orders/qz2wa
-Authorization: bearer <token>
+Authorization: Bearer <token>
 Accept: application/json; charset=utf-8
 ```
 ```json
@@ -82,7 +82,7 @@ Accept: application/json; charset=utf-8
 
 ```http
 GET /orders/qz2wa?include=shop,positions,status_change_log
-Authorization: bearer <token>
+Authorization: Bearer <token>
 Accept: application/json; charset=utf-8
 ```
 ```json
