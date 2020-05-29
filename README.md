@@ -144,6 +144,7 @@
 | [GET /orders](docs/order/index.md) | Список заказов магазина |
 | [GET /orders/{orderKey}](docs/order/show.md) | Получение информации о заказе |
 | [PATCH /orders/{orderKey}](docs/order/update.md) | Изменить заказ |
+| [PUT /orders/{orderKey}](docs/order/set-delivery-date.md) | Задать дату доставки заказа |
 | [POST /orders/{orderKey}/change-payment-type](docs/order/change-payment-type.md) | Изменить способ оплаты заказа |
 | [POST /orders/{orderKey}/shop-comments](docs/order/internal_comments/create.md) | Добавить к заказу внутренний комментарий магазина |
 | [GET /orders/{orderKey}/shop-comments](docs/order/internal_comments/list.md) | Получить список внутренних комментариев для магазина по заказу |
