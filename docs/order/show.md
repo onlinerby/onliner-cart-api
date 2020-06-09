@@ -14,7 +14,7 @@
 - <kbd>positions</kbd> - Информация о позициях и товарах заказа
 - <kbd>status_change_log</kbd> - Информация об изменениях статусов заказа
 
-### Пример запроса
+### Пример запроса с курьерской доставкой
 
 ```http
 GET /orders/qz2wa
@@ -44,13 +44,120 @@ Accept: application/json; charset=utf-8
             "floor": "16",
             "comment": "Рабочий адрес"
         },
-        "type": "courier_delivery",
+        "type": "courier",
         "price": {
             "amount": "3.00", 
             "currency": "BYN"
         },
         "days": 3,
         "comment": "Курьер прибудет с 17:00 - 21:00",
+        "is_fake": false
+    },
+    "payment": {
+        "type": "cash"
+    },
+    "created_at": "2015-10-14T17:20:28+03:00",
+    "updated_at": "2015-10-14T17:20:28+03:00",
+    "process_deadline": "2015-10-14T17:40:28+03:00",
+    "is_new_flow": true,
+    "status": "new",
+    "positions_count": 1,
+    "total_quantity": 2,
+    "shop_comments_count": 0,
+    "order_cost": {
+        "amount": "20.00",
+        "currency": "BYN",
+        "converted": {
+            "BYN": {
+                "amount": "20.00",
+                "currency": "BYN"
+            }
+        }
+    },
+    "comment": "Доставка с 9 до 18"
+}
+```
+
+### Пример запроса с доставкой в ПВЗ
+
+```http
+GET /orders/qz2wa
+Authorization: Bearer <token>
+Accept: application/json; charset=utf-8
+```
+```json
+{
+    "key": "qz2wa",
+    "user_id": 1,
+    "contact": {
+        "name": "Имя Фамилия",
+        "first_name": "Имя",
+        "middle_name": "Отчество",
+        "last_name": "Фамилия",        
+        "email": "test@onliner.by",
+        "phone": "+375291234567"
+    },
+    "delivery": {
+        "city": null,
+        "address": null,
+        "address_fields": null,
+        "pickup_point": {
+            "id": 1,
+            "name": "ПВЗ 1",
+            "address": {
+                "geo_town": "г. Минск",
+                "geo_town_id": 1,
+                "summary": "ул. Ленина, 183 д., 1 к., 1 кв., 1 под., 1 эт.",
+                "street": "ул. Ленина",
+                "building": "183",
+                "apartment": "1",
+                "block": "1",
+                "entrance": "1",
+                "floor": "1",
+                "coordinates": {
+                    "lat": 53.8846196,
+                    "long": 27.5233293
+                }
+            },
+            "comment": "Комментарий к ПВЗ",
+            "contacts": {
+                "phones": [
+                    "+375291111111"
+                ]
+            },
+            "store_term": 1,
+            "schedule": {
+                "monday": {
+                    "from": "09:00",
+                    "till": "18:00"
+                },
+                "tuesday": {
+                    "from": "09:00",
+                    "till": "18:00"
+                },
+                "wednesday": {
+                    "from": "09:00",
+                    "till": "18:00"
+                },
+                "thursday": {
+                    "from": "09:00",
+                    "till": "18:00"
+                },
+                "friday": {
+                    "from": "09:00",
+                    "till": "18:00"
+                },
+                "saturday": null,
+                "sunday": null
+            }
+        },
+        "type": "pickup_point",
+        "price": {
+            "amount": "3.00", 
+            "currency": "BYN"
+        },
+        "days": 3,
+        "comment": "Комментарий к доставке",
         "is_fake": false
     },
     "payment": {
@@ -260,7 +367,31 @@ Accept: application/json; charset=utf-8
 |delivery.address_fields.entrance|string or null|Номер подъезда|
 |delivery.address_fields.floor|string or null|Номер этажа| 
 |delivery.address_fields.comment|string or null|Комментарий к адресу|
-|delivery.type|string or null|Тип доставки (в данный момент только курьерская `courier_delivery`)|
+|delivery.pickup_point|object|Доставка в ПВЗ|
+|delivery.pickup_point.id|int|ID ПВЗ|
+|delivery.pickup_point.name|string|Название ПВЗ|
+|delivery.pickup_point.address|object|Информация об адресе|
+|delivery.pickup_point.address.geo_town_id|int|ID города из geo api|
+|delivery.pickup_point.address.town|string|Название города|
+|delivery.pickup_point.address.street|string|Название улицы|
+|delivery.pickup_point.address.building|string|Номер дома|
+|delivery.pickup_point.address.block|string|Корпус|
+|delivery.pickup_point.address.entrance|string|Подъезд|
+|delivery.pickup_point.address.floor|string|Этаж|
+|delivery.pickup_point.address.apartment|string|Квартира|
+|delivery.pickup_point.address.coordinates|object|Координаты ПВЗ|
+|delivery.pickup_point.address.coordinates.lat|float|Широта|
+|delivery.pickup_point.address.coordinates.long|float|Долгота|
+|delivery.pickup_point.address.summary|string|Полное значение адреса|
+|delivery.pickup_point.comment|string|Комментарий к ПВЗ|
+|delivery.pickup_point.contacts.phones|array|Список телефонов ПВЗ|
+|delivery.pickup_point.contacts.phones.*|string|Телефон ПВЗ|
+|delivery.pickup_point.store_term|int|Срок хранения заказа в днях. От 1 до 10 (включительно)|
+|delivery.pickup_point.schedule|object|Режим работы ПВЗ|
+|delivery.pickup_point.schedule.`<week_day>`|object &#124; null|Параметры режима работы ПВЗ для конкретного для недели. Если в этот день ПВЗ не работает(выходной) указывается null|
+|delivery.pickup_point.schedule.`<week_day>`.from|string|Время начала работы. Формат "ЧЧ:ММ"|
+|delivery.pickup_point.schedule.`<week_day>`.till|string|Время окончания работы. Формат "ЧЧ:ММ"|
+|delivery.type|string or null|Тип доставки. Возможные значения:`courier`, `pickup_point`)|
 |delivery.price|object or null|Стоимость доставки|
 |delivery.price.amount|string|Сумма стоимости доставки|
 |delivery.price.currency|string|Валюта стоимости доставки _(только BYN)_|
