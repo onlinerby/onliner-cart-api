@@ -1,6 +1,10 @@
 
 # CHANGELOG
 
+## 10.06.2020
+
+* Добавлен метод подтверждения доставки заказа в пункт выдачи (POST /orders/{orderKey}/pickup-point-delivered)
+
 ## 05.06.2020
 
 * Добавлен метод для указания даты доставки заказа (POST /orders/{order_key}/delivery-date)
