@@ -146,6 +146,7 @@
 | [PATCH /orders/{orderKey}](docs/order/update.md) | Изменить заказ |
 | [PUT /orders/{orderKey}](docs/order/set-delivery-date.md) | Задать дату доставки заказа |
 | [POST /orders/{orderKey}/change-payment-type](docs/order/change-payment-type.md) | Изменить способ оплаты заказа |
+| [POST /orders/{orderKey}/pickup-point-delivered](docs/order/pickup_point_delivered.md) | Подтвердить доставку заказа в пункт выдачи |
 | [POST /orders/{orderKey}/shop-comments](docs/order/internal_comments/create.md) | Добавить к заказу внутренний комментарий магазина |
 | [GET /orders/{orderKey}/shop-comments](docs/order/internal_comments/list.md) | Получить список внутренних комментариев для магазина по заказу |
 | [GET /resources/shop-cancel-reasons](docs/resources/shop_cancel_reasons.md) | Cписок доступных причин для отмены заказа магазином |
