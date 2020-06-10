@@ -462,7 +462,7 @@ HTTP/1.1 404 Not Found
 ```
 ```json
 {
-    "message": "Order %ORDER_ID% not found"
+  "message": "Заказ не найден"
 }
 ```
 
