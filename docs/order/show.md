@@ -375,8 +375,8 @@ Accept: application/json; charset=utf-8
 |shop_id|integer|ID магазина|
 |contact.name|string|__(deprecated)__ Имя пользователя (Недоступно, если заказ находится в некоторых статусах)|
 |contact.first_name|string|Имя покупателя|
-|contact.last_name|string|Фамилия пользователя|
-|contacts.middle_name|string|Отчество|
+|contact.last_name|string|Фамилия покупателя|
+|contacts.middle_name|string|Отчество покупателя|
 |contact.email|string|Контакный e-mail пользователя (Недоступно, если заказ находится в некоторых статусах)|
 |contact.phone|string|Контактный телефон пользователя (Недоступно, если заказ находится в некоторых статусах)|
 |delivery.city|string|Город доставки|
