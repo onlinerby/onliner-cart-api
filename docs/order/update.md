@@ -106,8 +106,8 @@ Content-Type: application/json; charset=utf-8
         "phone": "+375291234567"
     },
     "delivery": {
-        "city": "Минск",
-        "address": "пр-т Дзержинского, 55 д., 1a к., 607 кв., 2 под., 16 эт.",
+        "city": "г. Минск",
+        "address": "пр-т Дзержинского, д. 55, к. 1a, под. 2, эт. 16, кв. 607",
         "address_fields": {
             "street": "пр-т Дзержинского",
             "building": "55",

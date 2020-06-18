@@ -33,8 +33,8 @@ Accept: application/json; charset=utf-8
         "phone": "+375291234567"
     },
     "delivery": {
-        "city": "Минск",
-        "address": "пр-т Дзержинского, 55 д., 1a к., 607 кв., 2 под., 16 эт.",
+        "city": "г. Минск",
+        "address": "пр-т Дзержинского, д. 55, к. 1a, под. 2, эт. 16, кв. 607",
         "address_fields": {
             "street": "пр-т Дзержинского",
             "building": "55",
@@ -113,7 +113,7 @@ Accept: application/json; charset=utf-8
             "address": {
                 "geo_town": "г. Минск",
                 "geo_town_id": 1,
-                "summary": "ул. Ленина, 183 д., 1 к., 1 кв., 1 под., 1 эт.",
+                "summary": "ул. Ленина, д. 183, к. 1, под. 1, эт. 1, пом. 1",
                 "street": "ул. Ленина",
                 "building": "183",
                 "apartment": "1",
