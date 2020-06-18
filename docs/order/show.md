@@ -51,7 +51,13 @@ Accept: application/json; charset=utf-8
         },
         "days": 3,
         "comment": "Курьер прибудет с 17:00 - 21:00",
-        "is_fake": false
+        "is_fake": false,
+        "date_range": {
+            "from": "2020-06-17",
+            "to": "2020-07-17"
+        },
+        "date_from": "2020-06-17T00:01:00+03:00",
+        "date_to": "2020-06-17T23:59:59+03:00"
     },
     "payment": {
         "type": "cash"
@@ -149,7 +155,10 @@ Accept: application/json; charset=utf-8
                 },
                 "saturday": null,
                 "sunday": null
-            }
+            },
+            "delivery_confirmed": true,
+            "delivery_confirmed_at": "2020-01-23T00:01:00+03:00",
+            "delivery_comment": "Ваш заказ прибыл в пункт выдачи"
         },
         "type": "pickup_point",
         "price": {
@@ -158,7 +167,13 @@ Accept: application/json; charset=utf-8
         },
         "days": 3,
         "comment": "Комментарий к доставке",
-        "is_fake": false
+        "is_fake": false,
+        "date_range": {
+            "from": "2020-06-17",
+            "to": "2020-07-17"
+        },
+        "date_from": "2020-06-17T00:01:00+03:00",
+        "date_to": "2020-06-17T23:59:59+03:00"
     },
     "payment": {
         "type": "cash"
@@ -222,7 +237,13 @@ Accept: application/json; charset=utf-8
         },
         "days": 3,
         "comment": "Курьер прибудет с 17:00 - 21:00",
-        "is_fake": false
+        "is_fake": false,
+        "date_range": {
+            "from": "2020-06-17",
+            "to": "2020-07-17"
+        },
+        "date_from": "2020-06-17T00:01:00+03:00",
+        "date_to": "2020-06-17T23:59:59+03:00"
     },
     "payment": {
         "type": "cash"
@@ -355,6 +376,7 @@ Accept: application/json; charset=utf-8
 |contact.name|string|__(deprecated)__ Имя пользователя (Недоступно, если заказ находится в некоторых статусах)|
 |contact.first_name|string|Имя покупателя|
 |contact.last_name|string|Фамилия пользователя|
+|contacts.middle_name|string|Отчество|
 |contact.email|string|Контакный e-mail пользователя (Недоступно, если заказ находится в некоторых статусах)|
 |contact.phone|string|Контактный телефон пользователя (Недоступно, если заказ находится в некоторых статусах)|
 |delivery.city|string|Город доставки|
@@ -391,6 +413,9 @@ Accept: application/json; charset=utf-8
 |delivery.pickup_point.schedule.`<week_day>`|object &#124; null|Параметры режима работы ПВЗ для конкретного для недели. Если в этот день ПВЗ не работает(выходной) указывается null|
 |delivery.pickup_point.schedule.`<week_day>`.from|string|Время начала работы. Формат "ЧЧ:ММ"|
 |delivery.pickup_point.schedule.`<week_day>`.till|string|Время окончания работы. Формат "ЧЧ:ММ"|
+|delivery.pickup_point.delivery_confirmed|bool|Пометка о доставке заказа в ПВЗ|
+|delivery.pickup_point.delivery_confirmed_at|string|Время когда был доставлен заказ в ПВЗ (если была оставлена пометка о доставке). Формат ATOM|
+|delivery.pickup_point.delivery_comment|string|Дополнительный комментарий к пометке о доставке в ПВЗ|
 |delivery.type|string or null|Тип доставки. Возможные значения:`courier`, `pickup_point`)|
 |delivery.price|object or null|Стоимость доставки|
 |delivery.price.amount|string|Сумма стоимости доставки|
@@ -398,6 +423,11 @@ Accept: application/json; charset=utf-8
 |delivery.days|int or null|Срок доставки (количество дней)|
 |delivery.comment|string or null|Комментарий от магазина к доставке|
 |delivery.is_fake|boolean|Признак ложной доставки, `true`, если пользователь после доставки пожаловался, что доставка не была осуществлена|
+|delivery.date_from|string (optional)|Начало предполагаемого магазином диапазона времени доставки. Формат ATOM|
+|delivery.date_to|string (optional)|Конец предполагаемого магазином диапазона времени доставки. Формат ATOM|
+|delivery.date_range|object|Диапазон дат для доставки (только в статусе "processing")|
+|delivery.date_range.from|string|Дата от YYYY-MM-DD|
+|delivery.date_range.to|string|Дата до YYYY-MM-DD|
 |is_new_flow|boolean|Признак нового заказа (заказ по старому сценарию - false, заказ по новому сценарию - true)|
 |shop_comments_count|integer|Количество внутренних комментариев магазина к заказу|
 |payment|object or null|Блок с информацией о способе оплаты и ее статусе|
