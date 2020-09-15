@@ -52,6 +52,17 @@ Accept: application/json; charset=utf-8
                     }
                 }
             },
+            "delivered_order_cost": {
+                "amount": "0",
+                "currency": "BYN",
+                "converted": {
+                    "BYN": {
+                        "amount": "0.00",
+                        "currency": "BYN"
+                    }
+                }
+            },
+            "installment_info": null,
             "total_quantity": 0,
             "shop_comments_count": 0,
             "comment": "",
@@ -91,6 +102,16 @@ Accept: application/json; charset=utf-8
             "total_quantity": 1,
             "shop_comments_count": 0,
             "order_cost": {
+                "amount": "10.00",
+                "currency": "BYN",
+                "converted": {
+                    "BYN": {
+                        "amount": "10.00",
+                        "currency": "BYN"
+                    }
+                }
+            },
+            "delivered_order_cost": {
                 "amount": "10.00",
                 "currency": "BYN",
                 "converted": {
@@ -169,6 +190,16 @@ Accept: application/json; charset=utf-8
             "total_quantity": 3,
             "shop_comments_count": 0,
             "order_cost": {
+                "amount": "20.00",
+                "currency": "BYN",
+                "converted": {
+                    "BYN": {
+                        "amount": "20.00",
+                        "currency": "BYN"
+                    }
+                }
+            },
+            "delivered_order_cost": {
                 "amount": "20.00",
                 "currency": "BYN",
                 "converted": {

@@ -185,13 +185,106 @@ Accept: application/json; charset=utf-8
     "status": "new",
     "positions_count": 1,
     "total_quantity": 2,
-    "shop_comments_count": 0,
+    "shop_comments_count": 0,    
+    "installment_info": null,
     "order_cost": {
         "amount": "20.00",
         "currency": "BYN",
         "converted": {
             "BYN": {
                 "amount": "20.00",
+                "currency": "BYN"
+            }
+        }
+    },
+    "delivered_order_cost": {
+        "amount": "20.00",
+        "currency": "BYN",
+        "converted": {
+            "BYN": {
+                "amount": "20.00",
+                "currency": "BYN"
+            }
+        }
+    },
+    "comment": "Доставка с 9 до 18"
+}
+
+```
+### Пример запроса для заказа, оплаченного картой рассрочки
+
+```http
+GET /orders/qz2wa
+Authorization: Bearer <token>
+Accept: application/json; charset=utf-8
+```
+```json
+{
+    "key": "qz2wa",
+    "user_id": 1,
+    "contact": {
+        "name": "Пользователь Тестовый",
+        "first_name": "Пользователь",
+        "last_name": "Тестовый",        
+        "email": "test@onliner.by",
+        "phone": "+375291234567"
+    },
+    "delivery": {
+        "city": "Минск",
+        "address": "пр-т Дзержинского, 55 д., 1a к., 607 кв., 2 под., 16 эт.",
+        "address_fields": {
+            "street": "пр-т Дзержинского",
+            "building": "55",
+            "apartment": "607",
+            "block": "1a",
+            "entrance": "2",
+            "floor": "16",
+            "comment": "Рабочий адрес"
+        },
+        "type": "courier_delivery",
+        "price": {
+            "amount": "3.00", 
+            "currency": "BYN"
+        },
+        "days": 3,
+        "comment": "Курьер прибудет с 17:00 - 21:00",
+        "is_fake": false
+    },
+    "payment": {
+        "type": "halva",
+        "status": "captured"
+    },
+    "created_at": "2015-10-14T17:20:28+03:00",
+    "updated_at": "2015-10-14T17:20:28+03:00",
+    "process_deadline": "2015-10-14T17:40:28+03:00",
+    "is_new_flow": true,
+    "status": "delivered",
+    "positions_count": 1,
+    "total_quantity": 2,
+    "shop_comments_count": 0,    
+    "installment_info": {
+        "amount_per_month": {
+            "amount": "11.00",
+            "currency": "BYN"
+        },
+        "term": 3
+    },
+    "order_cost": {
+        "amount": "30.00",
+        "currency": "BYN",
+        "converted": {
+            "BYN": {
+                "amount": "30.00",
+                "currency": "BYN"
+            }
+        }
+    },
+    "delivered_order_cost": {
+        "amount": "30.00",
+        "currency": "BYN",
+        "converted": {
+            "BYN": {
+                "amount": "30.00",
                 "currency": "BYN"
             }
         }
@@ -254,6 +347,16 @@ Accept: application/json; charset=utf-8
     "is_new_flow": true,
     "status": "new",
     "order_cost": {
+        "amount": "20.00",
+        "currency": "BYN",
+        "converted": {
+            "BYN": {
+                "amount": "20.00",
+                "currency": "BYN"
+            }
+        }
+    },
+    "delivered_order_cost": {
         "amount": "20.00",
         "currency": "BYN",
         "converted": {
@@ -434,6 +537,16 @@ Accept: application/json; charset=utf-8
 |payment.type|string|Способ оплаты, выбранный пользователем|
 |payment.status|string|Статус онлайн-оплаты|
 |comment|string|Общий комментарий к данному заказу|
+|order_cost|object|Информация о стоимости заказа|
+|order_cost.amount|string|Стоимость заказа|
+|order_cost.currency|string|Валюта|
+|delivered_order_cost|object|Информация о стоимости заказа с учётом фактически доставленных товаров и стоимости доставки|
+|delivered_order_cost.amount|string|Стоимость заказа|
+|delivered_order_cost.currency|string|Валюта|
+|installment_info|object or null|Информация о рассрочке|
+|installment_info.amount_per_month|object|Информация о сумме ежемесячного платежа|
+|installment_info.amount_per_month.amount|string|Сумма ежемесячного платежа|
+|installment_info.amount_per_month.currency|string|Валюта|
 
 #### Описание блока с информацией о ценовой позиции (каждый объект в массиве positions)
 

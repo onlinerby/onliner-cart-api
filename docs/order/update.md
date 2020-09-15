@@ -147,7 +147,8 @@ Content-Type: application/json; charset=utf-8
             }
         }
     },
-    "comment": "Доставка с 9 до 18"
+    "comment": "Доставка с 9 до 18",
+    "installment_info": null
 }
 ```
 
