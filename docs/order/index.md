@@ -289,7 +289,7 @@ Accept: application/json; charset=utf-8
                             "create_html_url": "http://catalog.onliner.by/mobile/apple/iphone6_128gb/reviews/create"
                         }
                     },
-                    "position_id": "403:123123123123"
+                    "position_id": "123123123123"
                 },
                 ...
             ]
