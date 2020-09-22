@@ -288,7 +288,8 @@ Accept: application/json; charset=utf-8
                         "reviews": {
                             "create_html_url": "http://catalog.onliner.by/mobile/apple/iphone6_128gb/reviews/create"
                         }
-                    }
+                    },
+                    "position_id": "123123123123"
                 },
                 ...
             ]
@@ -315,7 +316,7 @@ Accept: application/json; charset=utf-8
 |comment|string|Общий комментарий пользователя к данному заказу|
 |product_names|array|Имена товаров в заказе|
 |positions.entry_id|integer|ID позиции в заказе|
-
+|positions.position_id|string|Идентификатор ценового предложения |
 Для более подробного описания полей смотрите [описание метода для получения информации о конкретном заказе](show.md). 
 
 ### Ответ при невалидном запросе

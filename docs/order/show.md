@@ -448,7 +448,8 @@ Accept: application/json; charset=utf-8
                 "reviews": {
                     "create_html_url": "http://catalog.onliner.by/mobile/apple/iphone6_128gb/reviews/create"
                 }
-            }
+            },
+            "position_id": "123123123123"
         }
     ],
     "status_change_log": [
@@ -576,6 +577,7 @@ Accept: application/json; charset=utf-8
 |delivery.country.delivery_price.currency|string|__(deprecated)__ Основная валюта стоимости доставки в пределах РБ|
 |delivery.country.delivery_price.converted|object| __(deprecated)__ Массив цен доставки в пределах РБ во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступна только BYN|
 |delivery.country.time|integer|__(deprecated)__ Срок доставки в пределах РБ (в днях) (если не указано - доставка не осуществляется)|
+|position_id|string|Идентификатор ценового предложения |
 
 #### Описание блока с информацией о товаре (объект product в теле объекта position) 
 
