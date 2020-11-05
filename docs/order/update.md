@@ -107,6 +107,7 @@ Content-Type: application/json; charset=utf-8
     },
     "delivery": {
         "city": "г. Минск",
+        "geo_town_id": 17030,
         "address": "пр-т Дзержинского, д. 55, к. 1a, под. 2, эт. 16, кв. 607",
         "address_fields": {
             "street": "пр-т Дзержинского",

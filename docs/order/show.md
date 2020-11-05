@@ -33,6 +33,7 @@ Accept: application/json; charset=utf-8
         "phone": "+375291234567"
     },
     "delivery": {
+        "geo_town_id": 17030,
         "city": "г. Минск",
         "address": "пр-т Дзержинского, д. 55, к. 1a, под. 2, эт. 16, кв. 607",
         "address_fields": {
@@ -105,6 +106,7 @@ Accept: application/json; charset=utf-8
     },
     "delivery": {
         "city": null,
+        "geo_town_id": 0,
         "address": null,
         "address_fields": null,
         "pickup_point": {
@@ -230,6 +232,7 @@ Accept: application/json; charset=utf-8
         "phone": "+375291234567"
     },
     "delivery": {
+        "geo_town_id": 17030,
         "city": "Минск",
         "address": "пр-т Дзержинского, 55 д., 1a к., 607 кв., 2 под., 16 эт.",
         "address_fields": {
@@ -313,6 +316,7 @@ Accept: application/json; charset=utf-8
     },
     "delivery": {
         "city": "Минск",
+        "geo_town_id": 17030,
         "address": "пр-т Дзержинского, 55 д., 1a к., 607 кв., 2 под., 16 эт.",
         "address_fields": {
             "street": "пр-т Дзержинского",
@@ -484,6 +488,7 @@ Accept: application/json; charset=utf-8
 |contact.email|string|Контакный e-mail пользователя (Недоступно, если заказ находится в некоторых статусах)|
 |contact.phone|string|Контактный телефон пользователя (Недоступно, если заказ находится в некоторых статусах)|
 |delivery.city|string|Город доставки|
+|delivery.geo_town_id|int|ID населенного пункта из geo api. [Получение детальной информации по id](geo/get_town_by_id.md)|
 |delivery.address|string|Полный адрес доставки (Недоступно, если заказ находится в некоторых статусах)|
 |delivery.address_fields|object|Детализированная информация об адресе доставке (Недоступно, если заказ находится в некоторых статусах)|
 |delivery.address_fields.street|string|Название улицы|
@@ -497,7 +502,7 @@ Accept: application/json; charset=utf-8
 |delivery.pickup_point.id|int|ID ПВЗ|
 |delivery.pickup_point.name|string|Название ПВЗ|
 |delivery.pickup_point.address|object|Информация об адресе|
-|delivery.pickup_point.address.geo_town_id|int|ID города из geo api|
+|delivery.pickup_point.address.geo_town_id|int|ID населенного пункта из geo api. [Получение детальной информации по id](geo/get_town_by_id.md)|
 |delivery.pickup_point.address.town|string|Название города|
 |delivery.pickup_point.address.street|string|Название улицы|
 |delivery.pickup_point.address.building|string|Номер дома|

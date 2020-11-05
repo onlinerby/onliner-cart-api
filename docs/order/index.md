@@ -157,6 +157,7 @@ Accept: application/json; charset=utf-8
             },
             "delivery": {
                 "city": "Минск",
+                "geo_town_id": 17030,
                 "address": "пр-т Дзержинского, 55 д., 1a к., 607 кв., 2 под., 16 эт.",
                 "address_fields": {
                     "street": "пр-т Дзержинского",
