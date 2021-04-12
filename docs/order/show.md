@@ -718,7 +718,7 @@ Accept: application/json; charset=utf-8
 |Параметр|Тип|Описание|
 |---|---|---|
 |promotions|object|Объект с информацией по акциям|
-|promotions.mastercard_free_delivery|object|(optional) Объект с информацией по акции "Бесплатная доставка от мастеркард". Не возвращается, если акция не примененеа к заказу|
+|promotions.mastercard_free_delivery|object|(optional) Объект с информацией по акции "Бесплатная доставка от мастеркард". Не возвращается, если акция не применена к заказу|
 |promotions.mastercard_free_delivery.order_cost|object|Информация о стоимости заказа по акции|
 |promotions.mastercard_free_delivery.order_cost.amount|string|Стоимость заказа по акции|
 |promotions.mastercard_free_delivery.order_cost.currency|string|Валюта|
