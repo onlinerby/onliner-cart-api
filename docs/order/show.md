@@ -471,6 +471,114 @@ Accept: application/json; charset=utf-8
 }
 ```
 
+### Пример запроса для заказа с примененной акцией "Бесплатная доставка от MasterCard"
+
+```http
+GET /orders/qz2wa
+Authorization: Bearer <token>
+Accept: application/json; charset=utf-8
+```
+```json
+{
+    "key": "qz2wa",
+    "user_id": 1,
+    "contact": {
+        "name": "Пользователь Тестовый",
+        "first_name": "Пользователь",
+        "last_name": "Тестовый",        
+        "email": "test@onliner.by",
+        "phone": "+375291234567"
+    },
+    "delivery": {
+        "geo_town_id": 17030,
+        "city": "Минск",
+        "address": "пр-т Дзержинского, 55 д., 1a к., 607 кв., 2 под., 16 эт.",
+        "address_fields": {
+            "street": "пр-т Дзержинского",
+            "building": "55",
+            "apartment": "607",
+            "block": "1a",
+            "entrance": "2",
+            "floor": "16",
+            "comment": "Рабочий адрес"
+        },
+        "type": "courier_delivery",
+        "price": {
+            "amount": "3.00", 
+            "currency": "BYN"
+        },
+        "days": 3,
+        "comment": "Курьер прибудет с 17:00 - 21:00",
+        "is_fake": false
+    },
+    "payment": {
+        "type": "halva",
+        "status": "captured"
+    },
+    "created_at": "2015-10-14T17:20:28+03:00",
+    "updated_at": "2015-10-14T17:20:28+03:00",
+    "process_deadline": "2015-10-14T17:40:28+03:00",
+    "is_new_flow": true,
+    "status": "delivered",
+    "positions_count": 1,
+    "total_quantity": 2,
+    "shop_comments_count": 0,    
+    "installment_info": {
+        "amount_per_month": {
+            "amount": "11.00",
+            "currency": "BYN"
+        },
+        "term": 3
+    },
+    "order_cost": {
+        "amount": "30.00",
+        "currency": "BYN",
+        "converted": {
+            "BYN": {
+                "amount": "30.00",
+                "currency": "BYN"
+            }
+        }
+    },
+    "delivered_order_cost": {
+        "amount": "30.00",
+        "currency": "BYN",
+        "converted": {
+            "BYN": {
+                "amount": "30.00",
+                "currency": "BYN"
+            }
+        }
+    },
+    "promotions": {
+        "mastercard_free_delivery": {
+            "order_cost": {
+                "amount": "27.00",
+                "currency": "BYN"
+            },
+            "delivered_order_cost": {
+                "amount": "27.00",
+                "currency": "BYN"
+            },
+            "delivery": {
+                "price": {
+                    "amount": "0.00",
+                    "currency": "BYN"
+                }
+            },
+            "installment_info": {
+                "amount_per_month": {
+                    "amount": "9.00",
+                    "currency": "BYN"
+                },
+                "term": 3
+            }
+        }
+    },
+    "comment": "Доставка с 9 до 18"
+}
+```
+
 ### Описание полей ответа
 
 |Параметр|Тип|Описание|
@@ -532,8 +640,8 @@ Accept: application/json; charset=utf-8
 |delivery.days|int or null|Срок доставки (количество дней)|
 |delivery.comment|string or null|Комментарий от магазина к доставке|
 |delivery.is_fake|boolean|Признак ложной доставки, `true`, если пользователь после доставки пожаловался, что доставка не была осуществлена|
-|delivery.date_from|string (optional)|Начало предполагаемого магазином диапазона времени доставки. Формат ATOM|
-|delivery.date_to|string (optional)|Конец предполагаемого магазином диапазона времени доставки. Формат ATOM|
+|delivery.date_from|string|(optional) Начало предполагаемого магазином диапазона времени доставки. Формат ATOM|
+|delivery.date_to|string|(optional) Конец предполагаемого магазином диапазона времени доставки. Формат ATOM|
 |delivery.date_range|object|Диапазон дат для доставки (только в статусе "processing")|
 |delivery.date_range.from|string|Дата от YYYY-MM-DD|
 |delivery.date_range.to|string|Дата до YYYY-MM-DD|
@@ -604,6 +712,26 @@ Accept: application/json; charset=utf-8
 Если получить информацию о товаре не удалось, блок будет содержать только числовой и строковый идентификаторы товара.
 
 - Блок с информацией о магазине содержит номер магазина, его название и ссылку на логотип. В некоторых случаях блок будет содержать только номер магазина.
+
+#### Описание блока с информацией об акциях, примененных к заказу
+
+|Параметр|Тип|Описание|
+|---|---|---|
+|promotions|object|Объект с информацией по акциям|
+|promotions.mastercard_free_delivery|object|(optional) Объект с информацией по акции "Бесплатная доставка от мастеркард". Не возвращается, если акция не применена к заказу|
+|promotions.mastercard_free_delivery.order_cost|object|Информация о стоимости заказа по акции|
+|promotions.mastercard_free_delivery.order_cost.amount|string|Стоимость заказа по акции|
+|promotions.mastercard_free_delivery.order_cost.currency|string|Валюта|
+|promotions.mastercard_free_delivery.delivered_order_cost|object|Информация о стоимости заказа с учётом фактически доставленных товаров и стоимости доставки по акции|
+|promotions.mastercard_free_delivery.delivered_order_cost.amount|string|Стоимость заказа по акции|
+|promotions.mastercard_free_delivery.delivered_order_cost.currency|string|Валюта|
+|promotions.mastercard_free_delivery.delivery.price|object|Стоимость доставки по акции|
+|promotions.mastercard_free_delivery.delivery.price.amount|string|Сумма стоимости доставки по акции|
+|promotions.mastercard_free_delivery.delivery.price.currency|string|Валюта стоимости доставки _(только BYN)_|
+|promotions.mastercard_free_delivery.installment_info|object|(optional) Информация о рассрочке по акции. Возращается, если заказ создан с оплатой в рассрочку|
+|promotions.mastercard_free_delivery.installment_info.amount_per_month|object|Информация о сумме ежемесячного платежа по акции|
+|promotions.mastercard_free_delivery.installment_info.amount_per_month.amount|string|Сумма ежемесячного платежа по акции|
+|promotions.mastercard_free_delivery.installment_info.amount_per_month.currency|string|Валюта|
 
 ### Oтвет при попытке получить несуществующий заказ
 
