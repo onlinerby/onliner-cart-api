@@ -399,7 +399,7 @@ Accept: application/json; charset=utf-8
                 }
             },
             "quantity": 2,
-            "original_quantity": 2,
+            "delivered_quantity": 2,
             "is_credit": false,
             "is_cashless": true,
             "warranty": 12,
@@ -669,7 +669,7 @@ Accept: application/json; charset=utf-8
 |entry_id|integer|Идентификатор позиции в заказе|
 |article|string or null|Артикул товара|
 |quantity|integer|Количество товаров, заказанных в рамках данной позиции|
-|original_quantity|integer|Количество товаров в рамках данной позиции, которое запросил покупатель при оформлении заказа|
+|delivered_quantity|integer|Принятое покупателем количество единиц товара, если отличается от заказанного количества (если способ оплаты “Картой Online”, “Картой Клевер”)|
 |position_price.amount|string|Цена в основной валюте|
 |position_price.currency|string|Основная валюта цены _(по умолчанию BYN)_|
 |position_price.converted|object| __(deprecated)__ Массив цен во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступна только BYN|
