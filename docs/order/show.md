@@ -213,6 +213,7 @@ Accept: application/json; charset=utf-8
 }
 
 ```
+
 ### Пример запроса для заказа, оплаченного картой рассрочки
 
 ```http
@@ -579,6 +580,84 @@ Accept: application/json; charset=utf-8
 }
 ```
 
+### Пример запроса со способом оплаты Minipay
+
+```http
+GET /orders/qz2wa
+Authorization: Bearer <token>
+Accept: application/json; charset=utf-8
+```
+```json
+{
+    "key": "qz2wa",
+    "user_id": 1,
+    "contact": {
+        "name": "Пользователь Тестовый",
+        "first_name": "Пользователь",
+        "last_name": "Тестовый",        
+        "email": "test@onliner.by",
+        "phone": "+375291234567"
+    },
+    "delivery": {
+        "geo_town_id": 17030,
+        "city": "г. Минск",
+        "address": "пр-т Дзержинского, д. 55, к. 1a, под. 2, эт. 16, кв. 607",
+        "address_fields": {
+            "street": "пр-т Дзержинского",
+            "building": "55",
+            "apartment": "607",
+            "block": "1a",
+            "entrance": "2",
+            "floor": "16",
+            "comment": "Рабочий адрес"
+        },
+        "type": "courier",
+        "price": {
+            "amount": "3.00", 
+            "currency": "BYN"
+        },
+        "days": 3,
+        "comment": "Курьер прибудет с 17:00 - 21:00",
+        "is_fake": false,
+        "date_range": {
+            "from": "2020-06-17",
+            "to": "2020-07-17"
+        },
+        "date_from": "2020-06-17T00:01:00+03:00",
+        "date_to": "2020-06-17T23:59:59+03:00"
+    },
+    "payment": {
+        "type": "by_parts"
+    },
+    "by_parts_info": {
+        "term": 24,
+        "monthly_payment": {
+            "amount": "18.99",
+            "currency": "BYN"
+        }
+    },
+    "created_at": "2015-10-14T17:20:28+03:00",
+    "updated_at": "2015-10-14T17:20:28+03:00",
+    "process_deadline": "2015-10-14T17:40:28+03:00",
+    "is_new_flow": true,
+    "status": "new",
+    "positions_count": 1,
+    "total_quantity": 2,
+    "shop_comments_count": 0,
+    "order_cost": {
+        "amount": "20.00",
+        "currency": "BYN",
+        "converted": {
+            "BYN": {
+                "amount": "20.00",
+                "currency": "BYN"
+            }
+        }
+    },
+    "comment": "Доставка с 9 до 18"
+}
+```
+
 ### Описание полей ответа
 
 |Параметр|Тип|Описание|
@@ -650,6 +729,11 @@ Accept: application/json; charset=utf-8
 |payment|object or null|Блок с информацией о способе оплаты и ее статусе|
 |payment.type|string|Способ оплаты, выбранный пользователем|
 |payment.status|string|Статус онлайн-оплаты|
+|by_parts_info|object (optional)|Информация об оплате частями, отсутствует если `payment.type` не равен `by_parts`|
+|by_parts_info.term|int|Срок платежей|
+|by_parts_info.monthly_payment|object|Информация о ежемесячном платеже|
+|by_parts_info.monthly_payment.amount|string|Сумма ежемесячного платежа|
+|by_parts_info.monthly_payment.currency|object|Валюта ежемесячного платежа|
 |comment|string|Общий комментарий к данному заказу|
 |order_cost|object|Информация о стоимости заказа|
 |order_cost.amount|string|Стоимость заказа|
