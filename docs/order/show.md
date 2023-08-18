@@ -660,138 +660,148 @@ Accept: application/json; charset=utf-8
 
 ### Описание полей ответа
 
-|Параметр|Тип|Описание|
-|---|---|---|
-|key|string|Уникальный код заказа, 5 символов, формируется случайным образом из букв латинского алфавита и цифр, исключая 0, o, 1, i, l|
-|created_at|string|Время создания заказа|
-|updated_at|string|Время изменения заказа|
-|process_deadline|datetime|Время, до которого магазин должен обработать заказ|
-|process_time_left|integer|Сколько секунд осталось до окончания обработки заказа или 0, если время обработки истекло|
-|shop_id|integer|ID магазина|
-|contact.name|string|__(deprecated)__ Имя пользователя (Недоступно, если заказ находится в некоторых статусах)|
-|contact.first_name|string|Имя покупателя|
-|contact.last_name|string|Фамилия покупателя|
-|contacts.middle_name|string|Отчество покупателя|
-|contact.email|string|Контакный e-mail пользователя (Недоступно, если заказ находится в некоторых статусах)|
-|contact.phone|string|Контактный телефон пользователя (Недоступно, если заказ находится в некоторых статусах)|
-|delivery.city|string|Город доставки|
-|delivery.geo_town_id|int|ID населенного пункта из geo api. [Получение детальной информации по id](geo/get_town_by_id.md)|
-|delivery.address|string|Полный адрес доставки (Недоступно, если заказ находится в некоторых статусах)|
-|delivery.address_fields|object|Детализированная информация об адресе доставке (Недоступно, если заказ находится в некоторых статусах)|
-|delivery.address_fields.street|string|Название улицы|
-|delivery.address_fields.building|string or null|Номер дома|
-|delivery.address_fields.apartment|string or null|Номер квартиры|
-|delivery.address_fields.block|string or null|Номер корпуса| 
-|delivery.address_fields.entrance|string or null|Номер подъезда|
-|delivery.address_fields.floor|string or null|Номер этажа| 
-|delivery.address_fields.comment|string or null|Комментарий к адресу|
-|delivery.pickup_point|object|Доставка в ПВЗ|
-|delivery.pickup_point.id|int|ID ПВЗ|
-|delivery.pickup_point.name|string|Название ПВЗ|
-|delivery.pickup_point.address|object|Информация об адресе|
-|delivery.pickup_point.address.geo_town_id|int|ID населенного пункта из geo api. [Получение детальной информации по id](geo/get_town_by_id.md)|
-|delivery.pickup_point.address.town|string|Название города|
-|delivery.pickup_point.address.street|string|Название улицы|
-|delivery.pickup_point.address.building|string|Номер дома|
-|delivery.pickup_point.address.block|string|Корпус|
-|delivery.pickup_point.address.entrance|string|Подъезд|
-|delivery.pickup_point.address.floor|string|Этаж|
-|delivery.pickup_point.address.apartment|string|Квартира|
-|delivery.pickup_point.address.coordinates|object|Координаты ПВЗ|
-|delivery.pickup_point.address.coordinates.lat|float|Широта|
-|delivery.pickup_point.address.coordinates.long|float|Долгота|
-|delivery.pickup_point.address.summary|string|Полное значение адреса|
-|delivery.pickup_point.comment|string|Комментарий к ПВЗ|
-|delivery.pickup_point.contacts.phones|array|Список телефонов ПВЗ|
-|delivery.pickup_point.contacts.phones.*|string|Телефон ПВЗ|
-|delivery.pickup_point.store_term|int|Срок хранения заказа в днях. От 1 до 10 (включительно)|
-|delivery.pickup_point.schedule|object|Режим работы ПВЗ|
-|delivery.pickup_point.schedule.`<week_day>`|object &#124; null|Параметры режима работы ПВЗ для конкретного для недели. Если в этот день ПВЗ не работает(выходной) указывается null|
-|delivery.pickup_point.schedule.`<week_day>`.from|string|Время начала работы. Формат "ЧЧ:ММ"|
-|delivery.pickup_point.schedule.`<week_day>`.till|string|Время окончания работы. Формат "ЧЧ:ММ"|
-|delivery.pickup_point.delivery_confirmed|bool|Пометка о доставке заказа в ПВЗ|
-|delivery.pickup_point.delivery_confirmed_at|string|Время когда был доставлен заказ в ПВЗ (если была оставлена пометка о доставке). Формат ATOM|
-|delivery.pickup_point.delivery_comment|string|Дополнительный комментарий к пометке о доставке в ПВЗ|
-|delivery.type|string or null|Тип доставки. Возможные значения:`courier`, `pickup_point`)|
-|delivery.price|object or null|Стоимость доставки|
-|delivery.price.amount|string|Сумма стоимости доставки|
-|delivery.price.currency|string|Валюта стоимости доставки _(только BYN)_|
-|delivery.days|int or null|Срок доставки (количество дней)|
-|delivery.comment|string or null|Комментарий от магазина к доставке|
-|delivery.is_fake|boolean|Признак ложной доставки, `true`, если пользователь после доставки пожаловался, что доставка не была осуществлена|
-|delivery.date_from|string|(optional) Начало предполагаемого магазином диапазона времени доставки. Формат ATOM|
-|delivery.date_to|string|(optional) Конец предполагаемого магазином диапазона времени доставки. Формат ATOM|
-|delivery.date_range|object|Диапазон дат для доставки (только в статусе "processing")|
-|delivery.date_range.from|string|Дата от YYYY-MM-DD|
-|delivery.date_range.to|string|Дата до YYYY-MM-DD|
-|is_new_flow|boolean|Признак нового заказа (заказ по старому сценарию - false, заказ по новому сценарию - true)|
-|shop_comments_count|integer|Количество внутренних комментариев магазина к заказу|
-|payment|object or null|Блок с информацией о способе оплаты и ее статусе|
-|payment.type|string|Способ оплаты, выбранный пользователем|
-|payment.status|string|Статус онлайн-оплаты|
-|by_parts_info|object (optional)|Информация об оплате частями, отсутствует если `payment.type` не равен `by_parts`|
-|by_parts_info.term|int|Срок платежей|
-|by_parts_info.monthly_payment|object|Информация о ежемесячном платеже|
-|by_parts_info.monthly_payment.amount|string|Сумма ежемесячного платежа|
-|by_parts_info.monthly_payment.currency|object|Валюта ежемесячного платежа|
-|comment|string|Общий комментарий к данному заказу|
-|order_cost|object|Информация о стоимости заказа|
-|order_cost.amount|string|Стоимость заказа|
-|order_cost.currency|string|Валюта|
-|delivered_order_cost|object|Информация о стоимости заказа с учётом фактически доставленных товаров и стоимости доставки|
-|delivered_order_cost.amount|string|Стоимость заказа|
-|delivered_order_cost.currency|string|Валюта|
-|installment_info|object or null|Информация о рассрочке|
-|installment_info.amount_per_month|object|Информация о сумме ежемесячного платежа|
-|installment_info.amount_per_month.amount|string|Сумма ежемесячного платежа|
-|installment_info.amount_per_month.currency|string|Валюта|
+| Параметр                                         | Тип                | Описание                                                                                                                    |
+|--------------------------------------------------|--------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| key                                              | string             | Уникальный код заказа, 5 символов, формируется случайным образом из букв латинского алфавита и цифр, исключая 0, o, 1, i, l |
+| created_at                                       | string             | Время создания заказа                                                                                                       |
+| updated_at                                       | string             | Время изменения заказа                                                                                                      |
+| process_deadline                                 | datetime           | Время, до которого магазин должен обработать заказ                                                                          |
+| process_time_left                                | integer            | Сколько секунд осталось до окончания обработки заказа или 0, если время обработки истекло                                   |
+| shop_id                                          | integer            | ID магазина                                                                                                                 |
+| contact.name                                     | string             | __(deprecated)__ Имя пользователя (Недоступно, если заказ находится в некоторых статусах)                                   |
+| contact.first_name                               | string             | Имя покупателя                                                                                                              |
+| contact.last_name                                | string             | Фамилия покупателя                                                                                                          |
+| contacts.middle_name                             | string             | Отчество покупателя                                                                                                         |
+| contact.email                                    | string             | Контакный e-mail пользователя (Недоступно, если заказ находится в некоторых статусах)                                       |
+| contact.phone                                    | string             | Контактный телефон пользователя (Недоступно, если заказ находится в некоторых статусах)                                     |
+| delivery.city                                    | string             | Город доставки                                                                                                              |
+| delivery.region                                  | object/null        | Регион                                                                                                                      |
+| delivery.region.name                             | string             | Название региона                                                                                                            |
+| delivery.region.type.id                          | integer            | Идентификатор типа                                                                                                          |
+| delivery.region.type.short_name                  | string             | Краткое название типа                                                                                                       |
+| delivery.region.type.full_name                   | string             | Полное название типа                                                                                                        |
+| delivery.district                                | object/null        | Район                                                                                                                       |
+| delivery.district.name                           | string             | Название района                                                                                                             |
+| delivery.district.type.id                        | integer            | Идентификатор типа                                                                                                          |
+| delivery.district.type.short_name                | string             | Краткое название типа                                                                                                       |
+| delivery.district.type.full_name                 | string             | Полное название типа                                                                                                        |
+| delivery.geo_town_id                             | int                | ID населенного пункта из geo api. [Получение детальной информации по id](geo/get_town_by_id.md)                             |
+| delivery.address                                 | string             | Полный адрес доставки (Недоступно, если заказ находится в некоторых статусах)                                               |
+| delivery.address_fields                          | object             | Детализированная информация об адресе доставке (Недоступно, если заказ находится в некоторых статусах)                      |
+| delivery.address_fields.street                   | string             | Название улицы                                                                                                              |
+| delivery.address_fields.building                 | string or null     | Номер дома                                                                                                                  |
+| delivery.address_fields.apartment                | string or null     | Номер квартиры                                                                                                              |
+| delivery.address_fields.block                    | string or null     | Номер корпуса                                                                                                               | 
+| delivery.address_fields.entrance                 | string or null     | Номер подъезда                                                                                                              |
+| delivery.address_fields.floor                    | string or null     | Номер этажа                                                                                                                 | 
+| delivery.address_fields.comment                  | string or null     | Комментарий к адресу                                                                                                        |
+| delivery.pickup_point                            | object             | Доставка в ПВЗ                                                                                                              |
+| delivery.pickup_point.id                         | int                | ID ПВЗ                                                                                                                      |
+| delivery.pickup_point.name                       | string             | Название ПВЗ                                                                                                                |
+| delivery.pickup_point.address                    | object             | Информация об адресе                                                                                                        |
+| delivery.pickup_point.address.geo_town_id        | int                | ID населенного пункта из geo api. [Получение детальной информации по id](geo/get_town_by_id.md)                             |
+| delivery.pickup_point.address.town               | string             | Название города                                                                                                             |
+| delivery.pickup_point.address.street             | string             | Название улицы                                                                                                              |
+| delivery.pickup_point.address.building           | string             | Номер дома                                                                                                                  |
+| delivery.pickup_point.address.block              | string             | Корпус                                                                                                                      |
+| delivery.pickup_point.address.entrance           | string             | Подъезд                                                                                                                     |
+| delivery.pickup_point.address.floor              | string             | Этаж                                                                                                                        |
+| delivery.pickup_point.address.apartment          | string             | Квартира                                                                                                                    |
+| delivery.pickup_point.address.coordinates        | object             | Координаты ПВЗ                                                                                                              |
+| delivery.pickup_point.address.coordinates.lat    | float              | Широта                                                                                                                      |
+| delivery.pickup_point.address.coordinates.long   | float              | Долгота                                                                                                                     |
+| delivery.pickup_point.address.summary            | string             | Полное значение адреса                                                                                                      |
+| delivery.pickup_point.comment                    | string             | Комментарий к ПВЗ                                                                                                           |
+| delivery.pickup_point.contacts.phones            | array              | Список телефонов ПВЗ                                                                                                        |
+| delivery.pickup_point.contacts.phones.*          | string             | Телефон ПВЗ                                                                                                                 |
+| delivery.pickup_point.store_term                 | int                | Срок хранения заказа в днях. От 1 до 10 (включительно)                                                                      |
+| delivery.pickup_point.schedule                   | object             | Режим работы ПВЗ                                                                                                            |
+| delivery.pickup_point.schedule.`<week_day>`      | object &#124; null | Параметры режима работы ПВЗ для конкретного для недели. Если в этот день ПВЗ не работает(выходной) указывается null         |
+| delivery.pickup_point.schedule.`<week_day>`.from | string             | Время начала работы. Формат "ЧЧ:ММ"                                                                                         |
+| delivery.pickup_point.schedule.`<week_day>`.till | string             | Время окончания работы. Формат "ЧЧ:ММ"                                                                                      |
+| delivery.pickup_point.delivery_confirmed         | bool               | Пометка о доставке заказа в ПВЗ                                                                                             |
+| delivery.pickup_point.delivery_confirmed_at      | string             | Время когда был доставлен заказ в ПВЗ (если была оставлена пометка о доставке). Формат ATOM                                 |
+| delivery.pickup_point.delivery_comment           | string             | Дополнительный комментарий к пометке о доставке в ПВЗ                                                                       |
+| delivery.type                                    | string or null     | Тип доставки. Возможные значения:`courier`, `pickup_point`)                                                                 |
+| delivery.price                                   | object or null     | Стоимость доставки                                                                                                          |
+| delivery.price.amount                            | string             | Сумма стоимости доставки                                                                                                    |
+| delivery.price.currency                          | string             | Валюта стоимости доставки _(только BYN)_                                                                                    |
+| delivery.days                                    | int or null        | Срок доставки (количество дней)                                                                                             |
+| delivery.comment                                 | string or null     | Комментарий от магазина к доставке                                                                                          |
+| delivery.is_fake                                 | boolean            | Признак ложной доставки, `true`, если пользователь после доставки пожаловался, что доставка не была осуществлена            |
+| delivery.date_from                               | string             | (optional) Начало предполагаемого магазином диапазона времени доставки. Формат ATOM                                         |
+| delivery.date_to                                 | string             | (optional) Конец предполагаемого магазином диапазона времени доставки. Формат ATOM                                          |
+| delivery.date_range                              | object             | Диапазон дат для доставки (только в статусе "processing")                                                                   |
+| delivery.date_range.from                         | string             | Дата от YYYY-MM-DD                                                                                                          |
+| delivery.date_range.to                           | string             | Дата до YYYY-MM-DD                                                                                                          |
+| is_new_flow                                      | boolean            | Признак нового заказа (заказ по старому сценарию - false, заказ по новому сценарию - true)                                  |
+| shop_comments_count                              | integer            | Количество внутренних комментариев магазина к заказу                                                                        |
+| payment                                          | object or null     | Блок с информацией о способе оплаты и ее статусе                                                                            |
+| payment.type                                     | string             | Способ оплаты, выбранный пользователем                                                                                      |
+| payment.status                                   | string             | Статус онлайн-оплаты                                                                                                        |
+| by_parts_info                                    | object (optional)  | Информация об оплате частями, отсутствует если `payment.type` не равен `by_parts`                                           |
+| by_parts_info.term                               | int                | Срок платежей                                                                                                               |
+| by_parts_info.monthly_payment                    | object             | Информация о ежемесячном платеже                                                                                            |
+| by_parts_info.monthly_payment.amount             | string             | Сумма ежемесячного платежа                                                                                                  |
+| by_parts_info.monthly_payment.currency           | object             | Валюта ежемесячного платежа                                                                                                 |
+| comment                                          | string             | Общий комментарий к данному заказу                                                                                          |
+| order_cost                                       | object             | Информация о стоимости заказа                                                                                               |
+| order_cost.amount                                | string             | Стоимость заказа                                                                                                            |
+| order_cost.currency                              | string             | Валюта                                                                                                                      |
+| delivered_order_cost                             | object             | Информация о стоимости заказа с учётом фактически доставленных товаров и стоимости доставки                                 |
+| delivered_order_cost.amount                      | string             | Стоимость заказа                                                                                                            |
+| delivered_order_cost.currency                    | string             | Валюта                                                                                                                      |
+| installment_info                                 | object or null     | Информация о рассрочке                                                                                                      |
+| installment_info.amount_per_month                | object             | Информация о сумме ежемесячного платежа                                                                                     |
+| installment_info.amount_per_month.amount         | string             | Сумма ежемесячного платежа                                                                                                  |
+| installment_info.amount_per_month.currency       | string             | Валюта                                                                                                                      |
 
 #### Описание блока с информацией о ценовой позиции (каждый объект в массиве positions)
 
-|Параметр|Тип|Описание|
-|---|---|---|
-|entry_id|integer|Идентификатор позиции в заказе|
-|article|string or null|Артикул товара|
-|quantity|integer|Количество товаров, заказанных в рамках данной позиции|
-|delivered_quantity|integer|Принятое покупателем количество единиц товара, если отличается от заказанного количества (если способ оплаты “Картой Online”, “Картой Клевер”)|
-|position_price.amount|string|Цена в основной валюте|
-|position_price.currency|string|Основная валюта цены _(по умолчанию BYN)_|
-|position_price.converted|object| __(deprecated)__ Массив цен во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступна только BYN|
-|is_credit|boolean|Флаг доступности покупки в кредит (1 - можно, 0 - нет)|
-|is_cashless|boolean|Флаг предложения для юридических лиц (1 - для юридических, 0 - для физических)|
-|warranty|integer|Срок гарантии на товар (в месяцах)|
-|comment|string|Комментарий продавца к данному предложению|
-|producer|string|Сведения о производителе товара|
-|importer|string|Сведения об импортере товара на территорию РБ|
-|service_centers|string|Сведения о сервисном центре|
-|delivery.town.delivery_price|object|__(deprecated)__ Стоимость доставки в пределах г. Минска (если null - бесплатно)|
-|delivery.town.delivery_price.amount|string|__(deprecated)__ Стоимость доставки в пределах г. Минска в основной валюте|
-|delivery.town.delivery_price.currency|string|__(deprecated)__ Основная валюта стоимости доставки в пределах г. Минска|
-|delivery.town.delivery_price.converted|object| __(deprecated)__ Массив цен доставки в пределах г. Минска во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступна только BYN|
-|delivery.town.time|integer|__(deprecated)__ Срок доставки в пределах г. Минска (в днях) (если не указано - доставка не осуществляется)|
-|delivery.country.delivery_price|object|__(deprecated)__ Стоимость доставки в пределах РБ (если null - бесплатно)|
-|delivery.country.delivery_price.amount|string|__(deprecated)__ Стоимость доставки в пределах РБ в основной валюте|
-|delivery.country.delivery_price.currency|string|__(deprecated)__ Основная валюта стоимости доставки в пределах РБ|
-|delivery.country.delivery_price.converted|object| __(deprecated)__ Массив цен доставки в пределах РБ во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступна только BYN|
-|delivery.country.time|integer|__(deprecated)__ Срок доставки в пределах РБ (в днях) (если не указано - доставка не осуществляется)|
-|position_id|string|Идентификатор ценового предложения |
+| Параметр                                  | Тип            | Описание                                                                                                                                                                                                                    |
+|-------------------------------------------|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| entry_id                                  | integer        | Идентификатор позиции в заказе                                                                                                                                                                                              |
+| article                                   | string or null | Артикул товара                                                                                                                                                                                                              |
+| quantity                                  | integer        | Количество товаров, заказанных в рамках данной позиции                                                                                                                                                                      |
+| delivered_quantity                        | integer        | Принятое покупателем количество единиц товара, если отличается от заказанного количества (если способ оплаты “Картой Online”, “Картой Клевер”)                                                                              |
+| position_price.amount                     | string         | Цена в основной валюте                                                                                                                                                                                                      |
+| position_price.currency                   | string         | Основная валюта цены _(по умолчанию BYN)_                                                                                                                                                                                   |
+| position_price.converted                  | object         | __(deprecated)__ Массив цен во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступна только BYN                               |
+| is_credit                                 | boolean        | Флаг доступности покупки в кредит (1 - можно, 0 - нет)                                                                                                                                                                      |
+| is_cashless                               | boolean        | Флаг предложения для юридических лиц (1 - для юридических, 0 - для физических)                                                                                                                                              |
+| warranty                                  | integer        | Срок гарантии на товар (в месяцах)                                                                                                                                                                                          |
+| comment                                   | string         | Комментарий продавца к данному предложению                                                                                                                                                                                  |
+| producer                                  | string         | Сведения о производителе товара                                                                                                                                                                                             |
+| importer                                  | string         | Сведения об импортере товара на территорию РБ                                                                                                                                                                               |
+| service_centers                           | string         | Сведения о сервисном центре                                                                                                                                                                                                 |
+| delivery.town.delivery_price              | object         | __(deprecated)__ Стоимость доставки в пределах г. Минска (если null - бесплатно)                                                                                                                                            |
+| delivery.town.delivery_price.amount       | string         | __(deprecated)__ Стоимость доставки в пределах г. Минска в основной валюте                                                                                                                                                  |
+| delivery.town.delivery_price.currency     | string         | __(deprecated)__ Основная валюта стоимости доставки в пределах г. Минска                                                                                                                                                    |
+| delivery.town.delivery_price.converted    | object         | __(deprecated)__ Массив цен доставки в пределах г. Минска во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступна только BYN |
+| delivery.town.time                        | integer        | __(deprecated)__ Срок доставки в пределах г. Минска (в днях) (если не указано - доставка не осуществляется)                                                                                                                 |
+| delivery.country.delivery_price           | object         | __(deprecated)__ Стоимость доставки в пределах РБ (если null - бесплатно)                                                                                                                                                   |
+| delivery.country.delivery_price.amount    | string         | __(deprecated)__ Стоимость доставки в пределах РБ в основной валюте                                                                                                                                                         |
+| delivery.country.delivery_price.currency  | string         | __(deprecated)__ Основная валюта стоимости доставки в пределах РБ                                                                                                                                                           |
+| delivery.country.delivery_price.converted | object         | __(deprecated)__ Массив цен доставки в пределах РБ во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступна только BYN        |
+| delivery.country.time                     | integer        | __(deprecated)__ Срок доставки в пределах РБ (в днях) (если не указано - доставка не осуществляется)                                                                                                                        |
+| position_id                               | string         | Идентификатор ценового предложения                                                                                                                                                                                          |
 
 #### Описание блока с информацией о товаре (объект product в теле объекта position) 
 
-|Параметр|Тип|Описание|
-|---|---|---|
-|id|integer|Числовой идентификатор товара|
-|key|string|Строковый идентификатор товара|
-|name|string|Краткое наименование товара|
-|full_name|string|Полное наименование товара|
-|images|object|Объект со ссылками на главное изображение товара|
-|images.header|string|URL к изображению товара|
-|images.icon|string|URL к изображению товара|
-|description|string|Описание товара (краткая строка)|
-|micro_description|string|Краткая-краткая строка)|
-|html_url|string|Ссылка на страницу товара|
-|reviews.create_html_url|string|Ссылка на страницу создания отзыва на товар|
-|url|string|Ссылка на catalog.api для получения информации о товаре|
+| Параметр                | Тип      | Описание                                                |
+|-------------------------|----------|---------------------------------------------------------|
+| id                      | integer  | Числовой идентификатор товара                           |
+| key                     | string   | Строковый идентификатор товара                          |
+| name                    | string   | Краткое наименование товара                             |
+| full_name               | string   | Полное наименование товара                              |
+| images                  | object   | Объект со ссылками на главное изображение товара        |
+| images.header           | string   | URL к изображению товара                                |
+| images.icon             | string   | URL к изображению товара                                |
+| description             | string   | Описание товара (краткая строка)                        |
+| micro_description       | string   | Краткая-краткая строка)                                 |
+| html_url                | string   | Ссылка на страницу товара                               |
+| reviews.create_html_url | string   | Ссылка на страницу создания отзыва на товар             |
+| url                     | string   | Ссылка на catalog.api для получения информации о товаре |
 
 Если получить информацию о товаре не удалось, блок будет содержать только числовой и строковый идентификаторы товара.
 
@@ -799,23 +809,23 @@ Accept: application/json; charset=utf-8
 
 #### Описание блока с информацией об акциях, примененных к заказу
 
-|Параметр|Тип|Описание|
-|---|---|---|
-|promotions|object|Объект с информацией по акциям|
-|promotions.mastercard_free_delivery|object|(optional) Объект с информацией по акции "Бесплатная доставка от мастеркард". Не возвращается, если акция не применена к заказу|
-|promotions.mastercard_free_delivery.order_cost|object|Информация о стоимости заказа по акции|
-|promotions.mastercard_free_delivery.order_cost.amount|string|Стоимость заказа по акции|
-|promotions.mastercard_free_delivery.order_cost.currency|string|Валюта|
-|promotions.mastercard_free_delivery.delivered_order_cost|object|Информация о стоимости заказа с учётом фактически доставленных товаров и стоимости доставки по акции|
-|promotions.mastercard_free_delivery.delivered_order_cost.amount|string|Стоимость заказа по акции|
-|promotions.mastercard_free_delivery.delivered_order_cost.currency|string|Валюта|
-|promotions.mastercard_free_delivery.delivery.price|object|Стоимость доставки по акции|
-|promotions.mastercard_free_delivery.delivery.price.amount|string|Сумма стоимости доставки по акции|
-|promotions.mastercard_free_delivery.delivery.price.currency|string|Валюта стоимости доставки _(только BYN)_|
-|promotions.mastercard_free_delivery.installment_info|object|(optional) Информация о рассрочке по акции. Возращается, если заказ создан с оплатой в рассрочку|
-|promotions.mastercard_free_delivery.installment_info.amount_per_month|object|Информация о сумме ежемесячного платежа по акции|
-|promotions.mastercard_free_delivery.installment_info.amount_per_month.amount|string|Сумма ежемесячного платежа по акции|
-|promotions.mastercard_free_delivery.installment_info.amount_per_month.currency|string|Валюта|
+| Параметр                                                                       | Тип     | Описание                                                                                                                        |
+|--------------------------------------------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------|
+| promotions                                                                     | object  | Объект с информацией по акциям                                                                                                  |
+| promotions.mastercard_free_delivery                                            | object  | (optional) Объект с информацией по акции "Бесплатная доставка от мастеркард". Не возвращается, если акция не применена к заказу |
+| promotions.mastercard_free_delivery.order_cost                                 | object  | Информация о стоимости заказа по акции                                                                                          |
+| promotions.mastercard_free_delivery.order_cost.amount                          | string  | Стоимость заказа по акции                                                                                                       |
+| promotions.mastercard_free_delivery.order_cost.currency                        | string  | Валюта                                                                                                                          |
+| promotions.mastercard_free_delivery.delivered_order_cost                       | object  | Информация о стоимости заказа с учётом фактически доставленных товаров и стоимости доставки по акции                            |
+| promotions.mastercard_free_delivery.delivered_order_cost.amount                | string  | Стоимость заказа по акции                                                                                                       |
+| promotions.mastercard_free_delivery.delivered_order_cost.currency              | string  | Валюта                                                                                                                          |
+| promotions.mastercard_free_delivery.delivery.price                             | object  | Стоимость доставки по акции                                                                                                     |
+| promotions.mastercard_free_delivery.delivery.price.amount                      | string  | Сумма стоимости доставки по акции                                                                                               |
+| promotions.mastercard_free_delivery.delivery.price.currency                    | string  | Валюта стоимости доставки _(только BYN)_                                                                                        |
+| promotions.mastercard_free_delivery.installment_info                           | object  | (optional) Информация о рассрочке по акции. Возращается, если заказ создан с оплатой в рассрочку                                |
+| promotions.mastercard_free_delivery.installment_info.amount_per_month          | object  | Информация о сумме ежемесячного платежа по акции                                                                                |
+| promotions.mastercard_free_delivery.installment_info.amount_per_month.amount   | string  | Сумма ежемесячного платежа по акции                                                                                             |
+| promotions.mastercard_free_delivery.installment_info.amount_per_month.currency | string  | Валюта                                                                                                                          |
 
 ### Oтвет при попытке получить несуществующий заказ
 
@@ -847,8 +857,8 @@ Content-Type: application/json; charset=utf-8
 
 ### Возможные ошибки для полей:
 
-|Параметр|Ошибки|
-|---|---|
-|include|Поле обязательно для заполнения|
-|include|Значение поля должно быть строкой|
-|include|Неправильный набор названий групп дополнительной информации|
+| Параметр | Ошибки                                                      |
+|----------|-------------------------------------------------------------|
+| include  | Поле обязательно для заполнения                             |
+| include  | Значение поля должно быть строкой                           |
+| include  | Неправильный набор названий групп дополнительной информации |
