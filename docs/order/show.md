@@ -24,7 +24,10 @@ Accept: application/json; charset=utf-8
 ```json
 {
     "key": "qz2wa",
-    "promocode": null,
+    "promocode": {
+        "id": 1,
+        "name": "test1"
+    },
     "user_id": 1,
     "contact": {
         "name": "Пользователь Тестовый",
@@ -161,7 +164,10 @@ Accept: application/json; charset=utf-8
 ```json
 {
     "key": "qz2wa",
-    "promocode": null,
+    "promocode": {
+        "id": 1,
+        "name": "test1"
+    },
     "user_id": 1,
     "contact": {
         "name": "Имя Фамилия",
@@ -350,7 +356,10 @@ Accept: application/json; charset=utf-8
 ```json
 {
     "key": "qz2wa",
-    "promocode": null,
+    "promocode": {
+        "id": 1,
+        "name": "test1"
+    },
     "user_id": 1,
     "contact": {
         "name": "Пользователь Тестовый",
@@ -493,7 +502,10 @@ Accept: application/json; charset=utf-8
 ```json
 {
     "key": "qz2wa",
-    "promocode": null,
+    "promocode": {
+        "id": 1,
+        "name": "test1"
+    },
     "user_id": 1,
     "contact": {
         "name": "Пользователь Тестовый",
@@ -748,7 +760,10 @@ Accept: application/json; charset=utf-8
 ```json
 {
     "key": "qz2wa",
-    "promocode": null,
+    "promocode": {
+        "id": 1,
+        "name": "test1"
+    },
     "user_id": 1,
     "contact": {
         "name": "Пользователь Тестовый",
@@ -916,7 +931,10 @@ Accept: application/json; charset=utf-8
 ```json
 {
     "key": "qz2wa",
-    "promocode": null,
+    "promocode": {
+        "id": 1,
+        "name": "test1"
+    },
     "user_id": 1,
     "contact": {
         "name": "Пользователь Тестовый",
@@ -1062,7 +1080,7 @@ Accept: application/json; charset=utf-8
 | Параметр                                         | Тип                | Описание                                                                                                                    |
 |--------------------------------------------------|--------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | key                                              | string             | Уникальный код заказа, 5 символов, формируется случайным образом из букв латинского алфавита и цифр, исключая 0, o, 1, i, l |
-| promocode                                        | object or null     | Применённый к заказу промокод                                                                                               |
+| promocode                                        | object/null        | Промокод                                                                                                                    |
 | promocode.id                                     | integer            | Идентификатор промокода                                                                                                     |
 | promocode.name                                   | string             | Название промокода                                                                                                          |
 | created_at                                       | string             | Время создания заказа                                                                                                       |
@@ -1081,12 +1099,12 @@ Accept: application/json; charset=utf-8
 | delivery.address                                 | string             | Полный адрес доставки (Недоступно, если заказ находится в некоторых статусах)                                               |
 | delivery.address_fields                          | object             | Детализированная информация об адресе доставке (Недоступно, если заказ находится в некоторых статусах)                      |
 | delivery.address_fields.street                   | string             | Название улицы                                                                                                              |
-| delivery.address_fields.building                 | string or null     | Номер дома                                                                                                                  |
-| delivery.address_fields.apartment                | string or null     | Номер квартиры                                                                                                              |
-| delivery.address_fields.block                    | string or null     | Номер корпуса                                                                                                               | 
-| delivery.address_fields.entrance                 | string or null     | Номер подъезда                                                                                                              |
-| delivery.address_fields.floor                    | string or null     | Номер этажа                                                                                                                 | 
-| delivery.address_fields.comment                  | string or null     | Комментарий к адресу                                                                                                        |
+| delivery.address_fields.building                 | string/null        | Номер дома                                                                                                                  |
+| delivery.address_fields.apartment                | string/null        | Номер квартиры                                                                                                              |
+| delivery.address_fields.block                    | string/null        | Номер корпуса                                                                                                               | 
+| delivery.address_fields.entrance                 | string/null        | Номер подъезда                                                                                                              |
+| delivery.address_fields.floor                    | string/null        | Номер этажа                                                                                                                 | 
+| delivery.address_fields.comment                  | string/null        | Комментарий к адресу                                                                                                        |
 | delivery.pickup_point                            | object             | Доставка в ПВЗ                                                                                                              |
 | delivery.pickup_point.id                         | int                | ID ПВЗ                                                                                                                      |
 | delivery.pickup_point.name                       | string             | Название ПВЗ                                                                                                                |
@@ -1114,10 +1132,10 @@ Accept: application/json; charset=utf-8
 | delivery.pickup_point.delivery_confirmed         | bool               | Пометка о доставке заказа в ПВЗ                                                                                             |
 | delivery.pickup_point.delivery_confirmed_at      | string             | Время когда был доставлен заказ в ПВЗ (если была оставлена пометка о доставке). Формат ATOM                                 |
 | delivery.pickup_point.delivery_comment           | string             | Дополнительный комментарий к пометке о доставке в ПВЗ                                                                       |
-| delivery.type                                    | string or null     | Тип доставки. Возможные значения:`courier`, `pickup_point`)                                                                 |
-| delivery.price                                   | money or null      | Стоимость доставки                                                                                                          |
-| delivery.days                                    | int or null        | Срок доставки (количество дней)                                                                                             |
-| delivery.comment                                 | string or null     | Комментарий от магазина к доставке                                                                                          |
+| delivery.type                                    | string/null        | Тип доставки. Возможные значения:`courier`, `pickup_point`)                                                                 |
+| delivery.price                                   | money/null         | Стоимость доставки                                                                                                          |
+| delivery.days                                    | int/null           | Срок доставки (количество дней)                                                                                             |
+| delivery.comment                                 | string/null        | Комментарий от магазина к доставке                                                                                          |
 | delivery.is_fake                                 | boolean            | Признак ложной доставки, `true`, если пользователь после доставки пожаловался, что доставка не была осуществлена            |
 | delivery.date_from                               | string             | (optional) Начало предполагаемого магазином диапазона времени доставки. Формат ATOM                                         |
 | delivery.date_to                                 | string             | (optional) Конец предполагаемого магазином диапазона времени доставки. Формат ATOM                                          |
@@ -1126,73 +1144,73 @@ Accept: application/json; charset=utf-8
 | delivery.date_range.to                           | string             | Дата до YYYY-MM-DD                                                                                                          |
 | is_new_flow                                      | boolean            | Признак нового заказа (заказ по старому сценарию - false, заказ по новому сценарию - true)                                  |
 | shop_comments_count                              | integer            | Количество внутренних комментариев магазина к заказу                                                                        |
-| payment                                          | object or null     | Блок с информацией о способе оплаты и ее статусе                                                                            |
+| payment                                          | object/null        | Блок с информацией о способе оплаты и ее статусе                                                                            |
 | payment.type                                     | string             | Способ оплаты, выбранный пользователем                                                                                      |
 | payment.status                                   | string             | Статус онлайн-оплаты                                                                                                        |
 | by_parts_info                                    | object (optional)  | Информация об оплате частями, отсутствует если `payment.type` не равен `by_parts`                                           |
 | by_parts_info.term                               | int                | Срок платежей                                                                                                               |
 | by_parts_info.monthly_payment                    | money              | Информация о ежемесячном платеже                                                                                            |
 | comment                                          | string             | Общий комментарий к данному заказу                                                                                          |
-| order_cost                                       | money              | Общая стоимость заказа с учётом скидки                                                                                      |
-| order_price                                      | money              | Информация о стоимости заказа без учёта скидки                                                                              |
-| order_discount                                   | money or null      | Информация скидке заказа                                                                                                    |
-| totals                                           | object             | Информация о стоимости заказа                                                                                               |
-| totals.delivery                                  | object             | Информация о стоимости доставки                                                                                             |
+| order_cost                                       | money              | Общая стоимость заказа с доставкой с учетом скидок                                                                          |
+| order_price                                      | money              | Общая стоимость заказа с доставкой без учета скидок                                                                         |
+| order_discount                                   | money/null         | Общая скидка на весь заказ                                                                                                  |
+| totals                                           | object             | Информация о стоимости                                                                                                      |
+| totals.delivery                                  | object             | Стоимость доставки                                                                                                          |
 | totals.delivery.price                            | money              | Стоимость доставки без учета скидки                                                                                         |
-| totals.delivery.discount                         | money              | Размер скидки на доставку по акции                                                                                          |
+| totals.delivery.discount                         | money              | Скидка на доставку                                                                                                          |
 | totals.delivery.cost                             | money              | Стоимость доставки с учетом скидки                                                                                          |
-| totals.original                                  | object             | Информация о стоимости заказа                                                                                               |
-| totals.original.positions                        | object             | Информация о стоимости позиций без учета доставки                                                                           |
-| totals.original.positions.price                  | money              | Стоимость позиций без учета доставки                                                                                        |
-| totals.original.positions.discount               | money              | Размер скидки на позиции                                                                                                    |
-| totals.original.positions.cost                   | money              | Итоговая стоимость без учета доставки                                                                                       |
-| totals.original.price                            | money              | Стоимость всего заказа с учетом доставки                                                                                    |
-| totals.original.discount                         | money              | Размер скидки на весь заказ с учетом доставки                                                                               |
-| totals.original.cost                             | money              | Итоговая стоимость заказа с учетом доставки                                                                                 |
-| totals.delivered                                 | object             | Информация о стоимости заказа с учетом принятых позиций                                                                     |
-| totals.delivered.positions                       | object             | Информация о стоимости позиций без учета доставки с учетом принятых позиций                                                 |
-| totals.delivered.positions.price                 | money              | Стоимость принятых позиций без учета доставки                                                                               |
-| totals.delivered.positions.discount              | money              | Размер скидки на принятые позиции                                                                                           |
-| totals.delivered.positions.cost                  | money              | Итоговая стоимость принятых позиций без учета доставки                                                                      |
-| totals.delivered.price                           | money              | Стоимость принятых позиций с учетом доставки                                                                                |
-| totals.delivered.discount                        | money              | Размер скидки на принятые позиций с учетом доставки                                                                         |
-| totals.delivered.cost                            | money              | Итоговая стоимость принятых позиций с учетом доставки                                                                       |
-| delivered_order_cost                             | monet              | Общая окончательная стоимость доставленного заказа                                                                          |
-| installment_info                                 | object or null     | Информация о рассрочке                                                                                                      |
+| totals.original                                  | object             | Стоимость заказа                                                                                                            |
+| totals.original.positions                        | object             | Инфомация о стоимости позиций без учета доставки                                                                            |
+| totals.original.positions.price                  | money              | Стоимость позиций без учета скидки                                                                                          |
+| totals.original.positions.discount               | money              | Скидка по позициям                                                                                                          |
+| totals.original.positions.cost                   | money              | Стоимость позиций с учетом скидки                                                                                           |
+| totals.original.price                            | money              | Общая стоимость заказа с доставкой без учета скидок                                                                         |
+| totals.original.discount                         | money              | Общая скидка на весь заказ                                                                                                  |
+| totals.original.cost                             | money              | Общая стоимость заказа с доставкой с учетом скидок                                                                          |
+| totals.delivered                                 | object             | Стоимость принятого заказа                                                                                                  |
+| totals.delivered.positions                       | object             | Инфомация о стоимости принятых позиций без учета доставки                                                                   |
+| totals.delivered.positions.price                 | money              | Стоимость принятых позиций без учета скидки                                                                                 |
+| totals.delivered.positions.discount              | money              | Скидка по принятым позициям                                                                                                 |
+| totals.delivered.positions.cost                  | money              | Стоимость принятых позиций с учетом скидки                                                                                  |
+| totals.delivered.price                           | money              | Общая стоимость принятого заказа с доставкой без учета скидок                                                               |
+| totals.delivered.discount                        | money              | Общая скидка на весь принятый заказ                                                                                         |
+| totals.delivered.cost                            | money              | Общая стоимость принятого заказа с доставкой с учетом скидок                                                                |
+| delivered_order_cost                             | money              | Общая стоимость принятого заказа с доставкой с учетом скидок                                                                |
+| installment_info                                 | object/null        | Информация о рассрочке                                                                                                      |
 | installment_info.amount_per_month                | money              | Информация о сумме ежемесячного платежа                                                                                     |
 
 #### Описание блока с информацией о ценовой позиции (каждый объект в массиве positions)
 
-| Параметр                        | Тип            | Описание                                                                                                                                       |
-|---------------------------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| entry_id                        | integer        | Идентификатор позиции в заказе                                                                                                                 |
-| article                         | string or null | Артикул товара                                                                                                                                 |
-| quantity                        | integer        | Количество товаров, заказанных в рамках данной позиции                                                                                         |
-| delivered_quantity              | integer        | Принятое покупателем количество единиц товара, если отличается от заказанного количества (если способ оплаты “Картой Online”, “Картой Клевер”) |
-| position_price                  | money          | Информация о стоимости ценового предложения с учётом скидки                                                                                    |
-| regular_price                   | money          | Информация о стоимости позиции (1 шт.) без учёта скидки                                                                                        |
-| position_discount               | money or null  | Информация о скидке позиции (1 шт.)                                                                                                            |
-| cost                            | money          | Информация о стоимости позиции с учётом количества единиц позиции и c учётом скидки                                                            |
-| price                           | money          | Информация о стоимости позиции с учётом количества единиц позиции и без учёта скидки                                                           |
-| discount                        | money or null  | Информация о скидке позиции с учётом количества единиц позиции                                                                                 |
-| delivered_cost                  | money          | Информация о стоимости позиции с учётом количества доставленных единиц позиции и c учётом скидки                                               |
-| delivered_price                 | money          | Информация о стоимости позиции с учётом количества доставленных единиц позиции и без учёта скидки                                              |
-| delivered_discount              | money or null  | Информация о скидке позиции с учётом количества доставленных единиц позиции                                                                    |
-| undelivered_cost                | money          | Информация о стоимости позиции с учётом количества недоставленных единиц позиции и c учётом скидки                                             |
-| undelivered_price               | money          | Информация о стоимости позиции с учётом количества недоставленных единиц позиции и без учёта скидки                                            |
-| undelivered_discount            | money or null  | Информация о скидке позиции с учётом количества недоставленных единиц позиции                                                                  |
-| is_credit                       | boolean        | Флаг доступности покупки в кредит (1 - можно, 0 - нет)                                                                                         |
-| is_cashless                     | boolean        | Флаг предложения для юридических лиц (1 - для юридических, 0 - для физических)                                                                 |
-| warranty                        | integer        | Срок гарантии на товар (в месяцах)                                                                                                             |
-| comment                         | string         | Комментарий продавца к данному предложению                                                                                                     |
-| producer                        | string         | Сведения о производителе товара                                                                                                                |
-| importer                        | string         | Сведения об импортере товара на территорию РБ                                                                                                  |
-| service_centers                 | string         | Сведения о сервисном центре                                                                                                                    |
-| delivery.town.delivery_price    | money          | __(deprecated)__ Стоимость доставки в пределах г. Минска (если null - бесплатно)                                                               |
-| delivery.town.time              | integer        | __(deprecated)__ Срок доставки в пределах г. Минска (в днях) (если не указано - доставка не осуществляется)                                    |
-| delivery.country.delivery_price | money          | __(deprecated)__ Стоимость доставки в пределах РБ (если null - бесплатно)                                                                      |
-| delivery.country.time           | integer        | __(deprecated)__ Срок доставки в пределах РБ (в днях) (если не указано - доставка не осуществляется)                                           |
-| position_id                     | string         | Идентификатор ценового предложения                                                                                                             |
+| Параметр                        | Тип         | Описание                                                                                                                                       |
+|---------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| entry_id                        | integer     | Идентификатор позиции в заказе                                                                                                                 |
+| article                         | string/null | Артикул товара                                                                                                                                 |
+| quantity                        | integer     | Количество товаров, заказанных в рамках данной позиции                                                                                         |
+| delivered_quantity              | integer     | Принятое покупателем количество единиц товара, если отличается от заказанного количества (если способ оплаты “Картой Online”, “Картой Клевер”) |
+| position_price                  | money       | Информация о стоимости ценового предложения с учётом скидки                                                                                    |
+| regular_price                   | money       | Информация о стоимости позиции (1 шт.) без учёта скидки                                                                                        |
+| position_discount               | money/null  | Информация о скидке позиции (1 шт.)                                                                                                            |
+| cost                            | money       | Информация о стоимости позиции с учётом количества единиц позиции и c учётом скидки                                                            |
+| price                           | money       | Информация о стоимости позиции с учётом количества единиц позиции и без учёта скидки                                                           |
+| discount                        | money/null  | Информация о скидке позиции с учётом количества единиц позиции                                                                                 |
+| delivered_cost                  | money       | Информация о стоимости позиции с учётом количества доставленных единиц позиции и c учётом скидки                                               |
+| delivered_price                 | money       | Информация о стоимости позиции с учётом количества доставленных единиц позиции и без учёта скидки                                              |
+| delivered_discount              | money/null  | Информация о скидке позиции с учётом количества доставленных единиц позиции                                                                    |
+| undelivered_cost                | money       | Информация о стоимости позиции с учётом количества недоставленных единиц позиции и c учётом скидки                                             |
+| undelivered_price               | money       | Информация о стоимости позиции с учётом количества недоставленных единиц позиции и без учёта скидки                                            |
+| undelivered_discount            | money/null  | Информация о скидке позиции с учётом количества недоставленных единиц позиции                                                                  |
+| is_credit                       | boolean     | Флаг доступности покупки в кредит (1 - можно, 0 - нет)                                                                                         |
+| is_cashless                     | boolean     | Флаг предложения для юридических лиц (1 - для юридических, 0 - для физических)                                                                 |
+| warranty                        | integer     | Срок гарантии на товар (в месяцах)                                                                                                             |
+| comment                         | string      | Комментарий продавца к данному предложению                                                                                                     |
+| producer                        | string      | Сведения о производителе товара                                                                                                                |
+| importer                        | string      | Сведения об импортере товара на территорию РБ                                                                                                  |
+| service_centers                 | string      | Сведения о сервисном центре                                                                                                                    |
+| delivery.town.delivery_price    | money       | __(deprecated)__ Стоимость доставки в пределах г. Минска (если null - бесплатно)                                                               |
+| delivery.town.time              | integer     | __(deprecated)__ Срок доставки в пределах г. Минска (в днях) (если не указано - доставка не осуществляется)                                    |
+| delivery.country.delivery_price | money       | __(deprecated)__ Стоимость доставки в пределах РБ (если null - бесплатно)                                                                      |
+| delivery.country.time           | integer     | __(deprecated)__ Срок доставки в пределах РБ (в днях) (если не указано - доставка не осуществляется)                                           |
+| position_id                     | string      | Идентификатор ценового предложения                                                                                                             |
 
 #### Описание блока с информацией о товаре (объект product в теле объекта position) 
 
