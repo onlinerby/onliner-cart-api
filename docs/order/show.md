@@ -1138,9 +1138,9 @@ Accept: application/json; charset=utf-8
 | order_discount                                   | money or null      | Информация скидке заказа                                                                                                    |
 | totals                                           | object             | Информация о стоимости заказа                                                                                               |
 | totals.delivery                                  | object             | Информация о стоимости доставки                                                                                             |
-| totals.delivery.price                            | money              | Стоимость доставки без учета скидки по акции от мастеркард                                                                  |
-| totals.delivery.discount                         | money              | Размер скидки на доставку по акции от мастеркард                                                                            |
-| totals.delivery.cost                             | money              | Стоимость доставки с учетом скидки по акции от мастеркард                                                                   |
+| totals.delivery.price                            | money              | Стоимость доставки без учета скидки                                                                                         |
+| totals.delivery.discount                         | money              | Размер скидки на доставку по акции                                                                                          |
+| totals.delivery.cost                             | money              | Стоимость доставки с учетом скидки                                                                                          |
 | totals.original                                  | object             | Информация о стоимости заказа                                                                                               |
 | totals.original.positions                        | object             | Информация о стоимости позиций без учета доставки                                                                           |
 | totals.original.positions.price                  | money              | Стоимость позиций без учета доставки                                                                                        |
