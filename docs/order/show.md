@@ -51,7 +51,7 @@ Accept: application/json; charset=utf-8
         },
         "type": "courier",
         "price": {
-            "amount": "3.00", 
+            "amount": "2.00", 
             "currency": "BYN"
         },
         "days": 3,
@@ -73,57 +73,57 @@ Accept: application/json; charset=utf-8
     "is_new_flow": true,
     "status": "new",
     "positions_count": 1,
-    "total_quantity": 2,
+    "total_quantity": 1,
     "shop_comments_count": 0,
     "order_cost": {
-        "amount": "1.01",
+        "amount": "21.00",
         "currency": "BYN"
     },
     "order_price": {
-        "amount": "1.05",
+        "amount": "27.00",
         "currency": "BYN"
     },
     "order_discount": {
-        "amount": "0.04",
+        "amount": "6.00",
         "currency": "BYN"
     },
     "totals": {
         "delivery": {
             "price": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             },
             "discount": null,
             "cost": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             }
         },
         "original": {
             "positions": {
                 "price": {
-                    "amount": "0.06",
+                    "amount": "25.00",
                     "currency": "BYN"
                 },
                 "discount": {
-                    "amount": "0.05",
+                    "amount": "6.00",
                     "currency": "BYN"
                 },
                 "cost": {
-                    "amount": "0.01",
+                    "amount": "19.00",
                     "currency": "BYN"
                 }
             },
             "price": {
-                "amount": "1.06",
+                "amount": "27.00",
                 "currency": "BYN"
             },
             "discount": {
-                "amount": "0.05",
+                "amount": "6.00",
                 "currency": "BYN"
             },
             "cost": {
-                "amount": "1.01",
+                "amount": "21.00",
                 "currency": "BYN"
             }
         },
@@ -140,15 +140,19 @@ Accept: application/json; charset=utf-8
                 }
             },
             "price": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             },
             "discount": null,
             "cost": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             }
         }
+    },
+    "delivered_order_cost": {
+        "amount": "2.00",
+        "currency": "BYN"
     },
     "comment": "Доставка с 9 до 18"
 }
@@ -237,7 +241,7 @@ Accept: application/json; charset=utf-8
         },
         "type": "pickup_point",
         "price": {
-            "amount": "3.00", 
+            "amount": "2.00", 
             "currency": "BYN"
         },
         "days": 3,
@@ -259,58 +263,58 @@ Accept: application/json; charset=utf-8
     "is_new_flow": true,
     "status": "new",
     "positions_count": 1,
-    "total_quantity": 2,
+    "total_quantity": 1,
     "shop_comments_count": 0,    
     "installment_info": null,
     "order_cost": {
-        "amount": "1.01",
+        "amount": "21.00",
         "currency": "BYN"
     },
     "order_price": {
-        "amount": "1.05",
+        "amount": "27.00",
         "currency": "BYN"
     },
     "order_discount": {
-        "amount": "0.04",
+        "amount": "6.00",
         "currency": "BYN"
     },
     "totals": {
         "delivery": {
             "price": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             },
             "discount": null,
             "cost": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             }
         },
         "original": {
             "positions": {
                 "price": {
-                    "amount": "0.06",
+                    "amount": "25.00",
                     "currency": "BYN"
                 },
                 "discount": {
-                    "amount": "0.05",
+                    "amount": "6.00",
                     "currency": "BYN"
                 },
                 "cost": {
-                    "amount": "0.01",
+                    "amount": "19.00",
                     "currency": "BYN"
                 }
             },
             "price": {
-                "amount": "1.06",
+                "amount": "27.00",
                 "currency": "BYN"
             },
             "discount": {
-                "amount": "0.05",
+                "amount": "6.00",
                 "currency": "BYN"
             },
             "cost": {
-                "amount": "1.01",
+                "amount": "21.00",
                 "currency": "BYN"
             }
         },
@@ -327,18 +331,18 @@ Accept: application/json; charset=utf-8
                 }
             },
             "price": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             },
             "discount": null,
             "cost": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             }
         }
     },
     "delivered_order_cost": {
-        "amount": "20.00",
+        "amount": "2.00",
         "currency": "BYN"
     },
     "comment": "Доставка с 9 до 18"
@@ -356,10 +360,7 @@ Accept: application/json; charset=utf-8
 ```json
 {
     "key": "qz2wa",
-    "promocode": {
-        "id": 1,
-        "name": "test1"
-    },
+    "promocode": null,
     "user_id": 1,
     "contact": {
         "name": "Пользователь Тестовый",
@@ -383,7 +384,7 @@ Accept: application/json; charset=utf-8
         },
         "type": "courier_delivery",
         "price": {
-            "amount": "3.00", 
+            "amount": "2.00", 
             "currency": "BYN"
         },
         "days": 3,
@@ -400,64 +401,55 @@ Accept: application/json; charset=utf-8
     "is_new_flow": true,
     "status": "delivered",
     "positions_count": 1,
-    "total_quantity": 2,
+    "total_quantity": 1,
     "shop_comments_count": 0,    
     "installment_info": {
         "amount_per_month": {
-            "amount": "11.00",
+            "amount": "9.00",
             "currency": "BYN"
         },
         "term": 3
     },
     "order_cost": {
-        "amount": "1.01",
+        "amount": "27.00",
         "currency": "BYN"
     },
     "order_price": {
-        "amount": "1.05",
+        "amount": "27.00",
         "currency": "BYN"
     },
-    "order_discount": {
-        "amount": "0.04",
-        "currency": "BYN"
-    },
+    "order_discount": null,
     "totals": {
         "delivery": {
             "price": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             },
             "discount": null,
             "cost": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             }
         },
         "original": {
             "positions": {
                 "price": {
-                    "amount": "0.06",
+                    "amount": "25.00",
                     "currency": "BYN"
                 },
-                "discount": {
-                    "amount": "0.05",
-                    "currency": "BYN"
-                },
+                "discount": null,
                 "cost": {
-                    "amount": "0.01",
+                    "amount": "25.00",
                     "currency": "BYN"
                 }
             },
             "price": {
-                "amount": "1.06",
+                "amount": "27.00",
                 "currency": "BYN"
             },
-            "discount": {
-                "amount": "0.05",
-                "currency": "BYN"
-            },
+            "discount": null,
             "cost": {
-                "amount": "1.01",
+                "amount": "27.00",
                 "currency": "BYN"
             }
         },
@@ -474,18 +466,18 @@ Accept: application/json; charset=utf-8
                 }
             },
             "price": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             },
             "discount": null,
             "cost": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             }
         }
     },
     "delivered_order_cost": {
-        "amount": "30.00",
+        "amount": "2.00",
         "currency": "BYN"
     },
     "comment": "Доставка с 9 до 18"
@@ -529,7 +521,7 @@ Accept: application/json; charset=utf-8
         },
         "type": "courier_delivery",
         "price": {
-            "amount": "3.00", 
+            "amount": "2.00", 
             "currency": "BYN"
         },
         "days": 3,
@@ -551,54 +543,54 @@ Accept: application/json; charset=utf-8
     "is_new_flow": true,
     "status": "new",
     "order_cost": {
-        "amount": "1.01",
+        "amount": "21.00",
         "currency": "BYN"
     },
     "order_price": {
-        "amount": "1.05",
+        "amount": "27.00",
         "currency": "BYN"
     },
     "order_discount": {
-        "amount": "0.04",
+        "amount": "6.00",
         "currency": "BYN"
     },
     "totals": {
         "delivery": {
             "price": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             },
             "discount": null,
             "cost": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             }
         },
         "original": {
             "positions": {
                 "price": {
-                    "amount": "0.06",
+                    "amount": "25.00",
                     "currency": "BYN"
                 },
                 "discount": {
-                    "amount": "0.05",
+                    "amount": "6.00",
                     "currency": "BYN"
                 },
                 "cost": {
-                    "amount": "0.01",
+                    "amount": "19.00",
                     "currency": "BYN"
                 }
             },
             "price": {
-                "amount": "1.06",
+                "amount": "27.00",
                 "currency": "BYN"
             },
             "discount": {
-                "amount": "0.05",
+                "amount": "6.00",
                 "currency": "BYN"
             },
             "cost": {
-                "amount": "1.01",
+                "amount": "21.00",
                 "currency": "BYN"
             }
         },
@@ -615,22 +607,22 @@ Accept: application/json; charset=utf-8
                 }
             },
             "price": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             },
             "discount": null,
             "cost": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             }
         }
     },
     "delivered_order_cost": {
-        "amount": "20.00",
+        "amount": "2.00",
         "currency": "BYN"
     },
     "positions_count": 1,
-    "total_quantity": 2,
+    "total_quantity": 1,
     "shop_comments_count": 0,
     "comment": "Доставка с 9 до 18",
     "shop": {
@@ -787,7 +779,7 @@ Accept: application/json; charset=utf-8
         },
         "type": "courier_delivery",
         "price": {
-            "amount": "3.00", 
+            "amount": "2.00", 
             "currency": "BYN"
         },
         "days": 3,
@@ -795,7 +787,7 @@ Accept: application/json; charset=utf-8
         "is_fake": false
     },
     "payment": {
-        "type": "halva",
+        "type": "online",
         "status": "captured"
     },
     "created_at": "2015-10-14T17:20:28+03:00",
@@ -804,64 +796,52 @@ Accept: application/json; charset=utf-8
     "is_new_flow": true,
     "status": "delivered",
     "positions_count": 1,
-    "total_quantity": 2,
+    "total_quantity": 1,
     "shop_comments_count": 0,    
-    "installment_info": {
-        "amount_per_month": {
-            "amount": "11.00",
-            "currency": "BYN"
-        },
-        "term": 3
-    },
+    "installment_info": null,
     "order_cost": {
-        "amount": "1.01",
+        "amount": "25.00",
         "currency": "BYN"
     },
     "order_price": {
-        "amount": "1.05",
+        "amount": "25.00",
         "currency": "BYN"
     },
-    "order_discount": {
-        "amount": "0.04",
-        "currency": "BYN"
-    },
+    "order_discount": null,
     "totals": {
         "delivery": {
             "price": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             },
-            "discount": null,
+            "discount": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
             "cost": {
-                "amount": "1.00",
+                "amount": "0.00",
                 "currency": "BYN"
             }
         },
         "original": {
             "positions": {
                 "price": {
-                    "amount": "0.06",
+                    "amount": "25.00",
                     "currency": "BYN"
                 },
-                "discount": {
-                    "amount": "0.05",
-                    "currency": "BYN"
-                },
+                "discount": null,
                 "cost": {
-                    "amount": "0.01",
+                    "amount": "25.00",
                     "currency": "BYN"
                 }
             },
             "price": {
-                "amount": "1.06",
+                "amount": "25.00",
                 "currency": "BYN"
             },
-            "discount": {
-                "amount": "0.05",
-                "currency": "BYN"
-            },
+            "discount": null,
             "cost": {
-                "amount": "1.01",
+                "amount": "25.00",
                 "currency": "BYN"
             }
         },
@@ -878,28 +858,32 @@ Accept: application/json; charset=utf-8
                 }
             },
             "price": {
-                "amount": "1.00",
+                "amount": "0.00",
                 "currency": "BYN"
             },
             "discount": null,
             "cost": {
-                "amount": "1.00",
+                "amount": "0.00",
                 "currency": "BYN"
             }
         }
     },
     "delivered_order_cost": {
-        "amount": "30.00",
+        "amount": "0.00",
         "currency": "BYN"
     },
     "promotions": {
         "mastercard_free_delivery": {
             "order_cost": {
-                "amount": "27.00",
+                "amount": "25.00",
+                "currency": "BYN"
+            },
+            "order_price": {
+                "amount": "25.00",
                 "currency": "BYN"
             },
             "delivered_order_cost": {
-                "amount": "27.00",
+                "amount": "0.00",
                 "currency": "BYN"
             },
             "delivery": {
@@ -908,12 +892,13 @@ Accept: application/json; charset=utf-8
                     "currency": "BYN"
                 }
             },
-            "installment_info": {
-                "amount_per_month": {
-                    "amount": "9.00",
+            "cobrand_info": {
+                "use_loyalty_points": false,
+                "cashback": {
+                    "amount": "1.25",
                     "currency": "BYN"
                 },
-                "term": 3
+                "is_max_cashback": false
             }
         }
     },
@@ -958,7 +943,7 @@ Accept: application/json; charset=utf-8
         },
         "type": "courier",
         "price": {
-            "amount": "3.00", 
+            "amount": "2.00", 
             "currency": "BYN"
         },
         "days": 3,
@@ -977,7 +962,7 @@ Accept: application/json; charset=utf-8
     "by_parts_info": {
         "term": 24,
         "monthly_payment": {
-            "amount": "18.99",
+            "amount": "2.99",
             "currency": "BYN"
         }
     },
@@ -987,57 +972,57 @@ Accept: application/json; charset=utf-8
     "is_new_flow": true,
     "status": "new",
     "positions_count": 1,
-    "total_quantity": 2,
+    "total_quantity": 1,
     "shop_comments_count": 0,
     "order_cost": {
-        "amount": "1.01",
+        "amount": "21.00",
         "currency": "BYN"
     },
     "order_price": {
-        "amount": "1.05",
+        "amount": "27.00",
         "currency": "BYN"
     },
     "order_discount": {
-        "amount": "0.04",
+        "amount": "6.00",
         "currency": "BYN"
     },
     "totals": {
         "delivery": {
             "price": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             },
             "discount": null,
             "cost": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             }
         },
         "original": {
             "positions": {
                 "price": {
-                    "amount": "0.06",
+                    "amount": "25.00",
                     "currency": "BYN"
                 },
                 "discount": {
-                    "amount": "0.05",
+                    "amount": "6.00",
                     "currency": "BYN"
                 },
                 "cost": {
-                    "amount": "0.01",
+                    "amount": "19.00",
                     "currency": "BYN"
                 }
             },
             "price": {
-                "amount": "1.06",
+                "amount": "27.00",
                 "currency": "BYN"
             },
             "discount": {
-                "amount": "0.05",
+                "amount": "6.00",
                 "currency": "BYN"
             },
             "cost": {
-                "amount": "1.01",
+                "amount": "21.00",
                 "currency": "BYN"
             }
         },
@@ -1054,15 +1039,19 @@ Accept: application/json; charset=utf-8
                 }
             },
             "price": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             },
             "discount": null,
             "cost": {
-                "amount": "1.00",
+                "amount": "2.00",
                 "currency": "BYN"
             }
         }
+    },
+    "delivered_order_cost": {
+        "amount": "2.00",
+        "currency": "BYN"
     },
     "comment": "Доставка с 9 до 18"
 }
