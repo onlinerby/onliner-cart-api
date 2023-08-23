@@ -97,6 +97,10 @@ Content-Type: application/json; charset=utf-8
 ```json
 {
     "key": "qz2wa",
+    "promocode": {
+        "id": 1,
+        "name": "test1"
+    },
     "user_id": 1,
     "contact": {
         "name": "Пользователь Тестовый",
@@ -139,14 +143,83 @@ Content-Type: application/json; charset=utf-8
     "total_quantity": 3,
     "shop_comments_count": 0,
     "order_cost": {
-        "amount": "20.00",
-        "currency": "BYN",
-        "converted": {
-            "BYN": {
-                "amount": "20.00",
+        "amount": "21.00",
+        "currency": "BYN"
+    },
+    "order_price": {
+        "amount": "27.00",
+        "currency": "BYN"
+    },
+    "order_discount": {
+        "amount": "6.00",
+        "currency": "BYN"
+    },
+    "totals": {
+        "delivery": {
+            "price": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "discount": null,
+            "cost": {
+                "amount": "2.00",
+                "currency": "BYN"
+            }
+        },
+        "original": {
+            "positions": {
+                "price": {
+                    "amount": "25.00",
+                    "currency": "BYN"
+                },
+                "discount": {
+                    "amount": "6.00",
+                    "currency": "BYN"
+                },
+                "cost": {
+                    "amount": "19.00",
+                    "currency": "BYN"
+                }
+            },
+            "price": {
+                "amount": "27.00",
+                "currency": "BYN"
+            },
+            "discount": {
+                "amount": "6.00",
+                "currency": "BYN"
+            },
+            "cost": {
+                "amount": "21.00",
+                "currency": "BYN"
+            }
+        },
+        "delivered": {
+            "positions": {
+                "price": {
+                    "amount": "0.00",
+                    "currency": "BYN"
+                },
+                "discount": null,
+                "cost": {
+                    "amount": "0.00",
+                    "currency": "BYN"
+                }
+            },
+            "price": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "discount": null,
+            "cost": {
+                "amount": "2.00",
                 "currency": "BYN"
             }
         }
+    },
+    "delivered_order_cost": {
+        "amount": "2.00",
+        "currency": "BYN"
     },
     "comment": "Доставка с 9 до 18",
     "installment_info": null
