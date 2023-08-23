@@ -7,12 +7,12 @@
 
 ### Параметры запроса
 
-|Параметр|Тип|Описание|
-|---|---|---|
-|page|integer|Номер страницы|
-|limit|integer|Лимит записей на странице, по умолчанию - 50, максимально - 100|
-|status|string|Строковый код статуса|
-|include|string|Дополнительные группы данных о заказе [(такие же, как в методе получения информации о заказе)](show.md)|
+| Параметр | Тип     | Описание                                                                                                |
+|----------|---------|---------------------------------------------------------------------------------------------------------|
+| page     | integer | Номер страницы                                                                                          |
+| limit    | integer | Лимит записей на странице, по умолчанию - 50, максимально - 100                                         |
+| status   | string  | Строковый код статуса                                                                                   |
+| include  | string  | Дополнительные группы данных о заказе [(такие же, как в методе получения информации о заказе)](show.md) |
 
 ### Пример запроса
 
@@ -41,55 +41,83 @@ Accept: application/json; charset=utf-8
             "updated_at": "2015-10-04T10:00:00+03:00",
             "process_deadline": "2015-10-04T10:20:00+03:00",
             "process_time_left": 60,
-            "positions_count": 0,
+            "positions_count": 1,
+            "promocode": null,
             "order_cost": {
-                "amount": "0",
-                "currency": "BYN",
-                "converted": {
-                    "BYN": {
-                        "amount": "0.00",
+                "amount": "27.00",
+                "currency": "BYN"
+            },
+            "order_price": {
+                "amount": "27.00",
+                "currency": "BYN"
+            },
+            "order_discount": null,
+            "totals": {
+                "delivery": {
+                    "price": {
+                        "amount": "2.00",
+                        "currency": "BYN"
+                    },
+                    "discount": null,
+                    "cost": {
+                        "amount": "2.00",
+                        "currency": "BYN"
+                    }
+                },
+                "original": {
+                    "positions": {
+                        "price": {
+                            "amount": "25.00",
+                            "currency": "BYN"
+                        },
+                        "discount": null,
+                        "cost": {
+                            "amount": "25.00",
+                            "currency": "BYN"
+                        }
+                    },
+                    "price": {
+                        "amount": "27.00",
+                        "currency": "BYN"
+                    },
+                    "discount": null,
+                    "cost": {
+                        "amount": "27.00",
+                        "currency": "BYN"
+                    }
+                },
+                "delivered": {
+                    "positions": {
+                        "price": {
+                            "amount": "0.00",
+                            "currency": "BYN"
+                        },
+                        "discount": null,
+                        "cost": {
+                            "amount": "0.00",
+                            "currency": "BYN"
+                        }
+                    },
+                    "price": {
+                        "amount": "2.00",
+                        "currency": "BYN"
+                    },
+                    "discount": null,
+                    "cost": {
+                        "amount": "2.00",
                         "currency": "BYN"
                     }
                 }
             },
             "delivered_order_cost": {
-                "amount": "0",
-                "currency": "BYN",
-                "converted": {
-                    "BYN": {
-                        "amount": "0.00",
-                        "currency": "BYN"
-                    }
-                }
+                "amount": "2.00",
+                "currency": "BYN"
             },
             "installment_info": null,
-            "total_quantity": 0,
+            "total_quantity": 1,
             "shop_comments_count": 0,
             "comment": "",
             "product_names": []
-        },
-        {
-            "key": "shop1_2",
-            "status": "confirmed",
-            "created_at": "2015-10-02T10:00:00+03:00",
-            "updated_at": "2015-10-02T10:00:00+03:00",
-            "process_deadline": "2015-10-04T10:20:00+03:00",
-            "process_time_left": 60,
-            "positions_count": 2,
-            "total_quantity": 2,
-            "shop_comments_count": 0,
-            "order_cost": {
-                "amount": "30.00",
-                "currency": "BYN",
-                "converted": {
-                    "BYN": {
-                        "amount": "30.00",
-                        "currency": "BYN"
-                    }
-                }
-            },
-            "comment": "Доставка с 9 до 18",
-            "product_names": ["Apple iPhone 1", "Apple iPhone 2"]
         },
         {
             "key": "shop1_1",
@@ -101,27 +129,78 @@ Accept: application/json; charset=utf-8
             "positions_count": 1,
             "total_quantity": 1,
             "shop_comments_count": 0,
+            "promocode": null,
             "order_cost": {
-                "amount": "10.00",
-                "currency": "BYN",
-                "converted": {
-                    "BYN": {
-                        "amount": "10.00",
+                "amount": "27.00",
+                "currency": "BYN"
+            },
+            "order_price": {
+                "amount": "27.00",
+                "currency": "BYN"
+            },
+            "order_discount": null,
+            "totals": {
+                "delivery": {
+                    "price": {
+                        "amount": "2.00",
+                        "currency": "BYN"
+                    },
+                    "discount": null,
+                    "cost": {
+                        "amount": "2.00",
+                        "currency": "BYN"
+                    }
+                },
+                "original": {
+                    "positions": {
+                        "price": {
+                            "amount": "25.00",
+                            "currency": "BYN"
+                        },
+                        "discount": null,
+                        "cost": {
+                            "amount": "25.00",
+                            "currency": "BYN"
+                        }
+                    },
+                    "price": {
+                        "amount": "27.00",
+                        "currency": "BYN"
+                    },
+                    "discount": null,
+                    "cost": {
+                        "amount": "27.00",
+                        "currency": "BYN"
+                    }
+                },
+                "delivered": {
+                    "positions": {
+                        "price": {
+                            "amount": "0.00",
+                            "currency": "BYN"
+                        },
+                        "discount": null,
+                        "cost": {
+                            "amount": "0.00",
+                            "currency": "BYN"
+                        }
+                    },
+                    "price": {
+                        "amount": "2.00",
+                        "currency": "BYN"
+                    },
+                    "discount": null,
+                    "cost": {
+                        "amount": "2.00",
                         "currency": "BYN"
                     }
                 }
             },
             "delivered_order_cost": {
-                "amount": "10.00",
-                "currency": "BYN",
-                "converted": {
-                    "BYN": {
-                        "amount": "10.00",
-                        "currency": "BYN"
-                    }
-                }
+                "amount": "2.00",
+                "currency": "BYN"
             },
-            "comment": "",
+            "comment": "Доставка с 9 до 18",
             "product_names": ["Apple iPhone 1"]
         }
     ]
@@ -188,27 +267,90 @@ Accept: application/json; charset=utf-8
             "is_new_flow": true,
             "status": "new",
             "positions_count": 1,
-            "total_quantity": 3,
+            "total_quantity": 1,
             "shop_comments_count": 0,
+            "promocode": {
+				"id": 1,
+				"name": "test1"
+			},
             "order_cost": {
-                "amount": "20.00",
-                "currency": "BYN",
-                "converted": {
-                    "BYN": {
-                        "amount": "20.00",
+                "amount": "21.00",
+                "currency": "BYN"
+            },
+            "order_price": {
+                "amount": "27.00",
+                "currency": "BYN"
+            },
+            "order_discount": {
+                "amount": "6.00",
+                "currency": "BYN"
+            },
+            "totals": {
+                "delivery": {
+                    "price": {
+                        "amount": "2.00",
+                        "currency": "BYN"
+                    },
+                    "discount": null,
+                    "cost": {
+                        "amount": "2.00",
+                        "currency": "BYN"
+                    }
+                },
+                "original": {
+                    "positions": {
+                        "price": {
+                            "amount": "25.00",
+                            "currency": "BYN"
+                        },
+                        "discount": {
+                            "amount": "6.00",
+                            "currency": "BYN"
+                        },
+                        "cost": {
+                            "amount": "19.00",
+                            "currency": "BYN"
+                        }
+                    },
+                    "price": {
+                        "amount": "27.00",
+                        "currency": "BYN"
+                    },
+                    "discount": {
+                        "amount": "6.00",
+                        "currency": "BYN"
+                    },
+                    "cost": {
+                        "amount": "21.00",
+                        "currency": "BYN"
+                    }
+                },
+                "delivered": {
+                    "positions": {
+                        "price": {
+                            "amount": "0.00",
+                            "currency": "BYN"
+                        },
+                        "discount": null,
+                        "cost": {
+                            "amount": "0.00",
+                            "currency": "BYN"
+                        }
+                    },
+                    "price": {
+                        "amount": "2.00",
+                        "currency": "BYN"
+                    },
+                    "discount": null,
+                    "cost": {
+                        "amount": "2.00",
                         "currency": "BYN"
                     }
                 }
             },
             "delivered_order_cost": {
-                "amount": "20.00",
-                "currency": "BYN",
-                "converted": {
-                    "BYN": {
-                        "amount": "20.00",
-                        "currency": "BYN"
-                    }
-                }
+                "amount": "2.00",
+                "currency": "BYN"
             },
             "comment": "",
             "shop": {
@@ -302,22 +444,27 @@ Accept: application/json; charset=utf-8
 
 ### Описание полей ответа
 
-|Параметр|Тип|Описание|
-|---|---|---|
-|key|string|Уникальный код заказа|
-|status|string|Строковый код статуса|
-|created_at|string|Время создания заказа|
-|updated_at|string|Время изменения заказа|
-|process_deadline|datetime|Время, до которого магазин должен обработать заказ|
-|process_time_left|integer|Сколько секунд осталось до окончания обработки заказа или 0, если время обработки истекло|
-|positions_count|integer|Количество позиций в заказе|
-|total_quantity|integer|Общее количество товаров в заказе|
-|shop_comments_count|integer|Количество внутренних комментариев магазина к заказу|
-|order_cost|object|Общая стоимость заказа|
-|comment|string|Общий комментарий пользователя к данному заказу|
-|product_names|array|Имена товаров в заказе|
-|positions.entry_id|integer|ID позиции в заказе|
-|positions.position_id|string|Идентификатор ценового предложения |
+| Параметр              | Тип         | Описание                                                                                  |
+|-----------------------|-------------|-------------------------------------------------------------------------------------------|
+| key                   | string      | Уникальный код заказа                                                                     |
+| status                | string      | Строковый код статуса                                                                     |
+| created_at            | string      | Время создания заказа                                                                     |
+| updated_at            | string      | Время изменения заказа                                                                    |
+| process_deadline      | datetime    | Время, до которого магазин должен обработать заказ                                        |
+| process_time_left     | integer     | Сколько секунд осталось до окончания обработки заказа или 0, если время обработки истекло |
+| positions_count       | integer     | Количество позиций в заказе                                                               |
+| total_quantity        | integer     | Общее количество товаров в заказе                                                         |
+| shop_comments_count   | integer     | Количество внутренних комментариев магазина к заказу                                      |
+| promocode             | object/null | Промокод                                                                                  |
+| order_cost            | money       | Общая стоимость заказа с доставкой с учетом скидок                                        |
+| order_price           | money       | Общая стоимость заказа с доставкой без учета скидок                                       |
+| order_discount        | money/null  | Общая скидка на весь заказ                                                                |
+| totals                | object      | Информация о стоимости                                                                    |
+| comment               | string      | Общий комментарий пользователя к данному заказу                                           |
+| product_names         | array       | Имена товаров в заказе                                                                    |
+| positions.entry_id    | integer     | ID позиции в заказе                                                                       |
+| positions.position_id | string      | Идентификатор ценового предложения                                                        |
+
 Для более подробного описания полей смотрите [описание метода для получения информации о конкретном заказе](show.md). 
 
 ### Ответ при невалидном запросе
@@ -344,9 +491,9 @@ Content-Type: application/json; charset=utf-8
 
 ### Возможные ошибки для полей:
 
-|Параметр|Ошибки|
-|---|---|
-|page|Значение поля должно быть целым числом<br/> Значение поля должно быть не менее 1|
-|limit|Значение поля должно быть целым числом<br/> Значение поля должно быть не менее 1<br/> Значение поля не может быть больше 100|
-|status|Значение поля должно быть строкой<br/> Недопустимый статус|
-|include|Поле обязательно для заполнения<br/>Значение поля должно быть строкой<br/>Неправильный набор названий групп дополнительной информации|
+| Параметр | Ошибки                                                                                                                                |
+|----------|---------------------------------------------------------------------------------------------------------------------------------------|
+| page     | Значение поля должно быть целым числом<br/> Значение поля должно быть не менее 1                                                      |
+| limit    | Значение поля должно быть целым числом<br/> Значение поля должно быть не менее 1<br/> Значение поля не может быть больше 100          |
+| status   | Значение поля должно быть строкой<br/> Недопустимый статус                                                                            |
+| include  | Поле обязательно для заполнения<br/>Значение поля должно быть строкой<br/>Неправильный набор названий групп дополнительной информации |

@@ -4,9 +4,9 @@
 
 ### Параметры запроса
 
-|Параметр|Тип|Описание|
-|---|---|---|
-|include|string|Дополнительные группы данных о заказе|
+| Параметр | Тип    | Описание                              |
+|----------|--------|---------------------------------------|
+| include  | string | Дополнительные группы данных о заказе |
 
 ##### Допустимые группы с дополнительной информацией:
 
@@ -24,6 +24,10 @@ Accept: application/json; charset=utf-8
 ```json
 {
     "key": "qz2wa",
+    "promocode": {
+        "id": 1,
+        "name": "test1"
+    },
     "user_id": 1,
     "contact": {
         "name": "Пользователь Тестовый",
@@ -47,7 +51,7 @@ Accept: application/json; charset=utf-8
         },
         "type": "courier",
         "price": {
-            "amount": "3.00", 
+            "amount": "2.00", 
             "currency": "BYN"
         },
         "days": 3,
@@ -69,17 +73,86 @@ Accept: application/json; charset=utf-8
     "is_new_flow": true,
     "status": "new",
     "positions_count": 1,
-    "total_quantity": 2,
+    "total_quantity": 1,
     "shop_comments_count": 0,
     "order_cost": {
-        "amount": "20.00",
-        "currency": "BYN",
-        "converted": {
-            "BYN": {
-                "amount": "20.00",
+        "amount": "21.00",
+        "currency": "BYN"
+    },
+    "order_price": {
+        "amount": "27.00",
+        "currency": "BYN"
+    },
+    "order_discount": {
+        "amount": "6.00",
+        "currency": "BYN"
+    },
+    "totals": {
+        "delivery": {
+            "price": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "discount": null,
+            "cost": {
+                "amount": "2.00",
+                "currency": "BYN"
+            }
+        },
+        "original": {
+            "positions": {
+                "price": {
+                    "amount": "25.00",
+                    "currency": "BYN"
+                },
+                "discount": {
+                    "amount": "6.00",
+                    "currency": "BYN"
+                },
+                "cost": {
+                    "amount": "19.00",
+                    "currency": "BYN"
+                }
+            },
+            "price": {
+                "amount": "27.00",
+                "currency": "BYN"
+            },
+            "discount": {
+                "amount": "6.00",
+                "currency": "BYN"
+            },
+            "cost": {
+                "amount": "21.00",
+                "currency": "BYN"
+            }
+        },
+        "delivered": {
+            "positions": {
+                "price": {
+                    "amount": "0.00",
+                    "currency": "BYN"
+                },
+                "discount": null,
+                "cost": {
+                    "amount": "0.00",
+                    "currency": "BYN"
+                }
+            },
+            "price": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "discount": null,
+            "cost": {
+                "amount": "2.00",
                 "currency": "BYN"
             }
         }
+    },
+    "delivered_order_cost": {
+        "amount": "2.00",
+        "currency": "BYN"
     },
     "comment": "Доставка с 9 до 18"
 }
@@ -95,6 +168,10 @@ Accept: application/json; charset=utf-8
 ```json
 {
     "key": "qz2wa",
+    "promocode": {
+        "id": 1,
+        "name": "test1"
+    },
     "user_id": 1,
     "contact": {
         "name": "Имя Фамилия",
@@ -164,7 +241,7 @@ Accept: application/json; charset=utf-8
         },
         "type": "pickup_point",
         "price": {
-            "amount": "3.00", 
+            "amount": "2.00", 
             "currency": "BYN"
         },
         "days": 3,
@@ -186,28 +263,87 @@ Accept: application/json; charset=utf-8
     "is_new_flow": true,
     "status": "new",
     "positions_count": 1,
-    "total_quantity": 2,
+    "total_quantity": 1,
     "shop_comments_count": 0,    
     "installment_info": null,
     "order_cost": {
-        "amount": "20.00",
-        "currency": "BYN",
-        "converted": {
-            "BYN": {
-                "amount": "20.00",
+        "amount": "21.00",
+        "currency": "BYN"
+    },
+    "order_price": {
+        "amount": "27.00",
+        "currency": "BYN"
+    },
+    "order_discount": {
+        "amount": "6.00",
+        "currency": "BYN"
+    },
+    "totals": {
+        "delivery": {
+            "price": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "discount": null,
+            "cost": {
+                "amount": "2.00",
+                "currency": "BYN"
+            }
+        },
+        "original": {
+            "positions": {
+                "price": {
+                    "amount": "25.00",
+                    "currency": "BYN"
+                },
+                "discount": {
+                    "amount": "6.00",
+                    "currency": "BYN"
+                },
+                "cost": {
+                    "amount": "19.00",
+                    "currency": "BYN"
+                }
+            },
+            "price": {
+                "amount": "27.00",
+                "currency": "BYN"
+            },
+            "discount": {
+                "amount": "6.00",
+                "currency": "BYN"
+            },
+            "cost": {
+                "amount": "21.00",
+                "currency": "BYN"
+            }
+        },
+        "delivered": {
+            "positions": {
+                "price": {
+                    "amount": "0.00",
+                    "currency": "BYN"
+                },
+                "discount": null,
+                "cost": {
+                    "amount": "0.00",
+                    "currency": "BYN"
+                }
+            },
+            "price": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "discount": null,
+            "cost": {
+                "amount": "2.00",
                 "currency": "BYN"
             }
         }
     },
     "delivered_order_cost": {
-        "amount": "20.00",
-        "currency": "BYN",
-        "converted": {
-            "BYN": {
-                "amount": "20.00",
-                "currency": "BYN"
-            }
-        }
+        "amount": "2.00",
+        "currency": "BYN"
     },
     "comment": "Доставка с 9 до 18"
 }
@@ -224,6 +360,7 @@ Accept: application/json; charset=utf-8
 ```json
 {
     "key": "qz2wa",
+    "promocode": null,
     "user_id": 1,
     "contact": {
         "name": "Пользователь Тестовый",
@@ -247,7 +384,7 @@ Accept: application/json; charset=utf-8
         },
         "type": "courier_delivery",
         "price": {
-            "amount": "3.00", 
+            "amount": "2.00", 
             "currency": "BYN"
         },
         "days": 3,
@@ -264,34 +401,84 @@ Accept: application/json; charset=utf-8
     "is_new_flow": true,
     "status": "delivered",
     "positions_count": 1,
-    "total_quantity": 2,
+    "total_quantity": 1,
     "shop_comments_count": 0,    
     "installment_info": {
         "amount_per_month": {
-            "amount": "11.00",
+            "amount": "9.00",
             "currency": "BYN"
         },
         "term": 3
     },
     "order_cost": {
-        "amount": "30.00",
-        "currency": "BYN",
-        "converted": {
-            "BYN": {
-                "amount": "30.00",
+        "amount": "27.00",
+        "currency": "BYN"
+    },
+    "order_price": {
+        "amount": "27.00",
+        "currency": "BYN"
+    },
+    "order_discount": null,
+    "totals": {
+        "delivery": {
+            "price": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "discount": null,
+            "cost": {
+                "amount": "2.00",
+                "currency": "BYN"
+            }
+        },
+        "original": {
+            "positions": {
+                "price": {
+                    "amount": "25.00",
+                    "currency": "BYN"
+                },
+                "discount": null,
+                "cost": {
+                    "amount": "25.00",
+                    "currency": "BYN"
+                }
+            },
+            "price": {
+                "amount": "27.00",
+                "currency": "BYN"
+            },
+            "discount": null,
+            "cost": {
+                "amount": "27.00",
+                "currency": "BYN"
+            }
+        },
+        "delivered": {
+            "positions": {
+                "price": {
+                    "amount": "0.00",
+                    "currency": "BYN"
+                },
+                "discount": null,
+                "cost": {
+                    "amount": "0.00",
+                    "currency": "BYN"
+                }
+            },
+            "price": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "discount": null,
+            "cost": {
+                "amount": "2.00",
                 "currency": "BYN"
             }
         }
     },
     "delivered_order_cost": {
-        "amount": "30.00",
-        "currency": "BYN",
-        "converted": {
-            "BYN": {
-                "amount": "30.00",
-                "currency": "BYN"
-            }
-        }
+        "amount": "2.00",
+        "currency": "BYN"
     },
     "comment": "Доставка с 9 до 18"
 }
@@ -307,6 +494,10 @@ Accept: application/json; charset=utf-8
 ```json
 {
     "key": "qz2wa",
+    "promocode": {
+        "id": 1,
+        "name": "test1"
+    },
     "user_id": 1,
     "contact": {
         "name": "Пользователь Тестовый",
@@ -330,7 +521,7 @@ Accept: application/json; charset=utf-8
         },
         "type": "courier_delivery",
         "price": {
-            "amount": "3.00", 
+            "amount": "2.00", 
             "currency": "BYN"
         },
         "days": 3,
@@ -352,27 +543,86 @@ Accept: application/json; charset=utf-8
     "is_new_flow": true,
     "status": "new",
     "order_cost": {
-        "amount": "20.00",
-        "currency": "BYN",
-        "converted": {
-            "BYN": {
-                "amount": "20.00",
+        "amount": "21.00",
+        "currency": "BYN"
+    },
+    "order_price": {
+        "amount": "27.00",
+        "currency": "BYN"
+    },
+    "order_discount": {
+        "amount": "6.00",
+        "currency": "BYN"
+    },
+    "totals": {
+        "delivery": {
+            "price": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "discount": null,
+            "cost": {
+                "amount": "2.00",
+                "currency": "BYN"
+            }
+        },
+        "original": {
+            "positions": {
+                "price": {
+                    "amount": "25.00",
+                    "currency": "BYN"
+                },
+                "discount": {
+                    "amount": "6.00",
+                    "currency": "BYN"
+                },
+                "cost": {
+                    "amount": "19.00",
+                    "currency": "BYN"
+                }
+            },
+            "price": {
+                "amount": "27.00",
+                "currency": "BYN"
+            },
+            "discount": {
+                "amount": "6.00",
+                "currency": "BYN"
+            },
+            "cost": {
+                "amount": "21.00",
+                "currency": "BYN"
+            }
+        },
+        "delivered": {
+            "positions": {
+                "price": {
+                    "amount": "0.00",
+                    "currency": "BYN"
+                },
+                "discount": null,
+                "cost": {
+                    "amount": "0.00",
+                    "currency": "BYN"
+                }
+            },
+            "price": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "discount": null,
+            "cost": {
+                "amount": "2.00",
                 "currency": "BYN"
             }
         }
     },
     "delivered_order_cost": {
-        "amount": "20.00",
-        "currency": "BYN",
-        "converted": {
-            "BYN": {
-                "amount": "20.00",
-                "currency": "BYN"
-            }
-        }
+        "amount": "2.00",
+        "currency": "BYN"
     },
     "positions_count": 1,
-    "total_quantity": 2,
+    "total_quantity": 1,
     "shop_comments_count": 0,
     "comment": "Доставка с 9 до 18",
     "shop": {
@@ -391,13 +641,45 @@ Accept: application/json; charset=utf-8
             "article": "NC900",
             "position_price": {
                 "amount": "1740.00",
-                "currency": "BYN",
-                "converted": {
-                    "BYN": {
-                        "amount": "1740.00",
-                        "currency": "BYN"
-                    }
-                }
+                "currency": "BYN"
+            },
+            "regular_price": {
+                "amount": "0.06",
+                "currency": "BYN"
+            },
+            "position_discount": null,
+            "cost": {
+                "amount": "0.01",
+                "currency": "BYN"
+            },
+            "price": {
+                "amount": "0.06",
+                "currency": "BYN"
+            },
+            "discount": {
+                "amount": "0.05",
+                "currency": "BYN"
+            },
+            "delivered_cost": {
+                "amount": "0.00",
+                "currency": "BYN"
+            },
+            "delivered_price": {
+                "amount": "0.00",
+                "currency": "BYN"
+            },
+            "delivered_discount": null,
+            "undelivered_cost": {
+                "amount": "0.01",
+                "currency": "BYN"
+            },
+            "undelivered_price": {
+                "amount": "0.06",
+                "currency": "BYN"
+            },
+            "undelivered_discount": {
+                "amount": "0.05",
+                "currency": "BYN"
             },
             "quantity": 2,
             "delivered_quantity": 2,
@@ -412,26 +694,14 @@ Accept: application/json; charset=utf-8
                 "town": {
                     "delivery_price": {
                         "amount": "0.00",
-                        "currency": "BYN",
-                        "converted": {
-                            "BYN": {
-                                "amount": "0.00",
-                                "currency": "BYN"
-                            }
-                        }
+                        "currency": "BYN"
                     },
                     "time": 1
                 },
                 "country": {
                     "delivery_price": {
                         "amount": "5.00",
-                        "currency": "BYN",
-                        "converted": {
-                            "BYN": {
-                                "amount": "5.00",
-                                "currency": "BYN"
-                            }
-                        }
+                        "currency": "BYN"
                     },
                     "time": 2
                 }
@@ -482,6 +752,10 @@ Accept: application/json; charset=utf-8
 ```json
 {
     "key": "qz2wa",
+    "promocode": {
+        "id": 1,
+        "name": "test1"
+    },
     "user_id": 1,
     "contact": {
         "name": "Пользователь Тестовый",
@@ -505,7 +779,7 @@ Accept: application/json; charset=utf-8
         },
         "type": "courier_delivery",
         "price": {
-            "amount": "3.00", 
+            "amount": "2.00", 
             "currency": "BYN"
         },
         "days": 3,
@@ -513,7 +787,7 @@ Accept: application/json; charset=utf-8
         "is_fake": false
     },
     "payment": {
-        "type": "halva",
+        "type": "online",
         "status": "captured"
     },
     "created_at": "2015-10-14T17:20:28+03:00",
@@ -522,43 +796,94 @@ Accept: application/json; charset=utf-8
     "is_new_flow": true,
     "status": "delivered",
     "positions_count": 1,
-    "total_quantity": 2,
+    "total_quantity": 1,
     "shop_comments_count": 0,    
-    "installment_info": {
-        "amount_per_month": {
-            "amount": "11.00",
-            "currency": "BYN"
-        },
-        "term": 3
-    },
+    "installment_info": null,
     "order_cost": {
-        "amount": "30.00",
-        "currency": "BYN",
-        "converted": {
-            "BYN": {
-                "amount": "30.00",
+        "amount": "25.00",
+        "currency": "BYN"
+    },
+    "order_price": {
+        "amount": "25.00",
+        "currency": "BYN"
+    },
+    "order_discount": null,
+    "totals": {
+        "delivery": {
+            "price": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "discount": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "cost": {
+                "amount": "0.00",
+                "currency": "BYN"
+            }
+        },
+        "original": {
+            "positions": {
+                "price": {
+                    "amount": "25.00",
+                    "currency": "BYN"
+                },
+                "discount": null,
+                "cost": {
+                    "amount": "25.00",
+                    "currency": "BYN"
+                }
+            },
+            "price": {
+                "amount": "25.00",
+                "currency": "BYN"
+            },
+            "discount": null,
+            "cost": {
+                "amount": "25.00",
+                "currency": "BYN"
+            }
+        },
+        "delivered": {
+            "positions": {
+                "price": {
+                    "amount": "0.00",
+                    "currency": "BYN"
+                },
+                "discount": null,
+                "cost": {
+                    "amount": "0.00",
+                    "currency": "BYN"
+                }
+            },
+            "price": {
+                "amount": "0.00",
+                "currency": "BYN"
+            },
+            "discount": null,
+            "cost": {
+                "amount": "0.00",
                 "currency": "BYN"
             }
         }
     },
     "delivered_order_cost": {
-        "amount": "30.00",
-        "currency": "BYN",
-        "converted": {
-            "BYN": {
-                "amount": "30.00",
-                "currency": "BYN"
-            }
-        }
+        "amount": "0.00",
+        "currency": "BYN"
     },
     "promotions": {
         "mastercard_free_delivery": {
             "order_cost": {
-                "amount": "27.00",
+                "amount": "25.00",
+                "currency": "BYN"
+            },
+            "order_price": {
+                "amount": "25.00",
                 "currency": "BYN"
             },
             "delivered_order_cost": {
-                "amount": "27.00",
+                "amount": "0.00",
                 "currency": "BYN"
             },
             "delivery": {
@@ -567,12 +892,13 @@ Accept: application/json; charset=utf-8
                     "currency": "BYN"
                 }
             },
-            "installment_info": {
-                "amount_per_month": {
-                    "amount": "9.00",
+            "cobrand_info": {
+                "use_loyalty_points": false,
+                "cashback": {
+                    "amount": "1.25",
                     "currency": "BYN"
                 },
-                "term": 3
+                "is_max_cashback": false
             }
         }
     },
@@ -590,6 +916,10 @@ Accept: application/json; charset=utf-8
 ```json
 {
     "key": "qz2wa",
+    "promocode": {
+        "id": 1,
+        "name": "test1"
+    },
     "user_id": 1,
     "contact": {
         "name": "Пользователь Тестовый",
@@ -613,7 +943,7 @@ Accept: application/json; charset=utf-8
         },
         "type": "courier",
         "price": {
-            "amount": "3.00", 
+            "amount": "2.00", 
             "currency": "BYN"
         },
         "days": 3,
@@ -632,7 +962,7 @@ Accept: application/json; charset=utf-8
     "by_parts_info": {
         "term": 24,
         "monthly_payment": {
-            "amount": "18.99",
+            "amount": "2.99",
             "currency": "BYN"
         }
     },
@@ -642,156 +972,251 @@ Accept: application/json; charset=utf-8
     "is_new_flow": true,
     "status": "new",
     "positions_count": 1,
-    "total_quantity": 2,
+    "total_quantity": 1,
     "shop_comments_count": 0,
     "order_cost": {
-        "amount": "20.00",
-        "currency": "BYN",
-        "converted": {
-            "BYN": {
-                "amount": "20.00",
+        "amount": "21.00",
+        "currency": "BYN"
+    },
+    "order_price": {
+        "amount": "27.00",
+        "currency": "BYN"
+    },
+    "order_discount": {
+        "amount": "6.00",
+        "currency": "BYN"
+    },
+    "totals": {
+        "delivery": {
+            "price": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "discount": null,
+            "cost": {
+                "amount": "2.00",
+                "currency": "BYN"
+            }
+        },
+        "original": {
+            "positions": {
+                "price": {
+                    "amount": "25.00",
+                    "currency": "BYN"
+                },
+                "discount": {
+                    "amount": "6.00",
+                    "currency": "BYN"
+                },
+                "cost": {
+                    "amount": "19.00",
+                    "currency": "BYN"
+                }
+            },
+            "price": {
+                "amount": "27.00",
+                "currency": "BYN"
+            },
+            "discount": {
+                "amount": "6.00",
+                "currency": "BYN"
+            },
+            "cost": {
+                "amount": "21.00",
+                "currency": "BYN"
+            }
+        },
+        "delivered": {
+            "positions": {
+                "price": {
+                    "amount": "0.00",
+                    "currency": "BYN"
+                },
+                "discount": null,
+                "cost": {
+                    "amount": "0.00",
+                    "currency": "BYN"
+                }
+            },
+            "price": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "discount": null,
+            "cost": {
+                "amount": "2.00",
                 "currency": "BYN"
             }
         }
+    },
+    "delivered_order_cost": {
+        "amount": "2.00",
+        "currency": "BYN"
     },
     "comment": "Доставка с 9 до 18"
 }
 ```
 
+### Все поля с типом "money" имеют следующую структуру:
+
+| Параметр | Тип    | Описание |
+|----------|--------|----------|
+| amount   | string | Сумма    |
+| currency | string | Валюта   |
+
 ### Описание полей ответа
 
-|Параметр|Тип|Описание|
-|---|---|---|
-|key|string|Уникальный код заказа, 5 символов, формируется случайным образом из букв латинского алфавита и цифр, исключая 0, o, 1, i, l|
-|created_at|string|Время создания заказа|
-|updated_at|string|Время изменения заказа|
-|process_deadline|datetime|Время, до которого магазин должен обработать заказ|
-|process_time_left|integer|Сколько секунд осталось до окончания обработки заказа или 0, если время обработки истекло|
-|shop_id|integer|ID магазина|
-|contact.name|string|__(deprecated)__ Имя пользователя (Недоступно, если заказ находится в некоторых статусах)|
-|contact.first_name|string|Имя покупателя|
-|contact.last_name|string|Фамилия покупателя|
-|contacts.middle_name|string|Отчество покупателя|
-|contact.email|string|Контакный e-mail пользователя (Недоступно, если заказ находится в некоторых статусах)|
-|contact.phone|string|Контактный телефон пользователя (Недоступно, если заказ находится в некоторых статусах)|
-|delivery.city|string|Город доставки|
-|delivery.geo_town_id|int|ID населенного пункта из geo api. [Получение детальной информации по id](geo/get_town_by_id.md)|
-|delivery.address|string|Полный адрес доставки (Недоступно, если заказ находится в некоторых статусах)|
-|delivery.address_fields|object|Детализированная информация об адресе доставке (Недоступно, если заказ находится в некоторых статусах)|
-|delivery.address_fields.street|string|Название улицы|
-|delivery.address_fields.building|string or null|Номер дома|
-|delivery.address_fields.apartment|string or null|Номер квартиры|
-|delivery.address_fields.block|string or null|Номер корпуса| 
-|delivery.address_fields.entrance|string or null|Номер подъезда|
-|delivery.address_fields.floor|string or null|Номер этажа| 
-|delivery.address_fields.comment|string or null|Комментарий к адресу|
-|delivery.pickup_point|object|Доставка в ПВЗ|
-|delivery.pickup_point.id|int|ID ПВЗ|
-|delivery.pickup_point.name|string|Название ПВЗ|
-|delivery.pickup_point.address|object|Информация об адресе|
-|delivery.pickup_point.address.geo_town_id|int|ID населенного пункта из geo api. [Получение детальной информации по id](geo/get_town_by_id.md)|
-|delivery.pickup_point.address.town|string|Название города|
-|delivery.pickup_point.address.street|string|Название улицы|
-|delivery.pickup_point.address.building|string|Номер дома|
-|delivery.pickup_point.address.block|string|Корпус|
-|delivery.pickup_point.address.entrance|string|Подъезд|
-|delivery.pickup_point.address.floor|string|Этаж|
-|delivery.pickup_point.address.apartment|string|Квартира|
-|delivery.pickup_point.address.coordinates|object|Координаты ПВЗ|
-|delivery.pickup_point.address.coordinates.lat|float|Широта|
-|delivery.pickup_point.address.coordinates.long|float|Долгота|
-|delivery.pickup_point.address.summary|string|Полное значение адреса|
-|delivery.pickup_point.comment|string|Комментарий к ПВЗ|
-|delivery.pickup_point.contacts.phones|array|Список телефонов ПВЗ|
-|delivery.pickup_point.contacts.phones.*|string|Телефон ПВЗ|
-|delivery.pickup_point.store_term|int|Срок хранения заказа в днях. От 1 до 10 (включительно)|
-|delivery.pickup_point.schedule|object|Режим работы ПВЗ|
-|delivery.pickup_point.schedule.`<week_day>`|object &#124; null|Параметры режима работы ПВЗ для конкретного для недели. Если в этот день ПВЗ не работает(выходной) указывается null|
-|delivery.pickup_point.schedule.`<week_day>`.from|string|Время начала работы. Формат "ЧЧ:ММ"|
-|delivery.pickup_point.schedule.`<week_day>`.till|string|Время окончания работы. Формат "ЧЧ:ММ"|
-|delivery.pickup_point.delivery_confirmed|bool|Пометка о доставке заказа в ПВЗ|
-|delivery.pickup_point.delivery_confirmed_at|string|Время когда был доставлен заказ в ПВЗ (если была оставлена пометка о доставке). Формат ATOM|
-|delivery.pickup_point.delivery_comment|string|Дополнительный комментарий к пометке о доставке в ПВЗ|
-|delivery.type|string or null|Тип доставки. Возможные значения:`courier`, `pickup_point`)|
-|delivery.price|object or null|Стоимость доставки|
-|delivery.price.amount|string|Сумма стоимости доставки|
-|delivery.price.currency|string|Валюта стоимости доставки _(только BYN)_|
-|delivery.days|int or null|Срок доставки (количество дней)|
-|delivery.comment|string or null|Комментарий от магазина к доставке|
-|delivery.is_fake|boolean|Признак ложной доставки, `true`, если пользователь после доставки пожаловался, что доставка не была осуществлена|
-|delivery.date_from|string|(optional) Начало предполагаемого магазином диапазона времени доставки. Формат ATOM|
-|delivery.date_to|string|(optional) Конец предполагаемого магазином диапазона времени доставки. Формат ATOM|
-|delivery.date_range|object|Диапазон дат для доставки (только в статусе "processing")|
-|delivery.date_range.from|string|Дата от YYYY-MM-DD|
-|delivery.date_range.to|string|Дата до YYYY-MM-DD|
-|is_new_flow|boolean|Признак нового заказа (заказ по старому сценарию - false, заказ по новому сценарию - true)|
-|shop_comments_count|integer|Количество внутренних комментариев магазина к заказу|
-|payment|object or null|Блок с информацией о способе оплаты и ее статусе|
-|payment.type|string|Способ оплаты, выбранный пользователем|
-|payment.status|string|Статус онлайн-оплаты|
-|by_parts_info|object (optional)|Информация об оплате частями, отсутствует если `payment.type` не равен `by_parts`|
-|by_parts_info.term|int|Срок платежей|
-|by_parts_info.monthly_payment|object|Информация о ежемесячном платеже|
-|by_parts_info.monthly_payment.amount|string|Сумма ежемесячного платежа|
-|by_parts_info.monthly_payment.currency|object|Валюта ежемесячного платежа|
-|comment|string|Общий комментарий к данному заказу|
-|order_cost|object|Информация о стоимости заказа|
-|order_cost.amount|string|Стоимость заказа|
-|order_cost.currency|string|Валюта|
-|delivered_order_cost|object|Информация о стоимости заказа с учётом фактически доставленных товаров и стоимости доставки|
-|delivered_order_cost.amount|string|Стоимость заказа|
-|delivered_order_cost.currency|string|Валюта|
-|installment_info|object or null|Информация о рассрочке|
-|installment_info.amount_per_month|object|Информация о сумме ежемесячного платежа|
-|installment_info.amount_per_month.amount|string|Сумма ежемесячного платежа|
-|installment_info.amount_per_month.currency|string|Валюта|
+| Параметр                                         | Тип                | Описание                                                                                                                    |
+|--------------------------------------------------|--------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| key                                              | string             | Уникальный код заказа, 5 символов, формируется случайным образом из букв латинского алфавита и цифр, исключая 0, o, 1, i, l |
+| promocode                                        | object/null        | Промокод                                                                                                                    |
+| promocode.id                                     | integer            | Идентификатор промокода                                                                                                     |
+| promocode.name                                   | string             | Название промокода                                                                                                          |
+| created_at                                       | string             | Время создания заказа                                                                                                       |
+| updated_at                                       | string             | Время изменения заказа                                                                                                      |
+| process_deadline                                 | datetime           | Время, до которого магазин должен обработать заказ                                                                          |
+| process_time_left                                | integer            | Сколько секунд осталось до окончания обработки заказа или 0, если время обработки истекло                                   |
+| shop_id                                          | integer            | ID магазина                                                                                                                 |
+| contact.name                                     | string             | __(deprecated)__ Имя пользователя (Недоступно, если заказ находится в некоторых статусах)                                   |
+| contact.first_name                               | string             | Имя покупателя                                                                                                              |
+| contact.last_name                                | string             | Фамилия покупателя                                                                                                          |
+| contacts.middle_name                             | string             | Отчество покупателя                                                                                                         |
+| contact.email                                    | string             | Контакный e-mail пользователя (Недоступно, если заказ находится в некоторых статусах)                                       |
+| contact.phone                                    | string             | Контактный телефон пользователя (Недоступно, если заказ находится в некоторых статусах)                                     |
+| delivery.city                                    | string             | Город доставки                                                                                                              |
+| delivery.geo_town_id                             | int                | ID населенного пункта из geo api. [Получение детальной информации по id](geo/get_town_by_id.md)                             |
+| delivery.address                                 | string             | Полный адрес доставки (Недоступно, если заказ находится в некоторых статусах)                                               |
+| delivery.address_fields                          | object             | Детализированная информация об адресе доставке (Недоступно, если заказ находится в некоторых статусах)                      |
+| delivery.address_fields.street                   | string             | Название улицы                                                                                                              |
+| delivery.address_fields.building                 | string/null        | Номер дома                                                                                                                  |
+| delivery.address_fields.apartment                | string/null        | Номер квартиры                                                                                                              |
+| delivery.address_fields.block                    | string/null        | Номер корпуса                                                                                                               | 
+| delivery.address_fields.entrance                 | string/null        | Номер подъезда                                                                                                              |
+| delivery.address_fields.floor                    | string/null        | Номер этажа                                                                                                                 | 
+| delivery.address_fields.comment                  | string/null        | Комментарий к адресу                                                                                                        |
+| delivery.pickup_point                            | object             | Доставка в ПВЗ                                                                                                              |
+| delivery.pickup_point.id                         | int                | ID ПВЗ                                                                                                                      |
+| delivery.pickup_point.name                       | string             | Название ПВЗ                                                                                                                |
+| delivery.pickup_point.address                    | object             | Информация об адресе                                                                                                        |
+| delivery.pickup_point.address.geo_town_id        | int                | ID населенного пункта из geo api. [Получение детальной информации по id](geo/get_town_by_id.md)                             |
+| delivery.pickup_point.address.town               | string             | Название города                                                                                                             |
+| delivery.pickup_point.address.street             | string             | Название улицы                                                                                                              |
+| delivery.pickup_point.address.building           | string             | Номер дома                                                                                                                  |
+| delivery.pickup_point.address.block              | string             | Корпус                                                                                                                      |
+| delivery.pickup_point.address.entrance           | string             | Подъезд                                                                                                                     |
+| delivery.pickup_point.address.floor              | string             | Этаж                                                                                                                        |
+| delivery.pickup_point.address.apartment          | string             | Квартира                                                                                                                    |
+| delivery.pickup_point.address.coordinates        | object             | Координаты ПВЗ                                                                                                              |
+| delivery.pickup_point.address.coordinates.lat    | float              | Широта                                                                                                                      |
+| delivery.pickup_point.address.coordinates.long   | float              | Долгота                                                                                                                     |
+| delivery.pickup_point.address.summary            | string             | Полное значение адреса                                                                                                      |
+| delivery.pickup_point.comment                    | string             | Комментарий к ПВЗ                                                                                                           |
+| delivery.pickup_point.contacts.phones            | array              | Список телефонов ПВЗ                                                                                                        |
+| delivery.pickup_point.contacts.phones.*          | string             | Телефон ПВЗ                                                                                                                 |
+| delivery.pickup_point.store_term                 | int                | Срок хранения заказа в днях. От 1 до 10 (включительно)                                                                      |
+| delivery.pickup_point.schedule                   | object             | Режим работы ПВЗ                                                                                                            |
+| delivery.pickup_point.schedule.`<week_day>`      | object &#124; null | Параметры режима работы ПВЗ для конкретного для недели. Если в этот день ПВЗ не работает(выходной) указывается null         |
+| delivery.pickup_point.schedule.`<week_day>`.from | string             | Время начала работы. Формат "ЧЧ:ММ"                                                                                         |
+| delivery.pickup_point.schedule.`<week_day>`.till | string             | Время окончания работы. Формат "ЧЧ:ММ"                                                                                      |
+| delivery.pickup_point.delivery_confirmed         | bool               | Пометка о доставке заказа в ПВЗ                                                                                             |
+| delivery.pickup_point.delivery_confirmed_at      | string             | Время когда был доставлен заказ в ПВЗ (если была оставлена пометка о доставке). Формат ATOM                                 |
+| delivery.pickup_point.delivery_comment           | string             | Дополнительный комментарий к пометке о доставке в ПВЗ                                                                       |
+| delivery.type                                    | string/null        | Тип доставки. Возможные значения:`courier`, `pickup_point`)                                                                 |
+| delivery.price                                   | money/null         | Стоимость доставки                                                                                                          |
+| delivery.days                                    | int/null           | Срок доставки (количество дней)                                                                                             |
+| delivery.comment                                 | string/null        | Комментарий от магазина к доставке                                                                                          |
+| delivery.is_fake                                 | boolean            | Признак ложной доставки, `true`, если пользователь после доставки пожаловался, что доставка не была осуществлена            |
+| delivery.date_from                               | string             | (optional) Начало предполагаемого магазином диапазона времени доставки. Формат ATOM                                         |
+| delivery.date_to                                 | string             | (optional) Конец предполагаемого магазином диапазона времени доставки. Формат ATOM                                          |
+| delivery.date_range                              | object             | Диапазон дат для доставки (только в статусе "processing")                                                                   |
+| delivery.date_range.from                         | string             | Дата от YYYY-MM-DD                                                                                                          |
+| delivery.date_range.to                           | string             | Дата до YYYY-MM-DD                                                                                                          |
+| is_new_flow                                      | boolean            | Признак нового заказа (заказ по старому сценарию - false, заказ по новому сценарию - true)                                  |
+| shop_comments_count                              | integer            | Количество внутренних комментариев магазина к заказу                                                                        |
+| payment                                          | object/null        | Блок с информацией о способе оплаты и ее статусе                                                                            |
+| payment.type                                     | string             | Способ оплаты, выбранный пользователем                                                                                      |
+| payment.status                                   | string             | Статус онлайн-оплаты                                                                                                        |
+| by_parts_info                                    | object (optional)  | Информация об оплате частями, отсутствует если `payment.type` не равен `by_parts`                                           |
+| by_parts_info.term                               | int                | Срок платежей                                                                                                               |
+| by_parts_info.monthly_payment                    | money              | Информация о ежемесячном платеже                                                                                            |
+| comment                                          | string             | Общий комментарий к данному заказу                                                                                          |
+| order_cost                                       | money              | Общая стоимость заказа с доставкой с учетом скидок                                                                          |
+| order_price                                      | money              | Общая стоимость заказа с доставкой без учета скидок                                                                         |
+| order_discount                                   | money/null         | Общая скидка на весь заказ                                                                                                  |
+| totals                                           | object             | Информация о стоимости                                                                                                      |
+| totals.delivery                                  | object             | Стоимость доставки                                                                                                          |
+| totals.delivery.price                            | money              | Стоимость доставки без учета скидки                                                                                         |
+| totals.delivery.discount                         | money              | Скидка на доставку                                                                                                          |
+| totals.delivery.cost                             | money              | Стоимость доставки с учетом скидки                                                                                          |
+| totals.original                                  | object             | Стоимость заказа                                                                                                            |
+| totals.original.positions                        | object             | Инфомация о стоимости позиций без учета доставки                                                                            |
+| totals.original.positions.price                  | money              | Стоимость позиций без учета скидки                                                                                          |
+| totals.original.positions.discount               | money              | Скидка по позициям                                                                                                          |
+| totals.original.positions.cost                   | money              | Стоимость позиций с учетом скидки                                                                                           |
+| totals.original.price                            | money              | Общая стоимость заказа с доставкой без учета скидок                                                                         |
+| totals.original.discount                         | money              | Общая скидка на весь заказ                                                                                                  |
+| totals.original.cost                             | money              | Общая стоимость заказа с доставкой с учетом скидок                                                                          |
+| totals.delivered                                 | object             | Стоимость принятого заказа                                                                                                  |
+| totals.delivered.positions                       | object             | Инфомация о стоимости принятых позиций без учета доставки                                                                   |
+| totals.delivered.positions.price                 | money              | Стоимость принятых позиций без учета скидки                                                                                 |
+| totals.delivered.positions.discount              | money              | Скидка по принятым позициям                                                                                                 |
+| totals.delivered.positions.cost                  | money              | Стоимость принятых позиций с учетом скидки                                                                                  |
+| totals.delivered.price                           | money              | Общая стоимость принятого заказа с доставкой без учета скидок                                                               |
+| totals.delivered.discount                        | money              | Общая скидка на весь принятый заказ                                                                                         |
+| totals.delivered.cost                            | money              | Общая стоимость принятого заказа с доставкой с учетом скидок                                                                |
+| delivered_order_cost                             | money              | Общая стоимость принятого заказа с доставкой с учетом скидок                                                                |
+| installment_info                                 | object/null        | Информация о рассрочке                                                                                                      |
+| installment_info.amount_per_month                | money              | Информация о сумме ежемесячного платежа                                                                                     |
 
 #### Описание блока с информацией о ценовой позиции (каждый объект в массиве positions)
 
-|Параметр|Тип|Описание|
-|---|---|---|
-|entry_id|integer|Идентификатор позиции в заказе|
-|article|string or null|Артикул товара|
-|quantity|integer|Количество товаров, заказанных в рамках данной позиции|
-|delivered_quantity|integer|Принятое покупателем количество единиц товара, если отличается от заказанного количества (если способ оплаты “Картой Online”, “Картой Клевер”)|
-|position_price.amount|string|Цена в основной валюте|
-|position_price.currency|string|Основная валюта цены _(по умолчанию BYN)_|
-|position_price.converted|object| __(deprecated)__ Массив цен во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступна только BYN|
-|is_credit|boolean|Флаг доступности покупки в кредит (1 - можно, 0 - нет)|
-|is_cashless|boolean|Флаг предложения для юридических лиц (1 - для юридических, 0 - для физических)|
-|warranty|integer|Срок гарантии на товар (в месяцах)|
-|comment|string|Комментарий продавца к данному предложению|
-|producer|string|Сведения о производителе товара|
-|importer|string|Сведения об импортере товара на территорию РБ|
-|service_centers|string|Сведения о сервисном центре|
-|delivery.town.delivery_price|object|__(deprecated)__ Стоимость доставки в пределах г. Минска (если null - бесплатно)|
-|delivery.town.delivery_price.amount|string|__(deprecated)__ Стоимость доставки в пределах г. Минска в основной валюте|
-|delivery.town.delivery_price.currency|string|__(deprecated)__ Основная валюта стоимости доставки в пределах г. Минска|
-|delivery.town.delivery_price.converted|object| __(deprecated)__ Массив цен доставки в пределах г. Минска во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступна только BYN|
-|delivery.town.time|integer|__(deprecated)__ Срок доставки в пределах г. Минска (в днях) (если не указано - доставка не осуществляется)|
-|delivery.country.delivery_price|object|__(deprecated)__ Стоимость доставки в пределах РБ (если null - бесплатно)|
-|delivery.country.delivery_price.amount|string|__(deprecated)__ Стоимость доставки в пределах РБ в основной валюте|
-|delivery.country.delivery_price.currency|string|__(deprecated)__ Основная валюта стоимости доставки в пределах РБ|
-|delivery.country.delivery_price.converted|object| __(deprecated)__ Массив цен доставки в пределах РБ во всех поддерживаемых валютах, где ключ - код валюты, значение - объект цены с указанием валюты и значением в данной валюте. В данный момент доступна только BYN|
-|delivery.country.time|integer|__(deprecated)__ Срок доставки в пределах РБ (в днях) (если не указано - доставка не осуществляется)|
-|position_id|string|Идентификатор ценового предложения |
+| Параметр                        | Тип         | Описание                                                                                                                                       |
+|---------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| entry_id                        | integer     | Идентификатор позиции в заказе                                                                                                                 |
+| article                         | string/null | Артикул товара                                                                                                                                 |
+| quantity                        | integer     | Количество товаров, заказанных в рамках данной позиции                                                                                         |
+| delivered_quantity              | integer     | Принятое покупателем количество единиц товара, если отличается от заказанного количества (если способ оплаты “Картой Online”, “Картой Клевер”) |
+| position_price                  | money       | Информация о стоимости ценового предложения с учётом скидки                                                                                    |
+| regular_price                   | money       | Информация о стоимости позиции (1 шт.) без учёта скидки                                                                                        |
+| position_discount               | money/null  | Информация о скидке позиции (1 шт.)                                                                                                            |
+| cost                            | money       | Информация о стоимости позиции с учётом количества единиц позиции и c учётом скидки                                                            |
+| price                           | money       | Информация о стоимости позиции с учётом количества единиц позиции и без учёта скидки                                                           |
+| discount                        | money/null  | Информация о скидке позиции с учётом количества единиц позиции                                                                                 |
+| delivered_cost                  | money       | Информация о стоимости позиции с учётом количества доставленных единиц позиции и c учётом скидки                                               |
+| delivered_price                 | money       | Информация о стоимости позиции с учётом количества доставленных единиц позиции и без учёта скидки                                              |
+| delivered_discount              | money/null  | Информация о скидке позиции с учётом количества доставленных единиц позиции                                                                    |
+| undelivered_cost                | money       | Информация о стоимости позиции с учётом количества недоставленных единиц позиции и c учётом скидки                                             |
+| undelivered_price               | money       | Информация о стоимости позиции с учётом количества недоставленных единиц позиции и без учёта скидки                                            |
+| undelivered_discount            | money/null  | Информация о скидке позиции с учётом количества недоставленных единиц позиции                                                                  |
+| is_credit                       | boolean     | Флаг доступности покупки в кредит (1 - можно, 0 - нет)                                                                                         |
+| is_cashless                     | boolean     | Флаг предложения для юридических лиц (1 - для юридических, 0 - для физических)                                                                 |
+| warranty                        | integer     | Срок гарантии на товар (в месяцах)                                                                                                             |
+| comment                         | string      | Комментарий продавца к данному предложению                                                                                                     |
+| producer                        | string      | Сведения о производителе товара                                                                                                                |
+| importer                        | string      | Сведения об импортере товара на территорию РБ                                                                                                  |
+| service_centers                 | string      | Сведения о сервисном центре                                                                                                                    |
+| delivery.town.delivery_price    | money       | __(deprecated)__ Стоимость доставки в пределах г. Минска (если null - бесплатно)                                                               |
+| delivery.town.time              | integer     | __(deprecated)__ Срок доставки в пределах г. Минска (в днях) (если не указано - доставка не осуществляется)                                    |
+| delivery.country.delivery_price | money       | __(deprecated)__ Стоимость доставки в пределах РБ (если null - бесплатно)                                                                      |
+| delivery.country.time           | integer     | __(deprecated)__ Срок доставки в пределах РБ (в днях) (если не указано - доставка не осуществляется)                                           |
+| position_id                     | string      | Идентификатор ценового предложения                                                                                                             |
 
 #### Описание блока с информацией о товаре (объект product в теле объекта position) 
 
-|Параметр|Тип|Описание|
-|---|---|---|
-|id|integer|Числовой идентификатор товара|
-|key|string|Строковый идентификатор товара|
-|name|string|Краткое наименование товара|
-|full_name|string|Полное наименование товара|
-|images|object|Объект со ссылками на главное изображение товара|
-|images.header|string|URL к изображению товара|
-|images.icon|string|URL к изображению товара|
-|description|string|Описание товара (краткая строка)|
-|micro_description|string|Краткая-краткая строка)|
-|html_url|string|Ссылка на страницу товара|
-|reviews.create_html_url|string|Ссылка на страницу создания отзыва на товар|
-|url|string|Ссылка на catalog.api для получения информации о товаре|
+| Параметр                | Тип     | Описание                                                |
+|-------------------------|---------|---------------------------------------------------------|
+| id                      | integer | Числовой идентификатор товара                           |
+| key                     | string  | Строковый идентификатор товара                          |
+| name                    | string  | Краткое наименование товара                             |
+| full_name               | string  | Полное наименование товара                              |
+| images                  | object  | Объект со ссылками на главное изображение товара        |
+| images.header           | string  | URL к изображению товара                                |
+| images.icon             | string  | URL к изображению товара                                |
+| description             | string  | Описание товара (краткая строка)                        |
+| micro_description       | string  | Краткая-краткая строка)                                 |
+| html_url                | string  | Ссылка на страницу товара                               |
+| reviews.create_html_url | string  | Ссылка на страницу создания отзыва на товар             |
+| url                     | string  | Ссылка на catalog.api для получения информации о товаре |
 
 Если получить информацию о товаре не удалось, блок будет содержать только числовой и строковый идентификаторы товара.
 
@@ -799,23 +1224,15 @@ Accept: application/json; charset=utf-8
 
 #### Описание блока с информацией об акциях, примененных к заказу
 
-|Параметр|Тип|Описание|
-|---|---|---|
-|promotions|object|Объект с информацией по акциям|
-|promotions.mastercard_free_delivery|object|(optional) Объект с информацией по акции "Бесплатная доставка от мастеркард". Не возвращается, если акция не применена к заказу|
-|promotions.mastercard_free_delivery.order_cost|object|Информация о стоимости заказа по акции|
-|promotions.mastercard_free_delivery.order_cost.amount|string|Стоимость заказа по акции|
-|promotions.mastercard_free_delivery.order_cost.currency|string|Валюта|
-|promotions.mastercard_free_delivery.delivered_order_cost|object|Информация о стоимости заказа с учётом фактически доставленных товаров и стоимости доставки по акции|
-|promotions.mastercard_free_delivery.delivered_order_cost.amount|string|Стоимость заказа по акции|
-|promotions.mastercard_free_delivery.delivered_order_cost.currency|string|Валюта|
-|promotions.mastercard_free_delivery.delivery.price|object|Стоимость доставки по акции|
-|promotions.mastercard_free_delivery.delivery.price.amount|string|Сумма стоимости доставки по акции|
-|promotions.mastercard_free_delivery.delivery.price.currency|string|Валюта стоимости доставки _(только BYN)_|
-|promotions.mastercard_free_delivery.installment_info|object|(optional) Информация о рассрочке по акции. Возращается, если заказ создан с оплатой в рассрочку|
-|promotions.mastercard_free_delivery.installment_info.amount_per_month|object|Информация о сумме ежемесячного платежа по акции|
-|promotions.mastercard_free_delivery.installment_info.amount_per_month.amount|string|Сумма ежемесячного платежа по акции|
-|promotions.mastercard_free_delivery.installment_info.amount_per_month.currency|string|Валюта|
+| Параметр                                                                       | Тип    | Описание                                                                                                                        |
+|--------------------------------------------------------------------------------|--------|---------------------------------------------------------------------------------------------------------------------------------|
+| promotions                                                                     | object | Объект с информацией по акциям                                                                                                  |
+| promotions.mastercard_free_delivery                                            | object | (optional) Объект с информацией по акции "Бесплатная доставка от мастеркард". Не возвращается, если акция не применена к заказу |
+| promotions.mastercard_free_delivery.order_cost                                 | money  | Информация о стоимости заказа по акции                                                                                          |
+| promotions.mastercard_free_delivery.delivered_order_cost                       | money  | Информация о стоимости заказа с учётом фактически доставленных товаров и стоимости доставки по акции                            |
+| promotions.mastercard_free_delivery.delivery.price                             | money  | Стоимость доставки по акции                                                                                                     |
+| promotions.mastercard_free_delivery.installment_info                           | object | (optional) Информация о рассрочке по акции. Возращается, если заказ создан с оплатой в рассрочку                                |
+| promotions.mastercard_free_delivery.installment_info.amount_per_month          | money  | Информация о сумме ежемесячного платежа по акции                                                                                |
 
 ### Oтвет при попытке получить несуществующий заказ
 
@@ -847,8 +1264,8 @@ Content-Type: application/json; charset=utf-8
 
 ### Возможные ошибки для полей:
 
-|Параметр|Ошибки|
-|---|---|
-|include|Поле обязательно для заполнения|
-|include|Значение поля должно быть строкой|
-|include|Неправильный набор названий групп дополнительной информации|
+| Параметр | Ошибки                                                      |
+|----------|-------------------------------------------------------------|
+| include  | Поле обязательно для заполнения                             |
+| include  | Значение поля должно быть строкой                           |
+| include  | Неправильный набор названий групп дополнительной информации |
