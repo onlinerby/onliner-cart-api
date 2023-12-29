@@ -117,7 +117,10 @@ Accept: application/json; charset=utf-8
             "total_quantity": 1,
             "shop_comments_count": 0,
             "comment": "",
-            "product_names": []
+            "product_names": [],
+            "permissions": {
+                "delete": false
+            }
         },
         {
             "key": "shop1_1",
@@ -201,7 +204,10 @@ Accept: application/json; charset=utf-8
                 "currency": "BYN"
             },
             "comment": "Доставка с 9 до 18",
-            "product_names": ["Apple iPhone 1"]
+            "product_names": ["Apple iPhone 1"],
+            "permissions": {
+                "delete": false
+            }
         }
     ]
 }
@@ -353,6 +359,9 @@ Accept: application/json; charset=utf-8
                 "currency": "BYN"
             },
             "comment": "",
+            "permissions": {
+                "delete": false
+            },
             "shop": {
                 "id": 668,
                 "url": "https://shop.api.onliner.by/shops/668",
