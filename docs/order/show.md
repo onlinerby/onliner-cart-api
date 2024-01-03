@@ -1186,7 +1186,7 @@ Accept: application/json; charset=utf-8
 | installment_info                                 | object/null        | Информация о рассрочке                                                                                                      |
 | installment_info.amount_per_month                | money              | Информация о сумме ежемесячного платежа                                                                                     |
 | permissions                                      | object             | Права доступа для заказа                                                                                                    |
-| permissions.deleted                              | bool               | Можно ли удалить заказ                                                                                                      |
+| permissions.delete                               | bool               | Можно ли удалить заказ                                                                                                      |
 
 #### Описание блока с информацией о ценовой позиции (каждый объект в массиве positions)
 
