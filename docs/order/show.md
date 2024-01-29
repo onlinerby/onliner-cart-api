@@ -75,7 +75,6 @@ Accept: application/json; charset=utf-8
     "positions_count": 1,
     "total_quantity": 1,
     "shop_comments_count": 0,
-    "in_rating": false,
     "order_cost": {
         "amount": "21.00",
         "currency": "BYN"
@@ -268,8 +267,7 @@ Accept: application/json; charset=utf-8
     "status": "new",
     "positions_count": 1,
     "total_quantity": 1,
-    "shop_comments_count": 0,
-    "in_rating": false,
+    "shop_comments_count": 0,    
     "installment_info": null,
     "order_cost": {
         "amount": "21.00",
@@ -410,8 +408,7 @@ Accept: application/json; charset=utf-8
     "status": "delivered",
     "positions_count": 1,
     "total_quantity": 1,
-    "shop_comments_count": 0,
-    "in_rating": false,
+    "shop_comments_count": 0,    
     "installment_info": {
         "amount_per_month": {
             "amount": "9.00",
@@ -636,7 +633,6 @@ Accept: application/json; charset=utf-8
     "positions_count": 1,
     "total_quantity": 1,
     "shop_comments_count": 0,
-    "in_rating": false,
     "comment": "Доставка с 9 до 18",
     "permissions": {
         "delete": false
@@ -813,8 +809,7 @@ Accept: application/json; charset=utf-8
     "status": "delivered",
     "positions_count": 1,
     "total_quantity": 1,
-    "shop_comments_count": 0,
-    "in_rating": false,
+    "shop_comments_count": 0,    
     "installment_info": null,
     "order_cost": {
         "amount": "25.00",
@@ -997,7 +992,6 @@ Accept: application/json; charset=utf-8
     "positions_count": 1,
     "total_quantity": 1,
     "shop_comments_count": 0,
-    "in_rating": false,
     "order_cost": {
         "amount": "21.00",
         "currency": "BYN"
@@ -1193,7 +1187,6 @@ Accept: application/json; charset=utf-8
 | installment_info.amount_per_month                | money              | Информация о сумме ежемесячного платежа                                                                                     |
 | permissions                                      | object             | Права доступа для заказа                                                                                                    |
 | permissions.delete                               | bool               | Можно ли удалить заказ                                                                                                      |
-| in_rating                                        | bool               | Флаг указывающий, учитывается ли заказ в рейтинге успешности                                                                |
 
 #### Описание блока с информацией о ценовой позиции (каждый объект в массиве positions)
 
