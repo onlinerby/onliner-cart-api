@@ -116,7 +116,6 @@ Accept: application/json; charset=utf-8
             "installment_info": null,
             "total_quantity": 1,
             "shop_comments_count": 0,
-            "in_rating": false,
             "comment": "",
             "product_names": [],
             "permissions": {
@@ -133,7 +132,6 @@ Accept: application/json; charset=utf-8
             "positions_count": 1,
             "total_quantity": 1,
             "shop_comments_count": 0,
-            "in_rating": false,
             "promocode": null,
             "order_cost": {
                 "amount": "27.00",
@@ -277,7 +275,6 @@ Accept: application/json; charset=utf-8
             "positions_count": 1,
             "total_quantity": 1,
             "shop_comments_count": 0,
-            "in_rating": false,
             "promocode": {
 				"id": 1,
 				"name": "test1"
