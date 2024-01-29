@@ -154,7 +154,10 @@ Accept: application/json; charset=utf-8
         "amount": "2.00",
         "currency": "BYN"
     },
-    "comment": "Доставка с 9 до 18"
+    "comment": "Доставка с 9 до 18",
+    "permissions": {
+        "delete": false
+    }
 }
 ```
 
@@ -345,7 +348,10 @@ Accept: application/json; charset=utf-8
         "amount": "2.00",
         "currency": "BYN"
     },
-    "comment": "Доставка с 9 до 18"
+    "comment": "Доставка с 9 до 18",
+    "permissions": {
+        "delete": false
+    }
 }
 
 ```
@@ -480,7 +486,10 @@ Accept: application/json; charset=utf-8
         "amount": "2.00",
         "currency": "BYN"
     },
-    "comment": "Доставка с 9 до 18"
+    "comment": "Доставка с 9 до 18",
+    "permissions": {
+        "delete": false
+    }
 }
 ```
 
@@ -625,6 +634,9 @@ Accept: application/json; charset=utf-8
     "total_quantity": 1,
     "shop_comments_count": 0,
     "comment": "Доставка с 9 до 18",
+    "permissions": {
+        "delete": false
+    },
     "shop": {
         "id": 668,
         "url": "https://shop.api.onliner.by/shops/668",
@@ -902,7 +914,10 @@ Accept: application/json; charset=utf-8
             }
         }
     },
-    "comment": "Доставка с 9 до 18"
+    "comment": "Доставка с 9 до 18",
+    "permissions": {
+        "delete": false
+    },
 }
 ```
 
@@ -965,6 +980,9 @@ Accept: application/json; charset=utf-8
             "amount": "2.99",
             "currency": "BYN"
         }
+    },
+    "permissions": {
+        "delete": false
     },
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-14T17:20:28+03:00",
@@ -1167,6 +1185,8 @@ Accept: application/json; charset=utf-8
 | delivered_order_cost                             | money              | Общая стоимость принятого заказа с доставкой с учетом скидок                                                                |
 | installment_info                                 | object/null        | Информация о рассрочке                                                                                                      |
 | installment_info.amount_per_month                | money              | Информация о сумме ежемесячного платежа                                                                                     |
+| permissions                                      | object             | Права доступа для заказа                                                                                                    |
+| permissions.delete                               | bool               | Можно ли удалить заказ                                                                                                      |
 
 #### Описание блока с информацией о ценовой позиции (каждый объект в массиве positions)
 
