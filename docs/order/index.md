@@ -116,6 +116,7 @@ Accept: application/json; charset=utf-8
             "installment_info": null,
             "total_quantity": 1,
             "shop_comments_count": 0,
+            "affects_rating": "undefined",
             "comment": "",
             "product_names": [],
             "permissions": {
@@ -132,6 +133,7 @@ Accept: application/json; charset=utf-8
             "positions_count": 1,
             "total_quantity": 1,
             "shop_comments_count": 0,
+            "affects_rating": "undefined",
             "promocode": null,
             "order_cost": {
                 "amount": "27.00",
@@ -275,6 +277,7 @@ Accept: application/json; charset=utf-8
             "positions_count": 1,
             "total_quantity": 1,
             "shop_comments_count": 0,
+            "affects_rating": "neutral",
             "promocode": {
 				"id": 1,
 				"name": "test1"
@@ -453,26 +456,27 @@ Accept: application/json; charset=utf-8
 
 ### Описание полей ответа
 
-| Параметр              | Тип         | Описание                                                                                  |
-|-----------------------|-------------|-------------------------------------------------------------------------------------------|
-| key                   | string      | Уникальный код заказа                                                                     |
-| status                | string      | Строковый код статуса                                                                     |
-| created_at            | string      | Время создания заказа                                                                     |
-| updated_at            | string      | Время изменения заказа                                                                    |
-| process_deadline      | datetime    | Время, до которого магазин должен обработать заказ                                        |
-| process_time_left     | integer     | Сколько секунд осталось до окончания обработки заказа или 0, если время обработки истекло |
-| positions_count       | integer     | Количество позиций в заказе                                                               |
-| total_quantity        | integer     | Общее количество товаров в заказе                                                         |
-| shop_comments_count   | integer     | Количество внутренних комментариев магазина к заказу                                      |
-| promocode             | object/null | Промокод                                                                                  |
-| order_cost            | money       | Общая стоимость заказа с доставкой с учетом скидок                                        |
-| order_price           | money       | Общая стоимость заказа с доставкой без учета скидок                                       |
-| order_discount        | money/null  | Общая скидка на весь заказ                                                                |
-| totals                | object      | Информация о стоимости                                                                    |
-| comment               | string      | Общий комментарий пользователя к данному заказу                                           |
-| product_names         | array       | Имена товаров в заказе                                                                    |
-| positions.entry_id    | integer     | ID позиции в заказе                                                                       |
-| positions.position_id | string      | Идентификатор ценового предложения                                                        |
+| Параметр              | Тип         | Описание                                                                                                                                                     |
+|-----------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| key                   | string      | Уникальный код заказа                                                                                                                                        |
+| status                | string      | Строковый код статуса                                                                                                                                        |
+| created_at            | string      | Время создания заказа                                                                                                                                        |
+| updated_at            | string      | Время изменения заказа                                                                                                                                       |
+| process_deadline      | datetime    | Время, до которого магазин должен обработать заказ                                                                                                           |
+| process_time_left     | integer     | Сколько секунд осталось до окончания обработки заказа или 0, если время обработки истекло                                                                    |
+| positions_count       | integer     | Количество позиций в заказе                                                                                                                                  |
+| total_quantity        | integer     | Общее количество товаров в заказе                                                                                                                            |
+| shop_comments_count   | integer     | Количество внутренних комментариев магазина к заказу                                                                                                         |
+| promocode             | object/null | Промокод                                                                                                                                                     |
+| order_cost            | money       | Общая стоимость заказа с доставкой с учетом скидок                                                                                                           |
+| order_price           | money       | Общая стоимость заказа с доставкой без учета скидок                                                                                                          |
+| order_discount        | money/null  | Общая скидка на весь заказ                                                                                                                                   |
+| totals                | object      | Информация о стоимости                                                                                                                                       |
+| comment               | string      | Общий комментарий пользователя к данному заказу                                                                                                              |
+| product_names         | array       | Имена товаров в заказе                                                                                                                                       |
+| positions.entry_id    | integer     | ID позиции в заказе                                                                                                                                          |
+| positions.position_id | string      | Идентификатор ценового предложения                                                                                                                           |
+| affects_rating        | string/null | Влияет ли заказ на рейтинг успешности. `positive` - влияет положительно, `negative` - влияет отрицательно, `neutral`- не влияет, `undefined` - не определено |
 
 Для более подробного описания полей смотрите [описание метода для получения информации о конкретном заказе](show.md). 
 
