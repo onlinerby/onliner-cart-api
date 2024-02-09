@@ -1193,7 +1193,7 @@ Accept: application/json; charset=utf-8
 | installment_info.amount_per_month                | money             | Информация о сумме ежемесячного платежа                                                                                                                      |
 | permissions                                      | object            | Права доступа для заказа                                                                                                                                     |
 | permissions.delete                               | bool              | Можно ли удалить заказ                                                                                                                                       |
-| affects_rating                                   | string/null       | Влияет ли заказ на рейтинг успешности. `positive` - влияет положительно, `negative` - влияет отрицательно, `neutral`- не влияет, `undefined` - не определено |
+| affects_rating                                   | string (optional) | Влияет ли заказ на рейтинг успешности. `positive` - влияет положительно, `negative` - влияет отрицательно, `neutral`- не влияет, `undefined` - не определено |
 
 #### Описание блока с информацией о ценовой позиции (каждый объект в массиве positions)
 
