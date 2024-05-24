@@ -726,8 +726,7 @@ Accept: application/json; charset=utf-8
                 "full_name": "Apple iPhone 6 Plus (128Gb)",
                 "html_url": "http://catalog.onliner.by/mobile/apple/iphone6_128gb",
                 "images": {
-                    "header": "https://content2.onliner.by/catalog/device/header/9ef7d6129330582a204ee2192b578c72.jpg",
-                    "icon": "https://content2.onliner.by/catalog/device/icon/d75663217c0b89622d66faada19c2aa7.jpg"
+                    "header": "https://imgproxy.onliner.by/sHBAJGlZLiZK9jgSF1VF40iYOx2gnu9bdpTOyY0MWIU/w:170/h:250/z:2/f:jpg/aHR0cHM6Ly9jb250/ZW50Lm9ubGluZXIu/dHYxL2NhdGFsb2cv/ZGV2aWNlL2hlYWRl/ci8xNWFiM2Y3NTI5/MWM0ZmFjMjhiN2Ni/YzRlNTVmNGVmZC5q/cGc"
                 },
                 "description": "Apple iOS, экран 5.5\" IPS (1080x1920), ОЗУ 1 ГБ, флэш-память 128 ГБ, камера 8 Мп, аккумулятор 2915 мАч",
                 "micro_description": "экран 5.5\" (1080x1920), ОЗУ 1 ГБ, флэш-память 128 ГБ",
@@ -1231,7 +1230,6 @@ Accept: application/json; charset=utf-8
 | full_name               | string  | Полное наименование товара                              |
 | images                  | object  | Объект со ссылками на главное изображение товара        |
 | images.header           | string  | URL к изображению товара                                |
-| images.icon             | string  | URL к изображению товара                                |
 | description             | string  | Описание товара (краткая строка)                        |
 | micro_description       | string  | Краткая-краткая строка)                                 |
 | html_url                | string  | Ссылка на страницу товара                               |
