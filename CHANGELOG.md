@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 28.10.2024
+
+* Удалено устаревшее поле `is_new_flow` из блока с информацией о заказе (GET /orders, GET /orders/{orderKey}, PATCH /orders/{orderId})
+
 ## 10.10.2024
 
 * Добавлен новый [способ оплаты](README.md#способы-оплаты) `for_national_goods`

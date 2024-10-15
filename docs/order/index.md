@@ -270,7 +270,6 @@ Accept: application/json; charset=utf-8
             "updated_at": "2015-10-14T17:20:28+03:00",
             "process_deadline": "2015-10-14T17:40:28+03:00",
             "process_time_left": 60,
-            "is_new_flow": true,
             "status": "new",
             "positions_count": 1,
             "total_quantity": 1,
