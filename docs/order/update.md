@@ -137,7 +137,6 @@ Content-Type: application/json; charset=utf-8
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-20T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
-    "is_new_flow": true,
     "status": "confirmed",
     "positions_count": 2,
     "total_quantity": 3,
