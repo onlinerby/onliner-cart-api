@@ -70,7 +70,6 @@ Accept: application/json; charset=utf-8
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-14T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
-    "is_new_flow": true,
     "status": "new",
     "positions_count": 1,
     "total_quantity": 1,
@@ -263,7 +262,6 @@ Accept: application/json; charset=utf-8
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-14T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
-    "is_new_flow": true,
     "status": "new",
     "positions_count": 1,
     "total_quantity": 1,
@@ -404,7 +402,6 @@ Accept: application/json; charset=utf-8
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-14T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
-    "is_new_flow": true,
     "status": "delivered",
     "positions_count": 1,
     "total_quantity": 1,
@@ -549,7 +546,6 @@ Accept: application/json; charset=utf-8
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-14T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
-    "is_new_flow": true,
     "status": "new",
     "order_cost": {
         "amount": "21.00",
@@ -804,7 +800,6 @@ Accept: application/json; charset=utf-8
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-14T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
-    "is_new_flow": true,
     "status": "delivered",
     "positions_count": 1,
     "total_quantity": 1,
@@ -986,7 +981,6 @@ Accept: application/json; charset=utf-8
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-14T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
-    "is_new_flow": true,
     "status": "new",
     "positions_count": 1,
     "total_quantity": 1,
@@ -1148,10 +1142,9 @@ Accept: application/json; charset=utf-8
 | delivery.date_range                              | object             | Диапазон дат для доставки (только в статусе "processing")                                                                          |
 | delivery.date_range.from                         | string             | Дата от YYYY-MM-DD                                                                                                                 |
 | delivery.date_range.to                           | string             | Дата до YYYY-MM-DD                                                                                                                 |
-| is_new_flow                                      | boolean            | Признак нового заказа (заказ по старому сценарию - false, заказ по новому сценарию - true)                                         |
-| shop_comments_count                              | integer            | Количество внутренних комментариев магазина к заказу                                                                               |
-| payment                                          | object/null        | Блок с информацией о способе оплаты и ее статусе                                                                                   |
-| payment.type                                     | string             | Способ оплаты, выбранный пользователем (возможные значения: online, cash, terminal, cashless, by_parts, halva, for_national_goods) |
+| shop_comments_count                              | integer            | Количество внутренних комментариев магазина к заказу                                                                        |
+| payment                                          | object/null        | Блок с информацией о способе оплаты и ее статусе                                                                            |
+| payment.type                                     | string             | Способ оплаты, выбранный пользователем                                                                                     (возможные значения: online, cash, terminal, cashless, by_parts, halva, for_national_goods) |
 | payment.status                                   | string             | Статус онлайн-оплаты                                                                                                               |
 | by_parts_info                                    | object (optional)  | Информация об оплате частями, отсутствует если `payment.type` не равен `by_parts`                                                  |
 | by_parts_info.term                               | int                | Срок платежей                                                                                                                      |
