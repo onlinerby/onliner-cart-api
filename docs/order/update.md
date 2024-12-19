@@ -128,6 +128,7 @@ Content-Type: application/json; charset=utf-8
             "currency": "BYN"
         },
         "days": 3,
+        "term": "17 октября",
         "comment": "Курьер прибудет с 17:00 - 21:00",
         "is_fake": false
     },
