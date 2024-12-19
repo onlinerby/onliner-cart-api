@@ -2,7 +2,10 @@
 
 ## 23.12.2024
 
-* Добавлено новое поле `delivery.term` - время доставки в строковом формате, в [блок с информацией о заказе](docs/order/show.md#описание-полей-ответа) (GET /orders, GET /orders/{orderKey}, PATCH /orders/{orderId})
+* Добавлено новое поле `delivery.term` - время доставки в строковом формате. Поле добавлено в [блок с информацией о заказе](docs/order/show.md#описание-полей-ответа) для следующих методов: 
+    * GET /orders
+    * GET /orders/{orderKey}
+    * PATCH /orders/{orderId}
 
 ## 28.10.2024
 
