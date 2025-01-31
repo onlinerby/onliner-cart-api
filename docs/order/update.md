@@ -192,6 +192,11 @@ Content-Type: application/json; charset=utf-8
             "cost": {
                 "amount": "21.00",
                 "currency": "BYN"
+            },
+            "overpayment": null,
+            "overall": {
+                "amount": "21.00",
+                "currency": "BYN"
             }
         },
         "delivered": {
@@ -212,6 +217,11 @@ Content-Type: application/json; charset=utf-8
             },
             "discount": null,
             "cost": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "overpayment": null,
+            "overall": {
                 "amount": "2.00",
                 "currency": "BYN"
             }
