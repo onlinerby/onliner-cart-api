@@ -125,6 +125,11 @@ Accept: application/json; charset=utf-8
             "cost": {
                 "amount": "21.00",
                 "currency": "BYN"
+            },
+            "overpayment": null,
+            "overall": {
+                "amount": "21.00",
+                "currency": "BYN"
             }
         },
         "delivered": {
@@ -145,6 +150,11 @@ Accept: application/json; charset=utf-8
             },
             "discount": null,
             "cost": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "overpayment": null,
+            "overall": {
                 "amount": "2.00",
                 "currency": "BYN"
             }
@@ -319,6 +329,11 @@ Accept: application/json; charset=utf-8
             "cost": {
                 "amount": "21.00",
                 "currency": "BYN"
+            },
+            "overpayment": null,
+            "overall": {
+                "amount": "21.00",
+                "currency": "BYN"
             }
         },
         "delivered": {
@@ -339,6 +354,11 @@ Accept: application/json; charset=utf-8
             },
             "discount": null,
             "cost": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "overpayment": null,
+            "overall": {
                 "amount": "2.00",
                 "currency": "BYN"
             }
@@ -457,6 +477,11 @@ Accept: application/json; charset=utf-8
             "cost": {
                 "amount": "27.00",
                 "currency": "BYN"
+            },
+            "overpayment": null,
+            "overall": {
+                "amount": "27.00",
+                "currency": "BYN"
             }
         },
         "delivered": {
@@ -477,6 +502,11 @@ Accept: application/json; charset=utf-8
             },
             "discount": null,
             "cost": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "overpayment": null,
+            "overall": {
                 "amount": "2.00",
                 "currency": "BYN"
             }
@@ -601,6 +631,11 @@ Accept: application/json; charset=utf-8
             "cost": {
                 "amount": "21.00",
                 "currency": "BYN"
+            },
+            "overpayment": null,
+            "overall": {
+                "amount": "21.00",
+                "currency": "BYN"
             }
         },
         "delivered": {
@@ -621,6 +656,11 @@ Accept: application/json; charset=utf-8
             },
             "discount": null,
             "cost": {
+                "amount": "2.00",
+                "currency": "BYN"
+            },
+            "overpayment": null,
+            "overall": {
                 "amount": "2.00",
                 "currency": "BYN"
             }
@@ -854,6 +894,11 @@ Accept: application/json; charset=utf-8
             "cost": {
                 "amount": "25.00",
                 "currency": "BYN"
+            },
+            "overpayment": null,
+            "overall": {
+                "amount": "25.00",
+                "currency": "BYN"
             }
         },
         "delivered": {
@@ -874,6 +919,11 @@ Accept: application/json; charset=utf-8
             },
             "discount": null,
             "cost": {
+                "amount": "0.00",
+                "currency": "BYN"
+            },
+            "overpayment": null,
+            "overall": {
                 "amount": "0.00",
                 "currency": "BYN"
             }
@@ -1028,6 +1078,14 @@ Accept: application/json; charset=utf-8
                 "cost": {
                     "amount": "19.00",
                     "currency": "BYN"
+                },
+                "overpayment": {
+                    "amount": "0.15",
+                    "currency": "BYN"
+                },
+                "overall": {
+                    "amount": "19.15",
+                    "currency": "BYN"
                 }
             },
             "price": {
@@ -1062,6 +1120,14 @@ Accept: application/json; charset=utf-8
             "discount": null,
             "cost": {
                 "amount": "2.00",
+                "currency": "BYN"
+            },
+            "overpayment": {
+                "amount": "0.01",
+                "currency": "BYN"
+            },
+            "overall": {
+                "amount": "2.01",
                 "currency": "BYN"
             }
         }
@@ -1173,6 +1239,8 @@ Accept: application/json; charset=utf-8
 | totals.original.price                            | money              | Общая стоимость заказа с доставкой без учета скидок                                                                                                                                                                    |
 | totals.original.discount                         | money              | Общая скидка на весь заказ                                                                                                                                                                                             |
 | totals.original.cost                             | money              | Общая стоимость заказа с доставкой с учетом скидок                                                                                                                                                                     |
+| totals.original.overpayment                      | money              | Информация о переплате по заказу, если при оплате использован кредит                                                                                                                                                   |
+| totals.original.overall                          | money              | Информация о стоимости заказа с учётом переплаты по кредиту                                                                                                                                                            |
 | totals.delivered                                 | object             | Стоимость принятого заказа                                                                                                                                                                                             |
 | totals.delivered.positions                       | object             | Инфомация о стоимости принятых позиций без учета доставки                                                                                                                                                              |
 | totals.delivered.positions.price                 | money              | Стоимость принятых позиций без учета скидки                                                                                                                                                                            |
@@ -1181,6 +1249,8 @@ Accept: application/json; charset=utf-8
 | totals.delivered.price                           | money              | Общая стоимость принятого заказа с доставкой без учета скидок                                                                                                                                                          |
 | totals.delivered.discount                        | money              | Общая скидка на весь принятый заказ                                                                                                                                                                                    |
 | totals.delivered.cost                            | money              | Общая стоимость принятого заказа с доставкой с учетом скидок                                                                                                                                                           |
+| totals.delivered.overpayment                     | money              | Информация о переплате по принятому заказу, если при оплате использован кредит                                                                                                                                         |
+| totals.delivered.overall                         | money              | Информация о стоимости принятого заказа с учётом переплаты по кредиту                                                                                                                                                  |
 | delivered_order_cost                             | money              | Общая стоимость принятого заказа с доставкой с учетом скидок                                                                                                                                                           |
 | installment_info                                 | object/null        | Информация о рассрочке                                                                                                                                                                                                 |
 | installment_info.amount_per_month                | money              | Информация о сумме ежемесячного платежа                                                                                                                                                                                |
