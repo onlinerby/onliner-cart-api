@@ -1222,7 +1222,7 @@ Accept: application/json; charset=utf-8
                     "date": "01-01-2026"
                 }
             },
-            "purpose": "Переподажа"
+            "purpose": "Перепродажа"
         }
     },
     "permissions": {
