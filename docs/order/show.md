@@ -1206,7 +1206,7 @@ Accept: application/json; charset=utf-8
             "bank": {
                 "iban": "BY12345678901234567890123456",
                 "name": "ЗАО Альфа-Банк",
-                "bic": "ALFABY2X123"
+                "bic": "ALFABY2X"
             },
             "edi": {
                 "org_gln": "1234567890123",
