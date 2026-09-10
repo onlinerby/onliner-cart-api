@@ -287,7 +287,8 @@ Accept: application/json; charset=utf-8
             },
             "payment": {
                 "type": "online",
-                "status": "authorized"
+                "status": "authorized",
+                "legal_info": null
             },
             "created_at": "2015-10-14T17:20:28+03:00",
             "updated_at": "2015-10-14T17:20:28+03:00",
