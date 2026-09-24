@@ -40,6 +40,7 @@ Accept: application/json; charset=utf-8
             "created_at": "2015-10-04T10:00:00+03:00",
             "updated_at": "2015-10-04T10:00:00+03:00",
             "process_deadline": "2015-10-04T10:20:00+03:00",
+            "is_third_party": false,
             "process_time_left": 60,
             "positions_count": 1,
             "promocode": null,
@@ -139,6 +140,7 @@ Accept: application/json; charset=utf-8
             "created_at": "2015-10-01T10:00:00+03:00",
             "updated_at": "2015-10-01T10:00:00+03:00",
             "process_deadline": "2015-10-04T10:20:00+03:00",
+            "is_third_party": false,
             "process_time_left": 60,
             "positions_count": 1,
             "total_quantity": 1,
@@ -293,6 +295,7 @@ Accept: application/json; charset=utf-8
             "created_at": "2015-10-14T17:20:28+03:00",
             "updated_at": "2015-10-14T17:20:28+03:00",
             "process_deadline": "2015-10-14T17:40:28+03:00",
+            "is_third_party": false,
             "process_time_left": 60,
             "status": "new",
             "positions_count": 1,
@@ -494,6 +497,7 @@ Accept: application/json; charset=utf-8
 | updated_at            | string            | Время изменения заказа                                                                                                                                       |
 | process_deadline      | datetime          | Время, до которого магазин должен обработать заказ                                                                                                           |
 | process_time_left     | integer           | Сколько секунд осталось до окончания обработки заказа или 0, если время обработки истекло                                                                    |
+| is_third_party        | bool              | Признак, что заказ доставляется третьему лицу. Не сообщайте способ оплаты                                                                                    |
 | positions_count       | integer           | Количество позиций в заказе                                                                                                                                  |
 | total_quantity        | integer           | Общее количество товаров в заказе                                                                                                                            |
 | shop_comments_count   | integer           | Количество внутренних комментариев магазина к заказу                                                                                                         |
