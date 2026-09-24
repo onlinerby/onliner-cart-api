@@ -71,6 +71,7 @@ Accept: application/json; charset=utf-8
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-14T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
+    "is_third_party": false,
     "status": "new",
     "positions_count": 1,
     "total_quantity": 1,
@@ -275,6 +276,7 @@ Accept: application/json; charset=utf-8
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-14T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
+    "is_third_party": false,
     "status": "new",
     "positions_count": 1,
     "total_quantity": 1,
@@ -427,6 +429,7 @@ Accept: application/json; charset=utf-8
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-14T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
+    "is_third_party": false,
     "status": "delivered",
     "positions_count": 1,
     "total_quantity": 1,
@@ -583,6 +586,7 @@ Accept: application/json; charset=utf-8
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-14T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
+    "is_third_party": false,
     "status": "new",
     "order_cost": {
         "amount": "21.00",
@@ -849,6 +853,7 @@ Accept: application/json; charset=utf-8
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-14T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
+    "is_third_party": false,
     "status": "delivered",
     "positions_count": 1,
     "total_quantity": 1,
@@ -1042,6 +1047,7 @@ Accept: application/json; charset=utf-8
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-14T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
+    "is_third_party": false,
     "status": "new",
     "positions_count": 1,
     "total_quantity": 1,
@@ -1231,6 +1237,7 @@ Accept: application/json; charset=utf-8
     "created_at": "2015-10-14T17:20:28+03:00",
     "updated_at": "2015-10-14T17:20:28+03:00",
     "process_deadline": "2015-10-14T17:40:28+03:00",
+    "is_third_party": false,
     "status": "new",
     "positions_count": 1,
     "total_quantity": 1,
@@ -1354,6 +1361,7 @@ Accept: application/json; charset=utf-8
 | updated_at                                       | string            | Время изменения заказа                                                                                                                                       |
 | process_deadline                                 | datetime          | Время, до которого магазин должен обработать заказ                                                                                                           |
 | process_time_left                                | integer           | Сколько секунд осталось до окончания обработки заказа или 0, если время обработки истекло                                                                    |
+| is_third_party                                   | bool              | Признак, что заказ доставляется третьему лицу. Не сообщайте способ оплаты                                                                                    |
 | shop_id                                          | integer           | ID магазина                                                                                                                                                  |
 | contact.name                                     | string            | __(deprecated)__ Имя пользователя (Недоступно, если заказ находится в некоторых статусах)                                                                    |
 | contact.first_name                               | string            | Имя покупателя                                                                                                                                               |
@@ -1453,7 +1461,8 @@ Accept: application/json; charset=utf-8
 | totals.original.positions.cost                   | money             | Стоимость позиций с учетом скидки                                                                                                                            |
 | totals.original.price                            | money             | Общая стоимость заказа с доставкой без учета скидок                                                                                                          |
 | totals.original.discount                         | money             | Общая скидка на весь заказ                                                                                                                                   |
-| totals.original.cost                             | money             | Общая стоимость заказа с доставкой с учетом скидок                                                                                                           || totals.original.overpayment                      | money              | Информация о переплате по заказу, если при оплате использован кредит                                                                                                                                                   |
+| totals.original.cost                             | money             | Общая стоимость заказа с доставкой с учетом скидок                                                                                                           |
+| totals.original.overpayment                      | money             | Информация о переплате по заказу, если при оплате использован кредит                                                                                         |
 | totals.original.overall                          | money             | Информация о стоимости заказа с учётом переплаты по кредиту                                                                                                  |
 | totals.delivered                                 | object            | Стоимость принятого заказа                                                                                                                                   |
 | totals.delivered.positions                       | object            | Инфомация о стоимости принятых позиций без учета доставки                                                                                                    |
@@ -1462,7 +1471,8 @@ Accept: application/json; charset=utf-8
 | totals.delivered.positions.cost                  | money             | Стоимость принятых позиций с учетом скидки                                                                                                                   |
 | totals.delivered.price                           | money             | Общая стоимость принятого заказа с доставкой без учета скидок                                                                                                |
 | totals.delivered.discount                        | money             | Общая скидка на весь принятый заказ                                                                                                                          |
-| totals.delivered.cost                            | money             | Общая стоимость принятого заказа с доставкой с учетом скидок                                                                                                 || totals.delivered.overpayment                     | money              | Информация о переплате по принятому заказу, если при оплате использован кредит                                                                                                                                         |
+| totals.delivered.cost                            | money             | Общая стоимость принятого заказа с доставкой с учетом скидок                                                                                                 |
+| totals.delivered.overpayment                     | money             | Информация о переплате по принятому заказу, если при оплате использован кредит                                                                               |
 | totals.delivered.overall                         | money             | Информация о стоимости принятого заказа с учётом переплаты по кредиту                                                                                        |
 | delivered_order_cost                             | money             | Общая стоимость принятого заказа с доставкой с учетом скидок                                                                                                 |
 | installment_info                                 | object/null       | Информация о рассрочке                                                                                                                                       |
