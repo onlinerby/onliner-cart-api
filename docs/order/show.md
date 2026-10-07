@@ -1227,8 +1227,7 @@ Accept: application/json; charset=utf-8
                     "number": "123/26",
                     "date": "01-01-2026"
                 }
-            },
-            "purpose": "Перепродажа"
+            }
         }
     },
     "permissions": {
@@ -1441,7 +1440,6 @@ Accept: application/json; charset=utf-8
 | payment.legal_info.signer.authority.type         | string            | Тип основания полномочий                                                                                                                                     |
 | payment.legal_info.signer.authority.number       | string/null       | Номер документа, подтверждающего полномочия                                                                                                                  |
 | payment.legal_info.signer.authority.date         | string/null       | Дата документа, подтверждающего полномочия                                                                                                                   |
-| payment.legal_info.purpose                       | string/null       | Цель приобретения. Возможные значения: `Собственные нужды`, `Перепродажа`                                                                                    |
 | by_parts_info                                    | object (optional) | Информация об оплате частями, отсутствует если `payment.type` не равен `by_parts`                                                                            |
 | by_parts_info.term                               | int               | Срок платежей                                                                                                                                                |
 | by_parts_info.monthly_payment                    | money             | Информация о ежемесячном платеже                                                                                                                             |
