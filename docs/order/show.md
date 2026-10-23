@@ -435,13 +435,6 @@ Accept: application/json; charset=utf-8
     "total_quantity": 1,
     "shop_comments_count": 0,
     "affects_rating": "positive",
-    "installment_info": {
-        "amount_per_month": {
-            "amount": "9.00",
-            "currency": "BYN"
-        },
-        "term": 3
-    },
     "order_cost": {
         "amount": "27.00",
         "currency": "BYN"
@@ -1035,11 +1028,11 @@ Accept: application/json; charset=utf-8
         "type": "by_parts"
     },
     "by_parts_info": {
-        "term": 24,
-        "monthly_payment": {
-            "amount": "2.99",
-            "currency": "BYN"
-        }
+        "partner": {
+            "key": "alfabank",
+            "title": "Альфа Банк"
+        },
+        "kind": "credit"
     },
     "permissions": {
         "delete": false
@@ -1441,8 +1434,10 @@ Accept: application/json; charset=utf-8
 | payment.legal_info.signer.authority.number       | string/null       | Номер документа, подтверждающего полномочия                                                                                                                  |
 | payment.legal_info.signer.authority.date         | string/null       | Дата документа, подтверждающего полномочия                                                                                                                   |
 | by_parts_info                                    | object (optional) | Информация об оплате частями, отсутствует если `payment.type` не равен `by_parts`                                                                            |
-| by_parts_info.term                               | int               | Срок платежей                                                                                                                                                |
-| by_parts_info.monthly_payment                    | money             | Информация о ежемесячном платеже                                                                                                                             |
+| by_parts_info.partner                            | object            | Информация о партнере                                                                                                                                        |                                                                                                                                                            |
+| by_parts_info.partner.key                        | string            | Мнемоника партнера                                                                                                                                           |                                                                                                                                                            |
+| by_parts_info.partner.title                      | string            | Наименование партнера                                                                                                                                        |                                                                                                                                                            |
+| by_parts_info.kind                               | string            | Тип кредитования. Возможные значения: credit, installment                                                                                                    |                                                                                                                                                            |
 | comment                                          | string            | Общий комментарий к данному заказу                                                                                                                           |
 | order_cost                                       | money             | Общая стоимость заказа с доставкой с учетом скидок                                                                                                           |
 | order_price                                      | money             | Общая стоимость заказа с доставкой без учета скидок                                                                                                          |
