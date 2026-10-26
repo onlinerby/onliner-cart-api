@@ -124,7 +124,6 @@ Accept: application/json; charset=utf-8
                 "amount": "2.00",
                 "currency": "BYN"
             },
-            "installment_info": null,
             "total_quantity": 1,
             "shop_comments_count": 0,
             "affects_rating": "undefined",

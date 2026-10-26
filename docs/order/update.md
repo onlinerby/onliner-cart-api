@@ -232,8 +232,7 @@ Content-Type: application/json; charset=utf-8
         "amount": "2.00",
         "currency": "BYN"
     },
-    "comment": "Доставка с 9 до 18",
-    "installment_info": null
+    "comment": "Доставка с 9 до 18"
 }
 ```
 
