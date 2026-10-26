@@ -4,6 +4,8 @@
 
 * Добавлен новый [способ оплаты](README.md#способы-оплаты) `shop_installment` (рассрочка магазина)
 * Блок `installment_info` содержит информацию о рассрочке для способа оплаты `shop_installment`
+* Добавлена новая [причина отмены заказа магазином](docs/resources/shop_cancel_reasons.md) — «Отказ по рассрочке»
+* Добавлена возможность [изменить способ оплаты](docs/order/change-payment-type.md) на `shop_installment`
 
 ## 29.10.2026
 
