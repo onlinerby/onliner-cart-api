@@ -380,7 +380,7 @@ Accept: application/json; charset=utf-8
 
 ```
 
-### Пример запроса для заказа, оплаченного картой рассрочки
+### Пример запроса для заказа с рассрочкой магазина
 
 ```http
 GET /orders/qz2wa
@@ -423,7 +423,7 @@ Accept: application/json; charset=utf-8
         "is_fake": false
     },
     "payment": {
-        "type": "halva",
+        "type": "shop_installment",
         "status": "captured"
     },
     "created_at": "2015-10-14T17:20:28+03:00",
@@ -435,6 +435,13 @@ Accept: application/json; charset=utf-8
     "total_quantity": 1,
     "shop_comments_count": 0,
     "affects_rating": "positive",
+    "installment_info": {
+        "amount_per_month": {
+            "amount": "9.00",
+            "currency": "BYN"
+        },
+        "term": 3
+    },
     "order_cost": {
         "amount": "27.00",
         "currency": "BYN"
@@ -1412,7 +1419,7 @@ Accept: application/json; charset=utf-8
 | delivery.date_range.to                           | string            | Дата до YYYY-MM-DD                                                                                                                                           |
 | shop_comments_count                              | integer           | Количество внутренних комментариев магазина к заказу                                                                                                         |
 | payment                                          | object/null       | Блок с информацией о способе оплаты и ее статусе                                                                                                             |
-| payment.type                                     | string            | Способ оплаты, выбранный пользователем (возможные значения: online, cash, terminal, cashless, by_parts, halva, for_national_goods)                           |
+| payment.type                                     | string            | Способ оплаты, выбранный пользователем (возможные значения: online, cash, terminal, cashless, by_parts, halva, shop_installment, for_national_goods)         |
 | payment.status                                   | string            | Статус онлайн-оплаты                                                                                                                                         |
 | payment.legal_info                               | object/null       | Реквизиты юридического лица. Заполнены только для заказов с оплатой `cashless` (Недоступно, если заказ находится в некоторых статусах)                       |
 | payment.legal_info.unp                           | string            | УНП организации                                                                                                                                              |
@@ -1468,8 +1475,9 @@ Accept: application/json; charset=utf-8
 | totals.delivered.overpayment                     | money             | Информация о переплате по принятому заказу, если при оплате использован кредит                                                                               |
 | totals.delivered.overall                         | money             | Информация о стоимости принятого заказа с учётом переплаты по кредиту                                                                                        |
 | delivered_order_cost                             | money             | Общая стоимость принятого заказа с доставкой с учетом скидок                                                                                                 |
-| installment_info                                 | object/null       | Информация о рассрочке                                                                                                                                       |
+| installment_info                                 | object/null       | Информация о рассрочке магазина. Заполнена для заказов со способом оплаты `shop_installment`, в остальных случаях `null`                                     |
 | installment_info.amount_per_month                | money             | Информация о сумме ежемесячного платежа                                                                                                                      |
+| installment_info.term                            | int               | Срок рассрочки в месяцах                                                                                                                                     |
 | permissions                                      | object            | Права доступа для заказа                                                                                                                                     |
 | permissions.delete                               | bool              | Можно ли удалить заказ                                                                                                                                       |
 | affects_rating                                   | string (optional) | Влияет ли заказ на рейтинг успешности. `positive` - влияет положительно, `negative` - влияет отрицательно, `neutral`- не влияет, `undefined` - не определено |
