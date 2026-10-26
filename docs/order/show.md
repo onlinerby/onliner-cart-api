@@ -282,7 +282,6 @@ Accept: application/json; charset=utf-8
     "total_quantity": 1,
     "shop_comments_count": 0,
     "affects_rating": "undefined",
-    "installment_info": null,
     "order_cost": {
         "amount": "21.00",
         "currency": "BYN"
@@ -859,7 +858,6 @@ Accept: application/json; charset=utf-8
     "total_quantity": 1,
     "shop_comments_count": 0,
     "affects_rating": "positive",
-    "installment_info": null,
     "order_cost": {
         "amount": "25.00",
         "currency": "BYN"
@@ -1475,7 +1473,7 @@ Accept: application/json; charset=utf-8
 | totals.delivered.overpayment                     | money             | Информация о переплате по принятому заказу, если при оплате использован кредит                                                                               |
 | totals.delivered.overall                         | money             | Информация о стоимости принятого заказа с учётом переплаты по кредиту                                                                                        |
 | delivered_order_cost                             | money             | Общая стоимость принятого заказа с доставкой с учетом скидок                                                                                                 |
-| installment_info                                 | object/null       | Информация о рассрочке магазина. Заполнена для заказов со способом оплаты `shop_installment`, в остальных случаях `null`                                     |
+| installment_info                                 | object (optional) | Информация о рассрочке магазина, отсутствует если `payment.type` не равен `shop_installment`                                                                 |
 | installment_info.amount_per_month                | money             | Информация о сумме ежемесячного платежа                                                                                                                      |
 | installment_info.term                            | int               | Срок рассрочки в месяцах                                                                                                                                     |
 | permissions                                      | object            | Права доступа для заказа                                                                                                                                     |
